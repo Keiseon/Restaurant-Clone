@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap"); /*This is the call: font-family: 'Playfair Display', serif;*/
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed"); /* This is how you call an online google font 
+font-family: "Roboto Condensed", sans-serif; 
+*/
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  background: #111111;
+  color: #ffffff;
+  font-family: "Roboto Condensed", sans-serif; /*This is where you declare the google font you wish to use after  */
+}
+
+.header-container h1 {
+  font-family: "Playfair Display", serif;
+}
