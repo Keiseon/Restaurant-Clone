@@ -80,3 +80,17 @@ nav {
   color: #ffffff;
   display: inline-block;
 }
+
+.footer-bar {
+  border: none;
+  border-top: 3px solid #fff;
+  overflow: visible;
+  text-align: center;
+  height: 15px;
+}
+
+.footer-bar::after {
+  padding: 4px 5px;
+  position: relative;
+  top: -13px;
+}
