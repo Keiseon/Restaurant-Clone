@@ -19,6 +19,12 @@ body {
   font-family: "Roboto Condensed", sans-serif; /*This is where you declare the google font you wish to use after  */
 }
 
+.site-container {
+  /*This width and margin info centers this site in the page*/
+  width: 90%;
+  margin: 0% auto;
+}
+
 .header-container h1,
 .header-container a {
   font-family: "Playfair Display", serif;
@@ -70,16 +76,29 @@ body {
   font-size: 0.8em;
   border-top: 1.5px solid #ffffff;
   width: 100%;
+  padding-bottom: 40px;
 }
 
 #nav-bar {
-  width: 100%;
+  /* width: 90%; */
+  /* margin: 0% auto; */
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  justify-items: center;
+  align-self: auto;
+  grid-template-areas: ". nav-box .";
+  padding-bottom: 49px;
 }
 
-#nav-bar > ul {
-  padding: 0;
-  margin: 0;
+#nav-box {
+  grid-area: nav-box;
+  justify-self: center;
 }
+/* 
+#nav-bar > ul {
+  /* padding: 0;
+  margin: 0; 
+} */
 #nav-bar ul li {
   display: inline-block;
   list-style-type: none;
@@ -90,16 +109,32 @@ body {
 #nav-bar ul li a {
   color: #fff;
   text-decoration: none;
-  padding: 12px;
+  text-transform: uppercase;
+  padding: 20px 15px;
 }
 
-#nav-bar ul li:hover {
-  background: #03addf;
+/* #nav-bar ul li:hover {
+  color: #ead9a4;
+} */
+
+#nav-bar ul li:visited,
+#nav-bar ul li a:visited {
+  color: #bf9515;
 }
 
+/* #nav-bar ul li:focus,
+#nav-bar ul li a:focus {
+  color: blue;
+} */
+
+#nav-bar ul li:hover,
 #nav-bar ul li a:hover {
-  color: #fff;
-  text-decoration: none;
+  color: #ead9a4;
+  /* text-decoration: none; */
+}
+
+#nav-bar ul li a:active {
+  color: #bf9515;
 }
 
 .footer-bar {
