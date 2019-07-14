@@ -135,18 +135,102 @@ footer h3,
   display: grid;
 }
 /******************* Index page stuff End...**************** */
+
+/******************* About page stuff lol...**************** */
+.about-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(250px auto);
+  grid-template-areas:
+    "image about-us"
+    "image contact-us";
+  margin: 1em 0%;
+}
+
+.about-us {
+  grid-area: about-us;
+}
+
+.about-us p,
+.contact-us p {
+  padding: 1em 0%;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.about-us h1,
+.contact-us h1 {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 2em;
+}
+
+.contact-us {
+  grid-area: contact-us;
+}
+
+.about-img {
+  grid-area: image;
+}
+
+#form-container {
+  padding-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(100px auto);
+  grid-row-gap: 5px;
+  grid-column-gap: 2px;
+}
+
+input {
+  min-height: 30px;
+}
+
+#POST-message {
+  grid-column: 2/3;
+  grid-row: 1/4;
+  /* text-align: right; */
+}
+
+#contact-btn {
+  grid-column: 2/3;
+  justify-self: end;
+  min-height: 30px;
+  min-width: 55px;
+  background-color: #fff;
+  font-size: 1em;
+  text-decoration: none;
+  color: #111111;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.short-bar {
+  margin: 15px 480px 15px 0px;
+  color: #f4f4f4;
+}
+
+.about-img img {
+  width: 440px;
+  height: 597px;
+  padding-top: 65px;
+  /* background-size: cover; */
+}
+/******************* About page stuff End...**************** */
+
+/******************* Footer stuff lol...**************** */
 .footer-bar {
   border: none;
-  border-top: 3px solid #fff;
+  border-top: 1px solid #fff;
   overflow: visible;
   text-align: center;
   height: 15px;
+  padding-bottom: 37px;
 }
 
 .footer-bar::after {
-  padding: 4px 5px;
   position: relative;
-  top: -13px;
 }
 
 footer > .container {
@@ -154,3 +238,4 @@ footer > .container {
   grid-template-columns: 1fr 1fr 2fr;
   grid-template-rows: minmax(140px, auto);
 }
+/******************* Footer stuff End...**************** */
