@@ -80,8 +80,6 @@ body {
 }
 
 #nav-bar {
-  /* width: 90%; */
-  /* margin: 0% auto; */
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   justify-items: center;
@@ -94,11 +92,7 @@ body {
   grid-area: nav-box;
   justify-self: center;
 }
-/* 
-#nav-bar > ul {
-  /* padding: 0;
-  margin: 0; 
-} */
+
 #nav-bar ul li {
   display: inline-block;
   list-style-type: none;
@@ -111,32 +105,36 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   padding: 20px 15px;
+  font-size: 600;
 }
 
-/* #nav-bar ul li:hover {
-  color: #ead9a4;
-} */
-
-#nav-bar ul li:visited,
-#nav-bar ul li a:visited {
+#nav-bar ul .current a,
+footer h3,
+.caption a {
   color: #bf9515;
+  text-decoration: none;
 }
-
-/* #nav-bar ul li:focus,
-#nav-bar ul li a:focus {
-  color: blue;
-} */
 
 #nav-bar ul li:hover,
 #nav-bar ul li a:hover {
   color: #ead9a4;
-  /* text-decoration: none; */
 }
 
 #nav-bar ul li a:active {
   color: #bf9515;
 }
 
+.btn a,
+.copyright a {
+  color: #bf9515;
+  text-decoration: none;
+}
+
+/******************* Index page stuff lol...**************** */
+.events {
+  display: grid;
+}
+/******************* Index page stuff End...**************** */
 .footer-bar {
   border: none;
   border-top: 3px solid #fff;
