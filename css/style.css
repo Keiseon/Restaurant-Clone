@@ -21,7 +21,7 @@ body {
 
 .site-container {
   /*This width and margin info centers this site in the page*/
-  width: 90%;
+  width: 85vw; /*85%;*/
   margin: 0% auto;
 }
 
@@ -128,6 +128,10 @@ footer h3,
 .copyright a {
   color: #bf9515;
   text-decoration: none;
+  padding-bottom: 70px;
+}
+.copyright a {
+  font-size: 13px;
 }
 
 /******************* Index page stuff lol...**************** */
@@ -175,7 +179,7 @@ footer h3,
 }
 
 #form-container {
-  padding-top: 25px;
+  padding: 25px 0% 45px 0%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: minmax(100px auto);
@@ -207,17 +211,26 @@ input {
 }
 
 .short-bar {
-  margin: 15px 480px 15px 0px;
-  color: #f4f4f4;
+  margin: 30px 0px 10px 0px;
+  width: 25px;
+  height: 3px;
+  color: #f1f1f1;
 }
 
 .about-img img {
-  width: 440px;
-  height: 597px;
   padding-top: 65px;
-  /* background-size: cover; */
 }
 /******************* About page stuff End...**************** */
+
+/******************* EVENTS page stuff lol...**************** */
+.event-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(200px auto);
+  grid-row-gap: 5px;
+  grid-column-gap: 2px;
+}
+/******************* EVENTS page stuff lol...**************** */
 
 /******************* Footer stuff lol...**************** */
 .footer-bar {
@@ -237,5 +250,27 @@ footer > .container {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   grid-template-rows: minmax(140px, auto);
+  font-weight: 300;
+  font-size: 0.9em;
+}
+
+footer > .container h3 {
+  font-size: 1.3em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.footer-address,
+.footer-days,
+.footer-email {
+  padding-top: 2em;
+}
+
+.footer-number {
+  padding: 0em 0em 80px 0em;
+}
+
+footer p {
+  line-height: 1.5em;
 }
 /******************* Footer stuff End...**************** */
