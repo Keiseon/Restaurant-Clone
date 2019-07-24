@@ -21,7 +21,7 @@ body {
 
 .site-container {
   /*This width and margin info centers this site in the page*/
-  width: 85vw; /*85%;*/
+  width: 70vw; /*85%;*/
   margin: 0% auto;
 }
 
@@ -164,7 +164,8 @@ footer h3,
 }
 
 .about-us h1,
-.contact-us h1 {
+.contact-us h1,
+#event-data h1 {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 2em;
@@ -227,9 +228,98 @@ input {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: minmax(200px auto);
-  grid-row-gap: 5px;
-  grid-column-gap: 2px;
+  grid-row-gap: 70px;
+  grid-column-gap: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  grid-template-areas:
+    "event-data event-data"
+    "karaoke-img karaoke-event"
+    "happy-hour-img happy-hour-event"
+    "brunch-img brunch-event"
+    "special-offer-img special-offer-event";
+  margin: 1em 0%;
 }
+
+/* Name the grids */
+#event-data {
+  grid-area: event-data;
+}
+
+#karaoke-img {
+  grid-area: karaoke-img;
+}
+
+#karaoke-event {
+  grid-area: karaoke-event;
+}
+
+#happy-hour-img {
+  grid-area: happy-hour-img;
+}
+
+#happy-hour-event {
+  grid-area: happy-hour-event;
+}
+
+#brunch-img {
+  grid-area: brunch-img;
+}
+
+#brunch-event {
+  grid-area: brunch-event;
+}
+
+#special-offer-img {
+  grid-area: special-offer-img;
+  padding-bottom: 4em;
+}
+
+#special-offer-event {
+  grid-area: special-offer-event;
+}
+
+/* Style event page content */
+.event-container p {
+  font-weight: 400;
+  font-size: 13px;
+  /* padding-right: 1em; */
+}
+#event-data h1 {
+  font-size: 2.5em;
+}
+#event-data p {
+  /* padding: 1em 0em 1em 0em; */
+  font-weight: 400;
+  font-size: 1.4em;
+  text-align: left;
+}
+
+#karaoke-event,
+#happy-hour-event,
+#brunch-event,
+#special-offer-event {
+  justify-self: start;
+}
+
+#karaoke-img,
+#happy-hour-img,
+#brunch-img,
+#special-offer-img {
+  justify-self: end;
+}
+
+.event-container h2 {
+  font-weight: 400;
+  font-size: 2em;
+  line-height: 50px;
+}
+
+.event-container h3 {
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
 /******************* EVENTS page stuff lol...**************** */
 
 /******************* Footer stuff lol...**************** */
