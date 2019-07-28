@@ -228,8 +228,9 @@ input {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: minmax(200px auto);
-  grid-row-gap: 70px;
-  grid-column-gap: 40px;
+  /* grid-row-gap: 70px;
+  grid-column-gap: 40px; */
+  gap: 70px 40px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   grid-template-areas:
@@ -363,4 +364,12 @@ footer > .container h3 {
 footer p {
   line-height: 1.5em;
 }
+
+/* Google Map Api fetch */
+footer #map-content {
+  margin-top: 15px;
+  height: 200px;
+  width: 490px;
+}
+
 /******************* Footer stuff End...**************** */
