@@ -304,10 +304,29 @@ input {
 }
 
 #karaoke-img,
-#happy-hour-img,
 #brunch-img,
 #special-offer-img {
   justify-self: end;
+}
+
+#happy-hours {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #bf9515;
+  color: #fff;
+  width: 430px;
+  height: 180px;
+  justify-self: end;
+  text-align: center;
+}
+
+#happy-hours h1 {
+  font-size: 3.5em;
+  padding-top: 30px;
+  font-weight: 700;
+}
+
+#happy-hours h2 {
+  font-size: 1.5em;
 }
 
 .event-container h2 {
@@ -363,6 +382,10 @@ footer > .container h3 {
 
 footer p {
   line-height: 1.5em;
+}
+
+.fa-fw {
+  padding: 0% 15px 10px 15px;
 }
 
 /* Google Map Api fetch */
