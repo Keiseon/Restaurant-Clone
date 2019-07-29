@@ -14,7 +14,7 @@ font-family: "Roboto Condensed", sans-serif;
 }
 
 body {
-  background: #111111;
+  background: #050505;
   color: #ffffff;
   font-family: "Roboto Condensed", sans-serif; /*This is where you declare the google font you wish to use after  */
 }
@@ -137,6 +137,70 @@ footer h3,
 /******************* Index page stuff lol...**************** */
 .events {
   display: grid;
+  padding: 40px 0px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(100px auto);
+  grid-row-gap: 5px;
+  grid-column-gap: 18px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  grid-template-areas: "karaoke-evt snacks-evt celebration-evt happy-hour-evt";
+}
+
+#karaoke-evt {
+  grid-area: karaoke-evt;
+}
+
+#snacks-evt {
+  grid-area: snacks-evt;
+}
+
+#celebration-evt {
+  grid-area: celebration-evt;
+}
+
+#happy-hour-evt {
+  grid-area: happy-hour-evt;
+}
+
+section .caption h3 {
+  font-size: 1.5em;
+  font-weight: 300;
+  padding-bottom: 25px;
+}
+
+section .caption p {
+  font-size: 0.8em;
+  padding: 25px 20px 25px 0px;
+  line-height: 20px;
+}
+
+section .caption a {
+  font-size: 0.8em;
+}
+
+section .caption a:hover {
+  color: #ababab;
+}
+
+.caption #happy-hours {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #bf9515;
+  color: #fff;
+  width: 232px;
+  height: 146px;
+  justify-self: end;
+  text-align: center;
+}
+
+.caption #happy-hours h1 {
+  font-size: 2.2em;
+  padding-top: 30px;
+  font-weight: 700;
+}
+
+.caption #happy-hours h2 {
+  font-size: 1.5em;
+  font-weight: 300;
 }
 /******************* Index page stuff End...**************** */
 
@@ -228,8 +292,6 @@ input {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: minmax(200px auto);
-  /* grid-row-gap: 70px;
-  grid-column-gap: 40px; */
   gap: 70px 40px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
@@ -343,7 +405,7 @@ input {
 /******************* EVENTS page stuff lol...**************** */
 
 /******************* Footer stuff lol...**************** */
-.footer-bar {
+.h-bar {
   border: none;
   border-top: 1px solid #fff;
   overflow: visible;
@@ -352,7 +414,7 @@ input {
   padding-bottom: 37px;
 }
 
-.footer-bar::after {
+.h-bar::after {
   position: relative;
 }
 
