@@ -453,8 +453,12 @@ footer p {
 /* Google Map Api fetch */
 footer #map-content {
   margin-top: 15px;
-  height: 200px;
-  width: 490px;
+}
+
+.mapFrame {
+  width: 496px;
+  height: 260px;
+  border: 2px solid #bf9515;
 }
 
 /******************* Footer stuff End...**************** */

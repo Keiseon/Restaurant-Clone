@@ -1,3 +1,30 @@
+// Using the Google Map without that Api key thing lol
+function pubMap() {
+  //Grab the container div that will hold the Iframe aka map
+  const divContainer = document.querySelector("#map-content");
+  // Create an Iframe
+  var newIFrame = document.createElement("iframe");
+  //add class
+  newIFrame.className = "mapFrame";
+  // Iframe Dimensions
+  newIFrame.setAttribute("width", "496"); // frame width
+  newIFrame.setAttribute("height", "260"); // frame height
+  newIFrame.setAttribute(
+    "src",
+    "https://www.google.com/maps/d/embed?mid=1qM4vlhotsIZAkdkJvm9eooWqxYUB5EKT"
+  ); // embedded map link
+
+  // Now insert my newIFrame into the Dom
+  divContainer.appendChild(newIFrame);
+}
+
+pubMap();
+
+/*
+
+JUST IN CASE I DECIDE TO USE THE API KEY SOMEDAY LOL (^_^)
+------------------------------------------------------------------------
+
 function initMap() {
   // Create Map params / options
   var options = {
@@ -43,7 +70,11 @@ function initMap() {
   for (let i = 0; i < markers.length; i++) {
     addMarker(markers[i]);
   }
-  /*--------------------------------------------------------------- */
+
+  */
+
+/*--------------------------------------------------------------- */
+/*
   // add marker function
   function addMarker(props) {
     var marker = new google.maps.Marker({
@@ -60,3 +91,5 @@ function initMap() {
     }
   }
 }
+
+*/
