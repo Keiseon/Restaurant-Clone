@@ -465,8 +465,7 @@ footer #map-content {
 }
 
 .mapFrame {
-  width: 496px;
-  height: 260px;
+  margin: auto;
   border: 2px solid #bf9515;
 }
 

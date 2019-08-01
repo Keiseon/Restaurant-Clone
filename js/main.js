@@ -1,10 +1,10 @@
 // Using the Google Map without that Api key thing lol
-function pubMap() {
+const pubMap = () => {
   //Grab the container div that will hold the Iframe aka map
   const divContainer = document.querySelector("#map-content");
   // Create an Iframe
-  var newIFrame = document.createElement("iframe");
-  //add class
+  const newIFrame = document.createElement("iframe");
+  //add class name
   newIFrame.className = "mapFrame";
   // Iframe Dimensions
   newIFrame.setAttribute("width", "496"); // frame width
@@ -16,9 +16,12 @@ function pubMap() {
 
   // Now insert my newIFrame into the Dom
   divContainer.appendChild(newIFrame);
-}
+};
 
-pubMap();
+// Add event listener
+const myMapTrigger = document.querySelector(".site-container");
+
+myMapTrigger.addEventListener("load", pubMap());
 
 /*
 
@@ -91,5 +94,4 @@ function initMap() {
     }
   }
 }
-
 */
