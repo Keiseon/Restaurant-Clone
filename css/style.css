@@ -138,6 +138,164 @@ footer h3,
 }
 
 /******************* Index page stuff lol...**************** */
+#slider {
+  position: relative;
+  overflow: hidden;
+  /* cover the whole section */
+  width: 980px;
+  height: 498px;
+  background: #333;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.slide {
+  /* put the slide on the whole screen */
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  /* make it invisible */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.slide.current {
+  opacity: 1;
+}
+
+.slide .content {
+  position: absolute;
+  bottom: 40px;
+  /* push this off the screen to the left */
+  left: -600px; /*set this to "0" to see it on the screen for testing*/
+  /* hide the content off the screen */
+  opacity: 0;
+  width: 600px;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #333;
+  padding: 35px;
+}
+
+.slide-right-anime {
+  /* Keiseon's tweek (^_^) */
+  -webkit-animation: slide 1s forwards; /* 0.5s*/
+  -webkit-animation-delay: 0.5s; /*2s*/
+
+  animation: slide 1s forwards;
+  animation-delay: 0.5s;
+}
+
+/* Keiseon's Animation tweek (^_^) */
+@-webkit-keyframes slide {
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes slide {
+  100% {
+    left: 0;
+  }
+}
+/* -------------------------------------- */
+.slide .content h1 {
+  margin-bottom: 10px;
+}
+
+/* move and show the current content */
+.slide.slide.current .content {
+  /* make the content visible again */
+  opacity: 1;
+}
+
+.buttons button#next {
+  position: absolute;
+  top: 40%; /*was 50%*/
+  right: 15px;
+}
+
+.buttons button#prev {
+  position: absolute;
+  top: 40%;/*was 50%*/
+  left: 15px;
+}
+
+.buttons button {
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  padding: 13px 15px;
+  /* make the buttons circle */
+  border-radius: 50%;
+  outline: none;
+}
+
+.buttons button:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+@media (max-width: 500px) {
+  .slide .content {
+    bottom: -300px;
+    left: 0;
+    width: 100%;
+  }
+
+  /* Keiseon's Animation tweek (^_^) */
+  @-webkit-keyframes slide {
+    100% {
+      bottom: 0;
+    }
+  }
+
+  @keyframes slide {
+    100% {
+      bottom: 0;
+    }
+  }
+}
+
+/* Background Images for the .slide class*/
+
+.slide:first-child {
+  background: url("../img/slider/alcoholic-beverage-alcoholic-drink-beer-small.jpg")
+    no-repeat center center/cover;
+}
+.slide:nth-child(2) {
+  background: url("../img/slider/costume-headdress-mask-small.jpg") no-repeat
+    center top/cover;
+}
+.slide:nth-child(3) {
+  background: url("../img/slider/alcohol-alcohol-bottles-alcoholic-beverage-small.jpg")
+    no-repeat center top/cover;
+}
+.slide:nth-child(4) {
+  background: url("../img/slider/adult-art-beverage-small.jpg") no-repeat center
+    top/cover;
+}
+.slide:nth-child(5) {
+  background: url("../img/slider/adult-bar-birthday-small.jpg") no-repeat center
+    top/cover;
+}
+.slide:nth-child(6) {
+  background: url("../img/slider/alcohol-bar-beer-small.jpg") no-repeat center
+    top/cover;
+}
+
+.slide:nth-child(7) {
+  background: url("../img/slider/alcoholic-beverage-ale-beer-small.jpg")
+    no-repeat center top/cover;
+}
+
+.slide:nth-child(8) {
+  background: url("../img/slider/alcohol-background-bar-small.jpg") no-repeat
+    center top/cover;
+}
+
 .events {
   display: grid;
   padding: 40px 0px;
