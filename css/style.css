@@ -218,7 +218,7 @@ footer h3,
 
 .buttons button#prev {
   position: absolute;
-  top: 40%;/*was 50%*/
+  top: 40%; /*was 50%*/
   left: 15px;
 }
 
@@ -263,27 +263,33 @@ footer h3,
 
 .slide:first-child {
   background: url("../img/slider/alcoholic-beverage-alcoholic-drink-beer-small.jpg")
-    no-repeat center center/cover;
+    no-repeat center;
+  background-size: cover;
+
+  /* this was === center top/cover; */
 }
 .slide:nth-child(2) {
   background: url("../img/slider/costume-headdress-mask-small.jpg") no-repeat
-    center top/cover;
+    center;
+  background-size: cover;
+  /* this was === center top/cover; */
 }
 .slide:nth-child(3) {
   background: url("../img/slider/alcohol-alcohol-bottles-alcoholic-beverage-small.jpg")
-    no-repeat center top/cover;
+    no-repeat center center/cover;
+  /* this was === center top/cover; */
 }
 .slide:nth-child(4) {
-  background: url("../img/slider/adult-art-beverage-small.jpg") no-repeat center
-    top/cover;
+  background: url("../img/slider/adult-art-beverage-small.jpg") no-repeat center;
+  background-size: cover;
 }
 .slide:nth-child(5) {
-  background: url("../img/slider/adult-bar-birthday-small.jpg") no-repeat center
-    top/cover;
+  background: url("../img/slider/adult-bar-birthday-small.jpg") no-repeat center;
+  background-size: cover;
 }
 .slide:nth-child(6) {
-  background: url("../img/slider/alcohol-bar-beer-small.jpg") no-repeat center
-    top/cover;
+  background: url("../img/slider/alcohol-bar-beer-small.jpg") no-repeat center;
+  background-size: cover;
 }
 
 .slide:nth-child(7) {
@@ -293,7 +299,8 @@ footer h3,
 
 .slide:nth-child(8) {
   background: url("../img/slider/alcohol-background-bar-small.jpg") no-repeat
-    center top/cover;
+    center;
+  background-size: cover;
 }
 
 .events {
