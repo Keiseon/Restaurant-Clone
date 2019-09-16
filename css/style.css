@@ -144,9 +144,10 @@ footer h3,
   /* cover the whole section */
   width: 980px;
   height: 498px;
-  background: #333;
+  background: #111;
   color: #fff;
   line-height: 1.6;
+  font-family: "Forum", cursive;
 }
 
 .slide {
@@ -172,10 +173,10 @@ footer h3,
   left: -600px; /*set this to "0" to see it on the screen for testing*/
   /* hide the content off the screen */
   opacity: 0;
-  width: 600px;
-  background-color: rgba(255, 255, 255, 0.6);
-  color: #333;
-  padding: 35px;
+  width: 450px; /* 600px; */
+  background-color: #bf9515; /* rgba(255, 255, 255, 0.6);*/
+  color: #fff; /* #333; */
+  padding: 25px; /*35px;*/
 }
 
 .slide-right-anime {
@@ -202,12 +203,15 @@ footer h3,
 /* -------------------------------------- */
 .slide .content h1 {
   margin-bottom: 10px;
+  color: #111;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
 }
 
 /* move and show the current content */
 .slide.slide.current .content {
   /* make the content visible again */
-  opacity: 1;
+  opacity: 0.8; /* 1; */
 }
 
 .buttons button#next {
@@ -234,8 +238,8 @@ footer h3,
 }
 
 .buttons button:hover {
-  background-color: #fff;
-  color: #333;
+  background-color: #bf9515; /* #fff; */
+  color: #111; /* #333;*/
 }
 
 @media (max-width: 500px) {
@@ -406,7 +410,7 @@ section .caption a:hover {
 
 #reserved-time,
 #party-size {
-  padding: 6px 50px 6px 10px;
+  padding: 6px 40px 6px 10px;
 }
 
 #party-size {
@@ -419,12 +423,18 @@ section .caption a:hover {
   color: #f1f1f1;
   text-decoration: none;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  padding: 9px 15px 9px 15px;
+  padding: 4px 70px 4px 70px;
   text-transform: uppercase;
   font-size: 0.9em;
   letter-spacing: 2px;
   font-weight: 500;
   text-align: center;
+  border-radius: 3px;
+}
+
+.btn a:hover {
+  border: 1px solid #fff;
+  color: #111;
 }
 
 /******************* Index page stuff End...**************** */
@@ -564,6 +574,127 @@ section .caption a:hover {
   padding-top: 100px;
 }
 /******************* Menu page End...**************** */
+
+/******************* Order page Start...**************** */
+
+.order-container {
+  background: #000;
+  color: #fff;
+  font-family: "Forum", cursive;
+  line-height: 1.6;
+  max-width: 1107px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+
+ul {
+  list-style: none;
+  padding: 0%;
+}
+
+.brand {
+  text-align: right;
+}
+
+.brand span {
+  color: #bf9515;
+}
+
+/* This puts the shadow around the box itself*/
+.order-wrapper {
+  box-shadow: 0 0 20px 0 #bf9515;
+}
+
+/* For everything inside the wrapper we can give them a padding like this*/
+.order-wrapper > * {
+  padding: 1em;
+}
+
+.company-info {
+  background: #000;
+}
+
+.company-info h3,
+.company-info ul {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.contact {
+  background: #000;
+}
+
+/* Form Styles */
+.contact form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.contact form label {
+  display: block;
+}
+
+.contact form p {
+  margin: 0%;
+}
+
+.contact form .full {
+  grid-column: 1/3;
+}
+
+.contact form button,
+.contact form input,
+.contact form textarea {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid #fff;
+}
+.labelText {
+  color: #cfa125;
+  font-size: 1.5rem;
+}
+
+.contact form button {
+  background: #bf9515;
+  color: #fff;
+  border-radius: 3px;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
+}
+
+.contact form button:hover,
+.contact form button:focus {
+  background: #bf9515;
+  color: #111;
+  border: 1px solid #fff;
+  outline: 0;
+  transition: background-color 2s ease-out; /*This gives the fade in and out on the button*/
+}
+
+/* For Large Screens */
+
+@media (min-width: 700px) {
+  .order-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .order-wrapper > * {
+    /*This > * means all elements within*/
+    padding: 2em;
+  }
+
+  .company-info h3,
+  .company-info ul,
+  .brand {
+    text-align: left;
+  }
+}
+/******************* Order page End...**************** */
 
 /******************* EVENTS page stuff lol...**************** */
 .event-container {
