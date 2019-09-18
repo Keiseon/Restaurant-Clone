@@ -437,6 +437,50 @@ section .caption a:hover {
   color: #111;
 }
 
+/* ################  Index Media Queries Start ##############*/
+
+@media screen and (max-width: 1180px) {
+  /* 1090px*/
+  .site-container {
+    width: 95%;
+    margin: 0, auto;
+  }
+  #slider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 1014px) {
+  #slider {
+    width: 690px;
+    height: 449px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 715px) {
+  /* #nav-bar {
+    grid-template-columns: 1fr;
+    padding-bottom: 20px;
+  } */
+  #slider {
+    width: 490px;
+    height: 249px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  #slider {
+    width: 270px;
+    height: 195px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* ################  Index Media Queries End ##############*/
 /******************* Index page stuff End...**************** */
 
 /******************* Menu page Start...**************** */
