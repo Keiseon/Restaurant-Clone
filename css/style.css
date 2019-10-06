@@ -166,7 +166,7 @@ footer h3,
 .menu-wrap .hamburger {
   position: absolute;
   top: 0%;
-  left: 0%;
+  left: 0%; /*0%*/
   z-index: 1;
   width: 60px; /* 60px */
   height: 60px; /*60px*/
@@ -421,7 +421,8 @@ footer h3,
   color: #111; /* #333;*/
 }
 
-@media (max-width: 500px) {
+/* max-width: 500px */
+@media (max-width: 750px) {
   .slide .content {
     bottom: -300px;
     left: 0;
@@ -654,6 +655,11 @@ section .caption a:hover {
   .menu-wrap .menu > div {
     visibility: visible;
   }
+
+  .buttons button#next,
+  .buttons button#prev {
+    visibility: hidden;
+  }
   #slider {
     width: 80%; /*490px*/
     /* height: 249px; */
@@ -662,8 +668,12 @@ section .caption a:hover {
 
 @media screen and (max-width: 510px) {
   #slider {
-    width: 40%; /*270px*/
-    /* height: 195px; */
+    width: 277px; /*270px*/
+    height: 277px; /*195px*/
+  }
+
+  .slide .content {
+    visibility: hidden;
   }
 }
 /* ################  Index Media Queries End ##############*/
