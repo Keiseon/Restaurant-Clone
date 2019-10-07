@@ -32,7 +32,7 @@ body {
 
 .site-container {
   /*This width and margin info centers this site in the page*/
-  width: 75%; /*85%; 70vw;*/
+  width: 80%; /*good one 75% then 85%; 70vw;*/
   max-width: 980px;
   margin: 0 auto;
   position: relative;
@@ -80,7 +80,7 @@ body {
   border-bottom: 1.5px solid #ffffff;
   margin: 6px auto 12px auto;
   padding: 5px 0px 0px 0px;
-  z-index: 4;
+  z-index: 6;
 }
 
 #tagline {
@@ -92,7 +92,7 @@ body {
   border-top: 1.5px solid #ffffff;
   width: 100%;
   padding-bottom: 40px;
-  z-index: 4;
+  z-index: 6;
 }
 
 #nav-bar {
@@ -142,11 +142,11 @@ footer h3,
 
 /* %%%%    Responsive Hamburger Menu start  %%%% */
 .menu-wrap {
-  position: fixed;
-  top: 4em; /*0%*/
-  left: 0%;
-  z-index: 1;
-  /* make the hamburger invisible by default */
+  position: relative; /*fixed*/
+  top: -8rem; /*4rem*/
+  left: 0%; /*0%*/
+  z-index: 4;
+  transition: top 2s;
   visibility: hidden;
   pointer-events: none;
 }
@@ -155,8 +155,8 @@ footer h3,
 .menu-wrap .toggler {
   position: absolute;
   top: 0%;
-  left: 0%;
-  z-index: 2;
+  left: 0%; /*0%*/
+  z-index: 5;
   cursor: pointer;
   width: 50px; /*50px*/
   height: 50px; /*50px*/
@@ -167,7 +167,7 @@ footer h3,
   position: absolute;
   top: 0%;
   left: 0%; /*0%*/
-  z-index: 1;
+  z-index: 4;
   width: 60px; /* 60px */
   height: 60px; /*60px*/
   padding: 1rem; /* 1rem*/
@@ -195,7 +195,7 @@ footer h3,
 .menu-wrap .hamburger > div::after {
   content: "";
   position: absolute;
-  z-index: 1;
+  z-index: 4;
   top: -10px; /*This puts the top and bottom line over the middle line*/
   width: 100%;
   height: 2px;
@@ -222,6 +222,12 @@ footer h3,
 /* Rotate on Hover when checked  */
 .menu-wrap .toggler:checked:hover + .hamburger > div {
   transform: rotate(225deg);
+}
+
+/* Rotate on Hover */
+.menu-wrap .toggler:hover + .hamburger > div {
+  transform: rotate(-36deg);
+  background-color: #fff;
 }
 
 /* Show Menu  */
@@ -253,6 +259,7 @@ footer h3,
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 3;
 }
 
 .menu-wrap .menu > div {
@@ -267,6 +274,7 @@ footer h3,
   justify-content: center; /*center*/
   transform: scale(0); /* Comment this first to work this code*/
   transition: all 0.4s ease;
+  z-index: 4;
 }
 
 /* the div inside the next div  */
@@ -306,14 +314,20 @@ footer h3,
 /* Media Query for hamburger  */
 @media screen and (max-width: 420px) {
   .menu-wrap .hamburger {
-    width: 43px;
+    width: 40px;
     height: 47px;
     padding: 0.5rem;
   }
 
   .menu-wrap .toggler {
-    width: 33px;
+    width: 30px;
     height: 37px;
+  }
+
+  /* Rotate on Hover */
+  .menu-wrap .toggler:hover + .hamburger > div {
+    transform: rotate(-36deg);
+    background-color: #fff;
   }
 }
 /* %%%% Responsive Hamburger Menu end %%%% */
@@ -363,10 +377,10 @@ footer h3,
   left: -600px; /*set this to "0" to see it on the screen for testing*/
   /* hide the content off the screen */
   opacity: 0;
-  width: 450px; /* 600px; */
-  background-color: #bf9515; /* rgba(255, 255, 255, 0.6);*/
-  color: #fff; /* #333; */
-  padding: 25px; /*35px;*/
+  width: 450px;
+  background-color: #bf9515;
+  color: #fff;
+  padding: 25px;
 }
 
 .slide-right-anime {
@@ -406,13 +420,13 @@ footer h3,
 
 .buttons button#next {
   position: absolute;
-  top: 40%; /*was 50%*/
+  top: 40%;
   right: 15px;
 }
 
 .buttons button#prev {
   position: absolute;
-  top: 40%; /*was 50%*/
+  top: 40%;
   left: 15px;
 }
 
@@ -428,8 +442,8 @@ footer h3,
 }
 
 .buttons button:hover {
-  background-color: #bf9515; /* #fff; */
-  color: #111; /* #333;*/
+  background-color: #bf9515;
+  color: #111;
 }
 
 /* max-width: 500px */
@@ -502,7 +516,7 @@ footer h3,
   display: grid;
   padding: 40px 0px;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: minmax(100px auto);
+  /* grid-template-rows: minmax(100px auto); */
   grid-row-gap: 5px;
   grid-column-gap: 18px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -570,7 +584,7 @@ section .caption a:hover {
   display: grid;
   padding: 45px 10% 35px 10%;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: minmax(70px auto);
+  /* grid-template-rows: minmax(70px auto); */
   grid-column-gap: 25px;
   grid-row-gap: 70px;
   justify-items: center;
@@ -641,15 +655,40 @@ section .caption a:hover {
     margin-right: auto;
   }
 }
-@media screen and (max-width: 1014px) {
+@media screen and (max-width: 1016px) {
   #slider {
     width: 100%; /*690px*/
-    /* height: 449px; */
     margin-left: auto;
     margin-right: auto;
   }
+
+  .events {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "karaoke-evt snacks-evt celebration-evt"
+      ". happy-hour-evt .";
+  }
 }
 
+@media screen and (max-width: 760px) {
+  .events {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "karaoke-evt snacks-evt "
+      "celebration-evt happy-hour-evt";
+  }
+
+  .events h3 {
+    text-align: center;
+  }
+
+  .events img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* Hamburger Trigger */
 @media screen and (max-width: 715px) {
   #nav-bar {
     display: none;
@@ -658,6 +697,8 @@ section .caption a:hover {
     /* make the hamburger invisible by default */
     visibility: visible;
     pointer-events: all;
+    top: 4rem;
+    position: fixed;
   }
   .menu-wrap .menu {
     visibility: visible;
@@ -685,6 +726,15 @@ section .caption a:hover {
 
   .slide .content {
     visibility: hidden;
+  }
+
+  .events {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "karaoke-evt"
+      "snacks-evt"
+      "celebration-evt"
+      "happy-hour-evt";
   }
 }
 /* ################  Index Media Queries End ##############*/
