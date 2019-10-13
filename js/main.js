@@ -7,8 +7,8 @@ const pubMap = () => {
   //add class name
   newIFrame.className = "mapFrame";
   // Iframe Dimensions
-  newIFrame.setAttribute("width", "496"); // frame width
-  newIFrame.setAttribute("height", "260"); // frame height
+  // newIFrame.setAttribute("width", "496"); // frame width
+  // newIFrame.setAttribute("height", "260"); // frame height
   newIFrame.setAttribute(
     "src",
     "https://www.google.com/maps/d/embed?mid=1qM4vlhotsIZAkdkJvm9eooWqxYUB5EKT"

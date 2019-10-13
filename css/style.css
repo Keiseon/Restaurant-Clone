@@ -210,6 +210,7 @@ footer h3,
 /* Toggle Animate */
 .menu-wrap .toggler:checked + .hamburger > div {
   transform: rotate(135deg);
+  z-index: 4; /*Kei index test fix*/
 }
 
 /* Turn Lines into X  */
@@ -217,11 +218,13 @@ footer h3,
 .menu-wrap .toggler:checked + .hamburger > div::after {
   top: 0%;
   transform: rotate(90deg);
+  z-index: 4; /*Kei index test fix*/
 }
 
 /* Rotate on Hover when checked  */
 .menu-wrap .toggler:checked:hover + .hamburger > div {
   transform: rotate(225deg);
+  z-index: 4; /*Kei index test fix*/
 }
 
 /* Rotate on Hover */
@@ -234,16 +237,19 @@ footer h3,
 /* Pick the menu wrap and the .toggler when checked and target the .menu inside */
 .menu-wrap .toggler:checked ~ .menu {
   visibility: visible;
+  z-index: 4; /*3*/ /*Kei index test fix*/
 }
 
 .menu-wrap .toggler:checked ~ .menu > div {
   transform: scale(1);
   transition-duration: var(--menu-speed);
+  z-index: 4; /*Kei index test fix*/
 }
 
 /* Show menu links  */
 .menu-wrap .toggler:checked ~ .menu > div > div {
   opacity: 1;
+  z-index: 4; /*Kei index test fix*/
   transition: opacity 0.4s ease;
 }
 
@@ -339,6 +345,15 @@ footer h3,
 }
 .copyright a {
   font-size: 13px;
+}
+#original-site {
+  color: #ababab;
+  word-spacing: 0.2rem;
+}
+#original-site:hover {
+  color: yellow;
+  letter-spacing: 0.25rem;
+  transition: all 2s ease-in-out;
 }
 
 /******************* Index page stuff lol...**************** */
@@ -642,7 +657,11 @@ section .caption a:hover {
   color: #111;
 }
 
-/* ################  Index Media Queries Start ##############*/
+/* ################  Media Queries Start ##############*/
+
+/* ====================
+    1180 pixel fix 
+   ==================== */
 
 @media screen and (max-width: 1180px) {
   /* 1090px*/
@@ -655,6 +674,10 @@ section .caption a:hover {
     margin-right: auto;
   }
 }
+
+/* ====================
+    1016 pixel fix 
+   ==================== */
 @media screen and (max-width: 1016px) {
   #slider {
     width: 100%; /*690px*/
@@ -670,6 +693,56 @@ section .caption a:hover {
   }
 }
 
+/* ====================
+    932 pixel fix 
+   ==================== */
+
+@media screen and (max-width: 932px) {
+  #reservations {
+    display: flex;
+    flex-direction: column;
+    /* z-index: 10; */
+  }
+
+  #reserved-time,
+  #reservation-date,
+  #party-size {
+    width: 10em;
+    /* z-index: 10; */
+  }
+
+  #reserved-time {
+    padding: 0.5em 3em;
+  }
+
+  #reservation-date {
+    padding: 0.5em 1.5em;
+  }
+
+  #party-size {
+    padding: 0em;
+    margin-left: -0.3em;
+  }
+
+  #party-size select {
+    padding: 0.5em 2.2em;
+  }
+
+  #reservations .btn a {
+    padding: 1em 3.3em;
+    /* z-index: 10; */
+  }
+
+  #reservations .btn a:hover {
+    border: 1px solid #fff;
+    color: #111;
+  }
+}
+
+/* ====================
+    760 pixel fix 
+   ==================== */
+
 @media screen and (max-width: 760px) {
   .events {
     grid-template-columns: repeat(2, 1fr);
@@ -677,17 +750,11 @@ section .caption a:hover {
       "karaoke-evt snacks-evt "
       "celebration-evt happy-hour-evt";
   }
-
-  .events h3 {
-    text-align: center;
-  }
-
-  .events img {
-    display: block;
-    margin: 0 auto;
-  }
 }
 
+/* ====================
+    715 pixel fix 
+   ==================== */
 /* Hamburger Trigger */
 @media screen and (max-width: 715px) {
   #nav-bar {
@@ -718,6 +785,10 @@ section .caption a:hover {
   }
 }
 
+/* ====================
+    510 pixel fix 
+   ==================== */
+
 @media screen and (max-width: 510px) {
   #slider {
     width: 277px; /*270px*/
@@ -737,7 +808,7 @@ section .caption a:hover {
       "happy-hour-evt";
   }
 }
-/* ################  Index Media Queries End ##############*/
+/* ################  Media Queries End ##############*/
 /******************* Index page stuff End...**************** */
 
 /******************* Menu page Start...**************** */
@@ -745,8 +816,8 @@ section .caption a:hover {
   font-family: "Forum", cursive;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: minmax(300px auto);
-  grid-row-gap: 100px;
+  grid-template-rows: minmax(18.75em auto);
+  grid-row-gap: 6.25em;
 
   grid-template-areas:
     "main-menu"
@@ -755,7 +826,7 @@ section .caption a:hover {
 }
 
 #menu-container p {
-  padding: 0% 15px;
+  padding: 0% 1em;
   /* font-size: 1em; */
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: #999898;
@@ -768,7 +839,7 @@ section .caption a:hover {
 }
 
 .menu-item figcaption {
-  padding-top: 30px;
+  padding-top: 1.9em;
   text-transform: uppercase;
   font-size: 1.1em;
   font-weight: 500;
@@ -779,11 +850,11 @@ section .caption a:hover {
   justify-self: center;
   align-self: center;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 1.6em;
 }
 
 #menu-lead h1 {
-  padding-bottom: 15px;
+  padding-bottom: 1em;
   font-size: 0.9em;
   font-weight: 300;
   text-transform: uppercase;
@@ -792,9 +863,9 @@ section .caption a:hover {
   grid-area: appetizers;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: minmax(100px auto);
-  grid-row-gap: 50px;
-  grid-column-gap: 25px;
+  grid-template-rows: minmax(6.25em auto);
+  grid-row-gap: 3.13em;
+  grid-column-gap: 1.6em;
 }
 
 #appetizer-lead {
@@ -805,7 +876,7 @@ section .caption a:hover {
 }
 
 #appetizer-lead h1 {
-  padding-bottom: 15px;
+  padding-bottom: 1em;
   font-size: 2.2em;
   font-weight: 300;
   text-transform: uppercase;
@@ -815,9 +886,9 @@ section .caption a:hover {
   grid-area: main-course;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: minmax(100px auto);
-  grid-row-gap: 50px;
-  grid-column-gap: 25px;
+  grid-template-rows: minmax(6.25em auto);
+  grid-row-gap: 3.13em;
+  grid-column-gap: 1.6em;
 }
 
 #main-lead {
@@ -828,7 +899,7 @@ section .caption a:hover {
 }
 
 #main-lead h1 {
-  padding-bottom: 15px;
+  padding-bottom: 1em;
   font-size: 2.2em;
   font-weight: 300;
   text-transform: uppercase;
@@ -836,7 +907,7 @@ section .caption a:hover {
 
 .price {
   color: #ffffff;
-  padding: 35px 0% 45px 0%;
+  padding: 2.2em 0em 2.8em 0em;
   font-size: 1em;
   font-weight: 400;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -855,7 +926,7 @@ section .caption a:hover {
   font-weight: 500;
 }
 .medium-bar {
-  margin: 10px 38% 25px 38%;
+  margin: 10px 38% 1.6em 38%;
   width: 24%; /*115px*/
   height: 3px;
   background-color: #ffffff;
@@ -864,7 +935,7 @@ section .caption a:hover {
   text-align: center;
 }
 .long-bar {
-  margin: 20px 20% 15px 20%;
+  margin: 1.3em 20% 1em 20%;
   width: 60%; /*190px*/
   height: 2px;
   background-color: #6a6a6a;
@@ -872,8 +943,35 @@ section .caption a:hover {
 }
 
 #menu-footer {
-  padding-top: 100px;
+  padding-top: 6.25em;
 }
+
+/* ====================   Footer Media Queries
+    770 pixel fix 
+   ==================== */
+
+@media screen and (max-width: 770px) {
+  #menu-container {
+    justify-items: center;
+  }
+
+  #appetizers,
+  #main-course {
+    /* grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); */
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(6.25em auto);
+    grid-row-gap: 3.13em;
+    grid-column-gap: 1.6em; */
+    grid-column-gap: 0.6em;
+  }
+  .menu-item {
+    max-width: 19.3em; /* 310px;*/
+    justify-self: center;
+  }
+}
+
 /******************* Menu page End...**************** */
 
 /******************* Order page Start...**************** */
@@ -975,6 +1073,10 @@ ul {
   outline: 0;
   transition: background-color 2s ease-out; /*This gives the fade in and out on the button*/
 }
+
+/* ====================
+    700 pixel fix 
+   ==================== */
 
 /* For Large Screens */
 
@@ -1318,11 +1420,11 @@ footer > .container {
   grid-template-columns: 1fr 1fr 2fr;
   grid-template-rows: minmax(140px, auto);
   font-weight: 300;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 footer > .container h3 {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -1334,7 +1436,7 @@ footer > .container h3 {
 }
 
 .footer-number {
-  padding: 0em 0em 80px 0em;
+  padding: 0em 0em 2em 0em;
 }
 
 footer p {
@@ -1342,17 +1444,95 @@ footer p {
 }
 
 .fa-fw {
-  padding: 0% 15px 10px 15px;
+  padding: 0em 1em 0.63em 1em;
 }
 
 /* Google Map Api fetch */
 footer #map-content {
-  margin-top: 15px;
+  margin-top: 1em;
+  width: 32em; /* 496px; */
+  height: 17em; /* 260px;*/
 }
 
 .mapFrame {
   margin: auto;
-  border: 2px solid #bf9515;
+  width: 100%; /*32em;  496px; */
+  height: 100%; /*17em;  260px;*/
+  border: 0.15em solid #bf9515;
+}
+
+/* ====================   Footer Media Queries
+    932 pixel fix 
+   ==================== */
+
+@media screen and (max-width: 932px) {
+  footer > .container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(10.6em, auto);
+  }
+  #contact-footer {
+    grid-row: 1/2;
+    grid-column: 1/3;
+  }
+  .fa-fw {
+    padding: 0em 1em 3em 1em;
+  }
+
+  #opening-hours-footer {
+    grid-row: 1/2;
+    grid-column: 3/5;
+  }
+  #find-us {
+    grid-row: 2/3;
+    grid-column: 2/4;
+  }
+  #contact-footer,
+  #opening-hours-footer,
+  #find-us {
+    justify-self: center;
+  }
+  footer > .copyright {
+    padding-top: 3em;
+    padding-left: 1em;
+  }
+
+  .mapFrame {
+    width: 100%; /*32em;  496px; */
+    height: 100%; /*17em;  260px;*/
+  }
+}
+
+/* ====================   Footer Media Queries
+    500 pixel fix 
+   ==================== */
+
+@media screen and (max-width: 500px) {
+  footer #map-content {
+    width: 28em;
+    height: 20em;
+  }
+}
+
+/* ====================   Footer Media Queries
+    430 pixel fix 
+   ==================== */
+
+@media screen and (max-width: 430px) {
+  footer > .container {
+    /* grid-template-columns: repeat(4, 1fr);*/
+    /* grid-template-columns: minmax(1em, auto); */
+    display: flex;
+    flex-direction: column;
+    /* grid-auto-flow: column; */
+  }
+
+  #opening-hours-footer {
+    padding-bottom: 3em;
+  }
+  footer #map-content {
+    width: 19em;
+    height: 22em;
+  }
 }
 
 /******************* Footer stuff End...**************** */
