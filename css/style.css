@@ -1066,7 +1066,7 @@ ul {
 .contact form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 1.25em;
 }
 
 .contact form label {
@@ -1118,10 +1118,13 @@ ul {
 
 /* For Large Screens */
 
-@media (min-width: 700px) {
+@media (min-width: 832px) {
   .order-wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr;
+  }
+  .order-wrapper img{
+    width: 100%;
   }
 
   .order-wrapper > * {
@@ -1135,6 +1138,42 @@ ul {
     text-align: left;
   }
 }
+
+/* ====================
+    685 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 830px) {
+  .company-info {
+    display: none;
+  }
+  .brand {
+    text-align: center;
+  }
+
+  .contact form {
+    grid-template-columns: 1fr;
+  }
+
+  .contact form .full {
+    grid-column: 1/2;
+  }
+}
+
+/* ====================
+    610 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 610px) {
+  /* .order-wrapper {
+    grid-template-columns: 1fr;
+  } */
+}
+
 /******************* Order page End...**************** */
 
 /******************* EVENTS page stuff lol...**************** */
@@ -1252,7 +1291,7 @@ ul {
   font-size: 1.5em;
 }
 
-/******************* EVENTS page stuff lol...**************** */
+/******************* EVENTS page end lol...**************** */
 
 /******************* About page stuff lol...**************** */
 .about-container {
@@ -1309,7 +1348,6 @@ input {
 #POST-message {
   grid-column: 2/3;
   grid-row: 1/4;
-  /* text-align: right; */
 }
 
 #contact-btn {
