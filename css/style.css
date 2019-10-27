@@ -1123,7 +1123,7 @@ ul {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
-  .order-wrapper img{
+  .order-wrapper img {
     width: 100%;
   }
 
@@ -1152,7 +1152,6 @@ ul {
   .brand {
     text-align: center;
   }
-
   .contact form {
     grid-template-columns: 1fr;
   }
@@ -1180,14 +1179,14 @@ ul {
 .event-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: minmax(200px auto);
-  gap: 70px 40px;
+  grid-template-rows: minmax(12.5em auto);
+  gap: 4.4em 2.5em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   grid-template-areas:
     "event-data event-data"
     "karaoke-img karaoke-event"
-    "happy-hour-img happy-hour-event"
+    "happy-hours happy-hour-event"
     "brunch-img brunch-event"
     "special-offer-img special-offer-event";
   margin: 1em 0%;
@@ -1206,8 +1205,8 @@ ul {
   grid-area: karaoke-event;
 }
 
-#happy-hour-img {
-  grid-area: happy-hour-img;
+#happy-hours {
+  grid-area: happy-hours; /*happy-hour-data*/
 }
 
 #happy-hour-event {
@@ -1224,7 +1223,7 @@ ul {
 
 #special-offer-img {
   grid-area: special-offer-img;
-  padding-bottom: 4em;
+  /* padding-bottom: 4em; */
 }
 
 #special-offer-event {
@@ -1234,7 +1233,7 @@ ul {
 /* Style event page content */
 .event-container p {
   font-weight: 400;
-  font-size: 13px;
+  font-size: 0.8rem;
   /* padding-right: 1em; */
 }
 #event-data h1 {
@@ -1256,39 +1255,146 @@ ul {
 
 #karaoke-img,
 #brunch-img,
+#happy-hours,
 #special-offer-img {
   justify-self: end;
+  width: 26.8em; /*26.8em;*/
+  height: 13.25em; /*11.25em;*/
+}
+
+#karaoke-img img,
+#brunch-img img,
+#special-offer-img img {
+  width: 100%;
+  height: 100%;
 }
 
 #happy-hours {
   font-family: "Source Sans Pro", sans-serif;
   background-color: #bf9515;
   color: #fff;
-  width: 430px;
-  height: 180px;
+  width: 26.9em;
+  height: 11.3em;
   justify-self: end;
   text-align: center;
 }
 
 #happy-hours h1 {
-  font-size: 3.5em;
-  padding-top: 30px;
+  font-size: 3.5rem;
+  padding-top: 0.8em;
   font-weight: 700;
 }
 
 #happy-hours h2 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .event-container h2 {
   font-weight: 400;
-  font-size: 2em;
-  line-height: 50px;
+  font-size: 2rem;
+  line-height: 3.13rem;
 }
 
 .event-container h3 {
   font-weight: 400;
-  font-size: 1.5em;
+  font-size: 1.5rem;
+}
+
+/* ====================
+    810 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+@media (max-width: 810px) {
+  .event-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "event-data"
+      "karaoke-img"
+      "karaoke-event"
+      "happy-hours"
+      "happy-hour-event"
+      "brunch-img"
+      "brunch-event"
+      "special-offer-img"
+      "special-offer-event";
+    margin: 1em 0%;
+    transition: all ease-in-out 3s;
+  }
+
+  #happy-hours {
+    justify-self: center;
+  }
+
+  #karaoke-img,
+  #brunch-img,
+  #happy-hours,
+  #special-offer-img {
+    justify-self: center;
+  }
+
+  #karaoke-event,
+  #happy-hour-event,
+  #brunch-event,
+  #special-offer-event {
+    padding: 0em 23%;
+  }
+}
+/* ====================
+    610 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 610px) {
+  #event-data {
+    display: none;
+  }
+  #karaoke-event,
+  #happy-hour-event,
+  #brunch-event,
+  #special-offer-event {
+    padding: 0em 10%;
+    transition: all ease-in-out 3s;
+  }
+
+  #karaoke-img,
+  #brunch-img,
+  #happy-hours,
+  #special-offer-img {
+    width: 23.8em;
+    height: 10.25em;
+    transition: all ease-in-out 3s;
+  }
+}
+
+/* ====================
+    340 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 340px) {
+  #karaoke-img,
+  #brunch-img,
+  #happy-hours,
+  #special-offer-img {
+    width: 15.8em;
+    height: 10.25em;
+    transition: all ease-in-out 3s;
+  }
+
+  #karaoke-event,
+  #happy-hour-event,
+  #brunch-event,
+  #special-offer-event {
+    padding: 0em 5%;
+    transition: all ease-in-out 3s;
+  }
+
+  #happy-hours h1 {
+    font-size: 2.7rem;
+  }
 }
 
 /******************* EVENTS page end lol...**************** */
