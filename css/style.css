@@ -1253,6 +1253,13 @@ ul {
   justify-self: start;
 }
 
+#karaoke-event h2,
+#happy-hour-event h2,
+#brunch-event h2,
+#special-offer-event h2 {
+  font-family: "Forum", cursive;
+}
+
 #karaoke-img,
 #brunch-img,
 #happy-hours,
@@ -1300,7 +1307,7 @@ ul {
   font-size: 1.5rem;
 }
 
-/* ====================
+/* ====================     MEDIA QUERIES (EVENT PAGE)
     810 pixel fix 
    ==================== */
 
@@ -1340,7 +1347,7 @@ ul {
     padding: 0em 23%;
   }
 }
-/* ====================
+/* ====================     MEDIA QUERIES (EVENT PAGE)
     610 pixel fix 
    ==================== */
 
@@ -1354,7 +1361,8 @@ ul {
   #happy-hour-event,
   #brunch-event,
   #special-offer-event {
-    padding: 0em 10%;
+    padding: 1.2em 10% 1.4em 10%;
+    margin-top: -2.7em;
     transition: all ease-in-out 3s;
   }
 
@@ -1363,23 +1371,24 @@ ul {
   #happy-hours,
   #special-offer-img {
     width: 23.8em;
-    height: 10.25em;
+    height: 13.25em;
+    margin-top: -3.5em;
     transition: all ease-in-out 3s;
   }
 }
 
-/* ====================
-    340 pixel fix 
+/* ====================     MEDIA QUERIES  (EVENT PAGE)
+    360 pixel fix 
    ==================== */
 
 /* For Small Screens */
 
-@media (max-width: 340px) {
+@media (max-width: 360px) {
   #karaoke-img,
   #brunch-img,
   #happy-hours,
   #special-offer-img {
-    width: 15.8em;
+    width: 16.8em;
     height: 10.25em;
     transition: all ease-in-out 3s;
   }
@@ -1388,7 +1397,7 @@ ul {
   #happy-hour-event,
   #brunch-event,
   #special-offer-event {
-    padding: 0em 5%;
+    padding: 0em 2%;
     transition: all ease-in-out 3s;
   }
 
@@ -1404,7 +1413,7 @@ ul {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: minmax(250px auto);
+  grid-template-rows: minmax(15.6em auto);
   grid-template-areas:
     "image about-us"
     "image contact-us";
@@ -1419,12 +1428,13 @@ ul {
 .contact-us p {
   padding: 1em 0%;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 0.94em;
 }
 
 .about-us h1,
 .contact-us h1,
 #event-data h1 {
+  font-family: "Forum", cursive;
   text-transform: uppercase;
   font-weight: 300;
   font-size: 2em;
@@ -1436,19 +1446,27 @@ ul {
 
 .about-img {
   grid-area: image;
+  width: 27.5em;
+  height: 37.3em;
+  padding: 4.1em 1.5em 2em 1em;
+}
+
+.about-img img {
+  width: 100%;
+  height: 100%;
 }
 
 #form-container {
-  padding: 25px 0% 45px 0%;
+  padding: 1.6em 0% 2.8em 0%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: minmax(100px auto);
+  grid-template-rows: minmax(6.25em auto);
   grid-row-gap: 5px;
   grid-column-gap: 2px;
 }
 
 input {
-  min-height: 30px;
+  min-height: 1.9em;
 }
 
 #POST-message {
@@ -1459,8 +1477,8 @@ input {
 #contact-btn {
   grid-column: 2/3;
   justify-self: end;
-  min-height: 30px;
-  min-width: 55px;
+  min-height: 1.9em;
+  min-width: 3.4em;
   background-color: #fff;
   font-size: 1em;
   text-decoration: none;
@@ -1470,14 +1488,111 @@ input {
 }
 
 .short-bar {
-  margin: 30px 0px 10px 0px;
-  width: 25px;
+  margin: 1.9em 0px 0.63em 0px;
+  width: 1.6em;
   height: 3px;
   color: #f1f1f1;
 }
 
-.about-img img {
-  padding-top: 65px;
+/* ====================     MEDIA QUERIES (ABOUT PAGE)
+    780 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 780px) {
+  .about-container {
+    grid-template-areas:
+      "image about-us"
+      "image ."
+      "contact-us contact-us";
+    transition: all ease-in-out 3s;
+  }
+
+  .about-img {
+    width: 21em;
+    height: 31.3em;
+    padding: 2.3em 0.5em 1em 1em;
+    transition: all ease-in-out 3s;
+  }
+
+  .about-us h1,
+  .contact-us h1,
+  #event-data h1 {
+    font-size: 1.5em;
+  }
+
+  .contact-us {
+    margin-left: 1.5em;
+  }
+}
+
+/* ====================     MEDIA QUERIES (ABOUT PAGE)
+    740 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 740px) {
+  .about-img {
+    width: 18em;
+    height: 28.3em;
+    padding: 1.3em 0.2em 0.2em 0.3em;
+    transition: all ease-in-out 3s;
+  }
+}
+
+/* ====================     MEDIA QUERIES (ABOUT PAGE)
+    650 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 650px) {
+  .about-container {
+    grid-template-areas:
+      "about-us about-us"
+      "image contact-us";
+    transition: all ease-in-out 3s;
+  }
+  .about-img {
+    width: 14em;
+    height: 19.3em; /*24.3em;*/
+    padding: 1.3em 0em 0.2em 0.2em;
+    transition: all ease-in-out 3s;
+  }
+
+  .contact-us {
+    margin-left: 0.5em;
+  }
+}
+
+/* ====================     MEDIA QUERIES (ABOUT PAGE)
+    540 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 540px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "about-us "
+      "image"
+      "contact-us";
+    transition: all ease-in-out 3s;
+  }
+  .about-img {
+    width: 19em;
+    height: 22.3em; /*24.3em;*/
+    padding: 0em 0em 0.5em 0em;
+    justify-self: center;
+    transition: all ease-in-out 3s;
+  }
+
+  .contact-us {
+    margin: 1em 0em 0em 1.5em;
+  }
 }
 /******************* About page stuff End...**************** */
 
@@ -1632,14 +1747,14 @@ footer p {
 /* Google Map Api fetch */
 footer #map-content {
   margin-top: 1em;
-  width: 32em; /* 496px; */
-  height: 17em; /* 260px;*/
+  width: 32em;
+  height: 17em;
 }
 
 .mapFrame {
   margin: auto;
-  width: 100%; /*32em;  496px; */
-  height: 100%; /*17em;  260px;*/
+  width: 100%;
+  height: 100%;
   border: 0.15em solid #bf9515;
 }
 
