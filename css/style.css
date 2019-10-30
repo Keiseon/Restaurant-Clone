@@ -808,6 +808,10 @@ section .caption a:hover {
       "celebration-evt"
       "happy-hour-evt";
   }
+
+  #happy-hour-evt h3 {
+    margin-bottom: 2.2em;
+  }
 }
 /* ################  Media Queries End ##############*/
 /******************* Index page stuff End...**************** */
@@ -1537,8 +1541,12 @@ input {
   .about-img {
     width: 18em;
     height: 28.3em;
-    padding: 1.3em 0.2em 0.2em 0.3em;
+    padding: 1.3em 0.2em 1.2em 0.3em;
     transition: all ease-in-out 3s;
+  }
+
+  .about-us .short-bar {
+    display: none;
   }
 }
 
@@ -1824,8 +1832,18 @@ footer #map-content {
     padding-bottom: 3em;
   }
   footer #map-content {
-    width: 19em;
-    height: 22em;
+    width: 22.7em; /* 19em;*/
+    height: 22em; /*22em;*/
+  }
+  #contact-footer,
+  #opening-hours-footer,
+  #find-us {
+    align-self: center;
+  }
+
+  footer > .copyright {
+    padding-top: 1.5em;
+    padding-left: 1em;
   }
 }
 
