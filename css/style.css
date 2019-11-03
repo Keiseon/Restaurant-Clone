@@ -27,7 +27,8 @@ font-family: "Roboto Condensed", sans-serif;
 body {
   background: #050505;
   color: #ffffff;
-  font-family: "Roboto Condensed", sans-serif; /*This is where you declare the google font you wish to use after  */
+  font-family: "Forum", cursive;
+  /*font-family: "Roboto Condensed", sans-serif; This is where you declare the google font you wish to use after  */
 }
 
 .site-container {
@@ -1581,7 +1582,7 @@ input {
 
 /* For Small Screens */
 
-@media (max-width: 540px) {
+@media screen and (max-width: 540px) {
   .about-container {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -1608,11 +1609,11 @@ input {
 .gallery-wrapper {
   height: 90%;
   margin: 0% auto;
-  padding: 16px 0px;
+  padding: 1em 0px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /*225px*/
-  grid-auto-rows: 185px; /*225px*/
-  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr)); /*240px*/
+  grid-auto-rows: 11.6em; /*185px*/
+  grid-gap: 0.3em;
   justify-items: center;
   align-items: center; /*end*/
   margin-bottom: 5%;
@@ -1620,8 +1621,8 @@ input {
 
 .gallery-item-container {
   position: relative;
-  height: 183px;
-  width: 238px; /*243px;*/
+  height: 11.4em; /*183px;*/
+  width: 14.9em; /*238px;*/
 }
 
 .gallery-item-container img {
@@ -1649,18 +1650,18 @@ input {
 
 .text-overlay h1 {
   color: black;
-  padding: 35px 10px 0px 30px;
+  padding: 1.2em 0.63em 0em 1.9em; /*2.2em 0.63em 0em 1.9em;*/
   font-size: 1.2rem;
   font-weight: 300;
   text-align: left;
-  text-shadow: 0px 2px 2px #fff;
+  text-shadow: 0px 0.13em 0.13em #fff;
 }
 
 .text-overlay p {
   text-align: left;
-  padding: 10px 20px 20px 30px;
+  padding: 0.63em 1.3em 1.3em 1.9em;
   color: white;
-  text-shadow: 0px 2px 2px #111;
+  text-shadow: 0px 0.13em 0.13em #111;
 }
 
 .gallery-item-container:hover .text-overlay {
@@ -1678,7 +1679,7 @@ input {
 
 #heart-icon {
   text-align: left;
-  padding-right: 90px;
+  padding-right: 5.6em;
 }
 
 #heart-icon:hover i {
@@ -1688,13 +1689,12 @@ input {
 #share-icon:hover i {
   color: white;
   cursor: pointer;
-  /* font-weight: 300; */
 }
 
 #gallery-title {
   /* grid-column: 1/4; */
   font-family: "Forum", cursive;
-  padding-bottom: 15px;
+  padding-bottom: 0.9em;
   font-size: 1.3rem;
   /* font-weight: 100; */
   text-transform: uppercase;
@@ -1704,61 +1704,134 @@ input {
 }
 
 /* ====================     MEDIA QUERIES (Gallery PAGE)
-    1230 pixel fix 
+   1230 pixel aka 76.9em  fix 
    ==================== */
 
 /* For Small Screens */
 
-@media (max-width: 1230px) and (min-width: 993px) {
+@media (max-width: 76.9em) and (min-width: 62.1em) {
+  /*1230px and 993px*/
+  .gallery-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(14.2em, 1fr)); /*227px*/
+    grid-auto-rows: 9.1em; /*145px*/
+    grid-gap: 0.3em; /*5px*/
+  }
+  .gallery-item-container {
+    height: 8.9em; /* 142px*/
+    width: 14.1em; /* 225px*/
+    transition: all 1s ease-in-out;
+  }
+
+  .text-overlay h1 {
+    padding: 0.5em 0.5em 0em 1.7em; /*2.2em 0.63em 0em 1.9em;*/
+    font-size: 1.2rem;
+  }
+
+  .text-overlay p {
+    font-size: 0.9rem;
+    padding: 0.6em 1.1em 1.3em 1.3em; /*0.63em 1.3em 1.3em 1.9em;*/
+  }
+}
+
+/* ====================     MEDIA QUERIES (Gallery PAGE)
+    992 pixel aka 62em fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 62em) and (min-width: 48.8em) {
+  /* 992px and 780px*/
+  .gallery-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(11.1em, 1fr)); /*was:177px.*/
+    grid-auto-rows: 5.9em; /*95px*/
+    grid-gap: 0.3em;
+  }
+  .gallery-item-container {
+    height: 5.75em; /* was: 92px*/
+    width: 10.9em; /* was: 175px*/
+    transition: all 1s ease-in-out;
+  }
+
+  .text-overlay h1 {
+    padding: 0.2em 0.5em 0em 1.7em; /*2.2em 0.63em 0em 1.9em;*/
+    font-size: 0.9rem;
+  }
+
+  .text-overlay p {
+    font-size: 0.7rem;
+    padding: 0.3em 0.4em 0.6em 0.7em; /*0.63em 1.3em 1.3em 1.9em;*/
+  }
+}
+/* ====================     MEDIA QUERIES (Gallery PAGE)
+    779 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 48.7em) and (min-width: 25em) {
+  /*48.7em 779px and 25em 400px*/
   .gallery-wrapper {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(227px, 1fr)
-    ); /*good:240px..225px*/
-    grid-auto-rows: 145px; /*good: 185px...225px*/
-    grid-gap: 5px;
+      minmax(7.31em, 1fr)
+    ); /*7.31em 117px.*/
+    grid-auto-rows: 5.94em; /*was:5.94em 95px*/
+    grid-gap: 0.3em;
   }
   .gallery-item-container {
-    height: 142px; /* was: 183px..243px;*/
-    width: 225px; /* was: 238px..243px;*/
+    height: 5.75em; /* was:5.75em 92px*/
+    width: 7.19em; /* was:7.19em 115px*/
     transition: all 1s ease-in-out;
+  }
+
+  .text-overlay h1 {
+    padding: 0.7em 0.2em 0.5em 0.7em; /*2.2em 0.63em 0em 1.9em; */
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .text-overlay p {
+    display: none;
+  }
+
+  #heart-icon {
+    text-align: left;
+    padding-right: 2.6em;
   }
 }
 
 /* ====================     MEDIA QUERIES (Gallery PAGE)
-    992 pixel fix 
+    779 pixel fix 
    ==================== */
 
 /* For Small Screens */
 
-@media (max-width: 992px) and (min-width: 780px) {
+@media (max-width: 24.94em) {
+  /*24.94em 399px*/
   .gallery-wrapper {
-    grid-template-columns: repeat(auto-fit, minmax(177px, 1fr)); /*was:227px.*/
-    grid-auto-rows: 95px; /*was: 145px*/
-    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(7em, 1fr)); /*112px.*/
+    grid-auto-rows: 7em; /*7em; 112px*/
+    grid-gap: 0.18em; /*0.18em 3px*/
   }
   .gallery-item-container {
-    height: 92px; /* was: 142px*/
-    width: 175px; /* was: 225px*/
+    height: 6.94em; /*6.94em; 111px*/
+    width: 6.94em; /*6.94em; 111px*/
     transition: all 1s ease-in-out;
   }
-}
-/* ====================     MEDIA QUERIES (Gallery PAGE)
-    992 pixel fix 
-   ==================== */
 
-/* For Small Screens */
-
-@media (max-width: 779px) and (min-width: 400px) {
-  .gallery-wrapper {
-    grid-template-columns: repeat(auto-fit, minmax(147px, 1fr)); /*was:177px.*/
-    grid-auto-rows: 95px; /*was: 95px*/
-    grid-gap: 5px;
+  .text-overlay h1 {
+    padding: 0.7em 0.5em 0.9em 0.5em; /*2.2em 0.63em 0em 1.9em; */
+    font-size: 1.2rem;
+    text-align: center;
   }
-  .gallery-item-container {
-    height: 92px; /* was: 92px*/
-    width: 145px; /* was: 175px*/
-    transition: all 1s ease-in-out;
+
+  .text-overlay p {
+    display: none;
+  }
+
+  #heart-icon {
+    text-align: left;
+    padding-right: 2.6em;
   }
 }
 /******************* Gallery stuff End...**************** */
@@ -1769,8 +1842,8 @@ input {
   border-top: 1px solid #fff;
   overflow: visible;
   text-align: center;
-  height: 15px;
-  padding-bottom: 37px;
+  height: 0.94em; /*15px*/
+  padding-bottom: 2.31em; /*37px*/
 }
 
 .h-bar::after {
@@ -1780,7 +1853,7 @@ input {
 footer > .container {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
-  grid-template-rows: minmax(140px, auto);
+  grid-template-rows: minmax(8.75em, auto); /*140px*/
   font-weight: 300;
   font-size: 0.9rem;
 }
