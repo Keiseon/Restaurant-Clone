@@ -1606,12 +1606,11 @@ input {
 
 /******************* Gallery stuff lol...**************** */
 .gallery-wrapper {
-  /* width: 0vw; */
   height: 90%;
   margin: 0% auto;
   padding: 16px 0px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); /*225px*/
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /*225px*/
   grid-auto-rows: 185px; /*225px*/
   grid-gap: 5px;
   justify-items: center;
@@ -1619,13 +1618,13 @@ input {
   margin-bottom: 5%;
 }
 
-.gallery-container {
+.gallery-item-container {
   position: relative;
   height: 183px;
-  width: 243px;
+  width: 238px; /*243px;*/
 }
 
-.gallery-container img {
+.gallery-item-container img {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -1633,7 +1632,6 @@ input {
 
 .text-overlay {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  /* text-align: left; */
   position: absolute;
   height: 100%;
   width: 100%;
@@ -1644,7 +1642,7 @@ input {
   transition: opacity;
 }
 
-.gallery-container a {
+.gallery-item-container a {
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
@@ -1665,7 +1663,7 @@ input {
   text-shadow: 0px 2px 2px #111;
 }
 
-.gallery-container:hover .text-overlay {
+.gallery-item-container:hover .text-overlay {
   /* set the overlay to visible */
   opacity: 0.5;
   transition-duration: 0.5s;
@@ -1674,7 +1672,7 @@ input {
     -moz-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) */
 }
 
-.gallery-container:hover img {
+.gallery-item-container:hover img {
   opacity: 0.6;
 }
 
@@ -1703,6 +1701,65 @@ input {
   /* justify-self: center;
   align-self: center; */
   text-align: center;
+}
+
+/* ====================     MEDIA QUERIES (Gallery PAGE)
+    1230 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 1230px) and (min-width: 993px) {
+  .gallery-wrapper {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(227px, 1fr)
+    ); /*good:240px..225px*/
+    grid-auto-rows: 145px; /*good: 185px...225px*/
+    grid-gap: 5px;
+  }
+  .gallery-item-container {
+    height: 142px; /* was: 183px..243px;*/
+    width: 225px; /* was: 238px..243px;*/
+    transition: all 1s ease-in-out;
+  }
+}
+
+/* ====================     MEDIA QUERIES (Gallery PAGE)
+    992 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 992px) and (min-width: 780px) {
+  .gallery-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(177px, 1fr)); /*was:227px.*/
+    grid-auto-rows: 95px; /*was: 145px*/
+    grid-gap: 5px;
+  }
+  .gallery-item-container {
+    height: 92px; /* was: 142px*/
+    width: 175px; /* was: 225px*/
+    transition: all 1s ease-in-out;
+  }
+}
+/* ====================     MEDIA QUERIES (Gallery PAGE)
+    992 pixel fix 
+   ==================== */
+
+/* For Small Screens */
+
+@media (max-width: 779px) and (min-width: 400px) {
+  .gallery-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(147px, 1fr)); /*was:177px.*/
+    grid-auto-rows: 95px; /*was: 95px*/
+    grid-gap: 5px;
+  }
+  .gallery-item-container {
+    height: 92px; /* was: 92px*/
+    width: 145px; /* was: 175px*/
+    transition: all 1s ease-in-out;
+  }
 }
 /******************* Gallery stuff End...**************** */
 
