@@ -28,6 +28,7 @@ body {
   background: #050505;
   color: #ffffff;
   font-family: "Forum", cursive;
+  position: relative;
   /*font-family: "Roboto Condensed", sans-serif; This is where you declare the google font you wish to use after  */
 }
 
@@ -37,6 +38,8 @@ body {
   max-width: 980px;
   margin: 0 auto;
   position: relative;
+  z-index: 2; /*was not here*/
+  /* z-index: 3; Kei fix menu hamburger place ontop of the menu */
 }
 
 .header-container h1,
@@ -146,40 +149,51 @@ footer h3,
   position: relative; /*fixed*/
   top: -8rem; /*4rem*/
   left: 0%; /*0%*/
-  z-index: 4;
+  z-index: 1; /*was 3*/
   transition: top 2s;
   visibility: hidden;
   pointer-events: none;
 }
 
 /* Control the Checkbox that will be styled to look like a button and hide it */
-.menu-wrap .toggler {
-  position: absolute;
+.toggler {
+  /* Menu Restructure -(.menu-wrap .toggler)*/
+  position: absolute; /*absolute*/
   top: 0%;
-  left: 0%; /*0%*/
-  z-index: 5;
+  left: 0%;
+  z-index: 4; /* was 5*/
   cursor: pointer;
-  width: 50px; /*50px*/
-  height: 50px; /*50px*/
+  width: 50px;
+  height: 50px;
+  visibility: hidden;
   opacity: 0;
 }
 
-.menu-wrap .hamburger {
+.hamburger {
+  /* Menu Restructure -(.menu-wrap .hamburger)*/
   position: absolute;
   top: 0%;
-  left: 0%; /*0%*/
-  z-index: 4;
-  width: 60px; /* 60px */
-  height: 60px; /*60px*/
-  padding: 1rem; /* 1rem*/
+  left: 0%;
+  z-index: 3; /* was 4*/
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
   background: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
+  visibility: hidden;
 }
 
+/* Menu Restructure -(Adding this Rule for .toggler and .hamburger for movement)*/
+/* .toggler,
+.hamburger {
+  visibility: hidden;
+} */
+
 /* Hamburger Line (middle line) */
-.menu-wrap .hamburger > div {
+.hamburger > div {
+  /* Menu Restructure -(.menu-wrap .hamburger)*/
   /* > div is a cheveron and div that means affect the very first div */
   position: relative;
   width: 100%;
@@ -192,8 +206,9 @@ footer h3,
 }
 
 /* Hamburger Line (Top & Bottom lines) */
-.menu-wrap .hamburger > div::before,
-.menu-wrap .hamburger > div::after {
+.hamburger > div::before,
+.hamburger > div::after {
+  /* Menu Restructure -(.menu-wrap .hamburger)*/
   content: "";
   position: absolute;
   z-index: 4;
@@ -204,53 +219,62 @@ footer h3,
 }
 
 /* Moves one line Down */
-.menu-wrap .hamburger > div::after {
+.hamburger > div::after {
+  /* Menu Restructure -(.menu-wrap .hamburger)*/
   top: 10px;
 }
 
 /* Toggle Animate */
-.menu-wrap .toggler:checked + .hamburger > div {
+.toggler:checked + .hamburger > div {
+  /* Menu Restructure -(.menu-wrap .toggler:checked + .hamburger > div )*/
   transform: rotate(135deg);
-  z-index: 4; /*Kei index test fix*/
+  /* z-index: 4; Kei index test fix */
 }
 
 /* Turn Lines into X  */
-.menu-wrap .toggler:checked + .hamburger > div::before,
-.menu-wrap .toggler:checked + .hamburger > div::after {
+.toggler:checked + .hamburger > div::before,
+.toggler:checked + .hamburger > div::after {
+  /* Menu Restructure -(.menu-wrap .toggler:checked + .hamburger > div::before,
+.menu-wrap .toggler:checked + .hamburger > div::after  )*/
   top: 0%;
   transform: rotate(90deg);
-  z-index: 4; /*Kei index test fix*/
+  /* z-index: 4; Kei index test fix */
 }
 
 /* Rotate on Hover when checked  */
-.menu-wrap .toggler:checked:hover + .hamburger > div {
+.toggler:checked:hover + .hamburger > div {
+  /* Menu Restructure -(.menu-wrap .toggler:checked:hover + .hamburger > div )*/
   transform: rotate(225deg);
-  z-index: 4; /*Kei index test fix*/
+  /* z-index: 4; Kei index test fix */
 }
 
 /* Rotate on Hover */
-.menu-wrap .toggler:hover + .hamburger > div {
+.toggler:hover + .hamburger > div {
+  /* Menu Restructure -(.menu-wrap .toggler:hover + .hamburger > div )*/
   transform: rotate(-36deg);
   background-color: #fff;
 }
 
 /* Show Menu  */
 /* Pick the menu wrap and the .toggler when checked and target the .menu inside */
-.menu-wrap .toggler:checked ~ .menu {
+.toggler:checked ~ .menu-wrap .menu {
+  /* Menu Restructure -(.menu-wrap .toggler:checked ~ .menu)*/
   visibility: visible;
-  z-index: 4; /*3*/ /*Kei index test fix*/
+  /* z-index: 4; 3 Kei index test fix */
 }
 
-.menu-wrap .toggler:checked ~ .menu > div {
+.toggler:checked ~ .menu-wrap .menu > div {
+  /* Menu Restructure -(.menu-wrap .toggler:checked ~ .menu > div )*/
   transform: scale(1);
   transition-duration: var(--menu-speed);
-  z-index: 4; /*Kei index test fix*/
+  /* z-index: 4; Kei index test fix */
 }
 
 /* Show menu links  */
-.menu-wrap .toggler:checked ~ .menu > div > div {
+.toggler:checked ~ .menu-wrap .menu > div > div {
+  /* Menu Restructure -(.menu-wrap .toggler:checked ~ .menu > div > div )*/
   opacity: 1;
-  z-index: 4; /*Kei index test fix*/
+  /* z-index: 4; Kei index test fix */
   transition: opacity 0.4s ease;
 }
 
@@ -266,7 +290,7 @@ footer h3,
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
+  /* z-index: 3; Keiseon fix */
 }
 
 .menu-wrap .menu > div {
@@ -274,20 +298,20 @@ footer h3,
   border-radius: 50%;
   width: 200vw;
   height: 200vh;
-  visibility: hidden; /*Keiseon fix*/
+  visibility: hidden; /* Keiseon fix */
   display: flex;
   flex: none;
   align-items: center;
   justify-content: center; /*center*/
   transform: scale(0); /* Comment this first to work this code*/
   transition: all 0.4s ease;
-  z-index: 4;
+  /* z-index: 4; Keiseon fix */
 }
 
 /* the div inside the next div  */
 .menu-wrap .menu > div > div {
   text-align: center;
-  padding-top: 135px;
+  /* padding-top: 135px; Keiseon fix */
   max-width: 90vw;
   max-height: 100vh;
   opacity: 0; /* Comment this first to work this code*/
@@ -296,7 +320,7 @@ footer h3,
 
 .menu-wrap .menu > div > div > ul > li {
   list-style: none;
-  color: #fff; /*#fff*/
+  color: #fff;
   font-size: 1.5rem;
   font-family: "Forum", cursive, sans-serif;
   /* font-weight: 600; */
@@ -320,19 +344,22 @@ footer h3,
 
 /* Media Query for hamburger  */
 @media screen and (max-width: 420px) {
-  .menu-wrap .hamburger {
+  .hamburger {
+    /* Menu Restructure -(.menu-wrap .hamburger)*/
     width: 40px;
     height: 47px;
     padding: 0.5rem;
   }
 
-  .menu-wrap .toggler {
+  .toggler {
+    /* Menu Restructure -(.menu-wrap .toggler)*/
     width: 30px;
     height: 37px;
   }
 
   /* Rotate on Hover */
-  .menu-wrap .toggler:hover + .hamburger > div {
+  .toggler:hover + .hamburger > div {
+    /* Menu Restructure -(.menu-wrap .toggler:hover + .hamburger > div)*/
     transform: rotate(-36deg);
     background-color: #fff;
   }
@@ -494,8 +521,7 @@ footer h3,
   /* this was === center top/cover; */
 }
 .slide:nth-child(2) {
-  background: url("../img/slider/costume-headdress-mask.jpg") no-repeat
-    center;
+  background: url("../img/slider/costume-headdress-mask.jpg") no-repeat center;
   background-size: cover;
   /* this was === center top/cover; */
 }
@@ -518,13 +544,12 @@ footer h3,
 }
 
 .slide:nth-child(7) {
-  background: url("../img/slider/alcoholic-beverage-ale-beer.jpg")
-    no-repeat center top/cover;
+  background: url("../img/slider/alcoholic-beverage-ale-beer.jpg") no-repeat
+    center top/cover;
 }
 
 .slide:nth-child(8) {
-  background: url("../img/slider/alcohol-background-bar.jpg") no-repeat
-    center;
+  background: url("../img/slider/alcohol-background-bar.jpg") no-repeat center;
   background-size: cover;
 }
 
@@ -761,6 +786,11 @@ section .caption a:hover {
   /* max-width: 715px*/
   #nav-bar {
     display: none;
+  }
+
+  .toggler,
+  .hamburger {
+    visibility: visible;
   }
   .menu-wrap {
     /* make the hamburger invisible by default */
