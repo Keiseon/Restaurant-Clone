@@ -157,24 +157,24 @@ footer h3,
 
 /* Control the Checkbox that will be styled to look like a button and hide it */
 .toggler {
-  /* Menu Restructure -(.menu-wrap .toggler)*/
-  position: absolute; /*absolute*/
-  top: 0%;
-  left: 0%;
-  z-index: 4; /* was 5*/
+  position: fixed;
+  left: 2%;
+  z-index: 4;
   cursor: pointer;
   width: 50px;
   height: 50px;
   visibility: hidden;
   opacity: 0;
+  -webkit-animation: mover 4s forwards; /* Safari 4+ */
+  -moz-animation: mover 4s forwards; /* Fx 5+ */
+  -o-animation: mover 4s forwards; /* Opera 12+ */
+  animation: mover 4s forwards;
 }
 
 .hamburger {
-  /* Menu Restructure -(.menu-wrap .hamburger)*/
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  z-index: 3; /* was 4*/
+  position: fixed;
+  left: 2%;
+  z-index: 3;
   width: 60px;
   height: 60px;
   padding: 1rem;
@@ -183,13 +183,45 @@ footer h3,
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  -webkit-animation: mover 4s forwards; /* Safari 4+ */
+  -moz-animation: mover 4s forwards; /* Fx 5+ */
+  -o-animation: mover 4s forwards; /* Opera 12+ */
+  animation: mover 4s forwards;
 }
 
-/* Menu Restructure -(Adding this Rule for .toggler and .hamburger for movement)*/
-/* .toggler,
-.hamburger {
-  visibility: hidden;
-} */
+/* Menu Restructure Utility Class -(Adding Animation Rule for .toggler, hamburger movement)*/
+@-webkit-keyframes mover {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 4rem; /* was 1.8%;*/
+  }
+}
+@-moz-keyframes mover {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 4rem; /* was 1.8%;*/
+  }
+}
+@-o-keyframes mover {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 4rem; /* was 1.8%;*/
+  }
+}
+@keyframes mover {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 4rem; /* was 1.8%;*/
+  }
+}
 
 /* Hamburger Line (middle line) */
 .hamburger > div {
@@ -380,7 +412,7 @@ footer h3,
 }
 #original-site:hover {
   color: yellow;
-  letter-spacing: 0.25rem;
+  letter-spacing: 0.05rem;
   transition: all 2s ease-in-out;
 }
 
@@ -763,6 +795,10 @@ section .caption a:hover {
     border: 1px solid #fff;
     color: #111;
   }
+
+  .copyright {
+    text-align: center;
+  }
 }
 
 /* ====================
@@ -838,6 +874,8 @@ section .caption a:hover {
       "snacks-evt"
       "celebration-evt"
       "happy-hour-evt";
+
+    margin-left: 1.2rem;
   }
 
   #happy-hour-evt h3 {
@@ -1502,11 +1540,13 @@ ul {
 
 input {
   min-height: 1.9em;
+  padding: 0.6rem;
 }
 
 #POST-message {
   grid-column: 2/3;
   grid-row: 1/4;
+  padding: 0.6rem;
 }
 
 #contact-btn {
