@@ -1,58 +1,71 @@
 // %%%%%%%%%%%    PUB Map Start %%%%%%%%%%%%
-// Using the Google Map without that Api key thing lol
-const pubMap = () => {
-  //Grab the container div that will hold the Iframe aka map
-  const divContainer = document.querySelector("#map-content");
-  // Create an Iframe
-  const newIFrame = document.createElement("iframe");
-  //add class name
-  newIFrame.className = "mapFrame";
-  // Iframe Dimensions
-  // newIFrame.setAttribute("width", "496"); // frame width
-  // newIFrame.setAttribute("height", "260"); // frame height
-  newIFrame.setAttribute(
-    "src",
-    "https://www.google.com/maps/d/embed?mid=1qM4vlhotsIZAkdkJvm9eooWqxYUB5EKT"
-  ); // embedded map link
+const pubMapCtrl = () => {
+  // Using the Google Map without that Api key thing lol
+  const pubMap = () => {
+    //Grab the container div that will hold the Iframe aka map
+    const divContainer = document.querySelector("#map-content");
+    // Create an Iframe
+    const newIFrame = document.createElement("iframe");
+    //add class name
+    newIFrame.className = "mapFrame";
+    // Iframe Dimensions
+    // newIFrame.setAttribute("width", "496"); // frame width
+    // newIFrame.setAttribute("height", "260"); // frame height
+    newIFrame.setAttribute(
+      "src",
+      "https://www.google.com/maps/d/embed?mid=1qM4vlhotsIZAkdkJvm9eooWqxYUB5EKT"
+    ); // embedded map link
 
-  // Now insert my newIFrame into the Dom
-  divContainer.appendChild(newIFrame);
+    // Now insert my newIFrame into the Dom
+    divContainer.appendChild(newIFrame);
+  };
+
+  // Add event listener
+  const myMapTrigger = document.querySelector(".site-container");
+
+  myMapTrigger.addEventListener("load", pubMap());
 };
-
-// Add event listener
-const myMapTrigger = document.querySelector(".site-container");
-
-myMapTrigger.addEventListener("load", pubMap());
 
 // %%%%%%%%%%%    PUB Map End %%%%%%%%%%%%
 
 // %%%%%%%%%%%%     Hamburger menu Code Start   %%%%%%%%%%%%%
-const menuWrap = document.querySelector(".menu-wrap");
-const siteContainer = document.querySelector(".site-container");
-const checkBox = document.querySelector("#checkbox");
 
 // if checkbox is checked then send the menu-wrap to foreground and the site-container to the background
 const toggleMenu = () => {
+  // Grab the menu and the siteContainer to control their z-index
+  const menuWrap = document.querySelector(".menu-wrap");
+  const siteContainer = document.querySelector(".site-container");
+  // Grab the checkbox value
+  const checkBox = document.querySelector("#checkbox");
+
   if (checkBox.checked) {
+    console.log("checked !");
     siteContainer.style.zIndex = 1; // push to back
     menuWrap.style.zIndex = 2; // pull to front
   } else {
+    console.log("UNchecked ^");
     siteContainer.style.zIndex = 2; // pull to front
     menuWrap.style.zIndex = 1; // push to back
   }
+
+  // Make click event for checkbox to set z-index of menu
+  checkBox.addEventListener("click", toggleMenu);
 };
 
-// Make click event for checkbox to set z-index of menu
-checkBox.addEventListener("click", toggleMenu);
+// Reset the checkbox to be Unchecked
+const checkBoxReset = () => {
+  // Grab the checkbox value
+  const checkBox = document.querySelector("#checkbox");
+  // Reset it to send menu-wrap to the back and site-container to the front
+  checkBox.checked = false;
+};
+
 // %%%%%%%%%%%%     Hamburger menu Code end   %%%%%%%%%%%%%
 
 // @@@@@@@@@@    Site Loader Control Start @@@@@@@@@@@@@
 var sPath = window.location.pathname;
 var sPage = sPath.substring(sPath.lastIndexOf("/") + 1);
 if (sPage == "index.html") {
-  checkBox.checked = false;
-  toggleMenu();
-
   // %%%%%%%%%%%% Slideshow Code start  %%%%%%%%%%%%
   const slides = document.querySelectorAll(".slide");
   const next = document.querySelector("#next");
@@ -146,26 +159,50 @@ if (sPage == "index.html") {
   autoSlide();
 
   // %%%%%%%%%%%%     Slideshow Code end   %%%%%%%%%%%%%
+
+  // Set the Map
+  pubMapCtrl();
+  // Reset the checkbox to default value
+  checkBoxReset();
+  // Re-stack the site siblings so the menu goes to the back
+  toggleMenu();
 } else if (sPage == "about.html") {
-  // Reset the site z-index order menu-wrap to the back site-container to the front
-  checkBox.checked = false;
+  // Set the Map
+  pubMapCtrl();
+  // Reset the checkbox to default value
+  checkBoxReset();
+  // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
 } else if (sPage == "events.html") {
-  // Reset the site z-index order menu-wrap to the back site-container to the front
-  checkBox.checked = false;
+  // Set the Map
+  pubMapCtrl();
+  // Reset the checkbox to default value
+  checkBoxReset();
+  // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
 } else if (sPage == "gallery.html") {
-  // Reset the site z-index order menu-wrap to the back site-container to the front
-  checkBox.checked = false;
+  // Set the Map
+  pubMapCtrl();
+  // Reset the checkbox to default value
+  checkBoxReset();
+  // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
 } else if (sPage == "menu.html") {
-  // Reset the site z-index order menu-wrap to the back site-container to the front
-  checkBox.checked = false;
+  // Set the Map
+  pubMapCtrl();
+  // Reset the checkbox to default value
+  checkBoxReset();
+  // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
 } else if (sPage == "order.html") {
-  // Reset the site z-index order menu-wrap to the back site-container to the front
-  checkBox.checked = false;
+  // Set the Map
+  pubMapCtrl();
+  // Reset the checkbox to default value
+  checkBoxReset();
+  // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
+} else if (sPage == "Pub.html") {
+  console.log("You are on the Gallery Mimic");
 }
 
 //@@@@@@@@@@@@   Site Loader Control End @@@@@@@@@@@@
