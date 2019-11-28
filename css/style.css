@@ -362,11 +362,11 @@ footer h3,
 .menu-wrap .menu > div > div > ul > li > a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.4s ease;
+  text-shadow: 1px 0px 1px rgb(20, 20, 20), 0px 1px 1px rgb(63, 62, 62),
+    2px 1px 1px rgb(97, 96, 96), 1px 2px 1px rgb(156, 27, 27);
 }
 
 .menu-wrap .menu > div > div > ul > li > a:hover {
-  /* font-weight: 700; */
   font-family: "Roboto Condensed", sans-serif;
   border: #333 solid 1px;
   padding: 3px 7px;
@@ -1905,6 +1905,38 @@ input {
   }
 }
 /******************* Gallery stuff End...**************** */
+
+/******************* Gallery Showcase Start...**************** */
+
+/* Utilities */
+#showcase-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(15.6em auto);
+  grid-template-areas:
+    "links links"
+    "showcase details"
+    "showcase details";
+}
+
+#pbg-links {
+  grid-area: links;
+  background-color: #ababab;
+  color: #000;
+}
+
+#pbg-showcase {
+  grid-area: showcase;
+  background-color: #fff;
+  color: #000;
+}
+
+#pbg-details {
+  grid-area: details;
+  background-color: #bf9515;
+  color: #000;
+}
+/******************* Gallery Showcase End...**************** */
 
 /******************* Footer stuff lol...**************** */
 .h-bar {
