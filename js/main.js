@@ -39,11 +39,9 @@ const toggleMenu = () => {
   const checkBox = document.querySelector("#checkbox");
 
   if (checkBox.checked) {
-    console.log("checked !");
     siteContainer.style.zIndex = 1; // push to back
     menuWrap.style.zIndex = 2; // pull to front
   } else {
-    console.log("UNchecked ^");
     siteContainer.style.zIndex = 2; // pull to front
     menuWrap.style.zIndex = 1; // push to back
   }
@@ -202,7 +200,6 @@ if (sPage == "index.html") {
   // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
 } else if (sPage == "Pub.html") {
-  console.log("You are on the Gallery Mimic");
 }
 
 //@@@@@@@@@@@@   Site Loader Control End @@@@@@@@@@@@

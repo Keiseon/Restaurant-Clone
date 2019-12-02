@@ -1910,32 +1910,101 @@ input {
 
 /* Utilities */
 #showcase-wrapper {
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: minmax(15.6em auto);
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: minmax(1.6em auto);
   grid-template-areas:
     "links links"
-    "showcase details"
     "showcase details";
 }
 
 #pbg-links {
   grid-area: links;
-  background-color: #ababab;
+  display: grid;
+  grid-template-columns: 0.4fr 0.3fr 0.5fr 4.9fr;
+  /* grid-template-rows: minmax(1em auto); */
+  color: #eee;
+  /* height: 1vh; */
+  margin: 0% 0% 1em 0%;
+
+  /* justify-self: center; */
+}
+/* Showcase button defaults*/
+.pbg-button {
+  background-color: #999898;
   color: #000;
+  padding: 1em;
+  justify-self: end;
+  align-self: center;
+  display: block;
+}
+#compress-btn {
+  display: none;
+}
+#expand-btn,
+#like-btn,
+#share-btn {
+  justify-self: start;
+  /* margin-top: 2em; */
+  /* margin-bottom: 1em; */
+}
+#close-btn {
+  justify-self: end;
+  /* margin-top: 2em; */
+  /* margin-bottom: 1em; */
 }
 
 #pbg-showcase {
   grid-area: showcase;
   background-color: #fff;
   color: #000;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
 }
+#prev-pbg-btn {
+  justify-self: start;
+  grid-column: 1/2;
+  margin: 1em;
+}
+#next-pbg-btn {
+  justify-self: end;
+  grid-column: 3/4;
+  margin: 1em;
+}
+#pbg-showcase .menu-img {
+  /* justify-self: center;
+  align-self: center;
+  width: 100%;
+  height: 100%; */
+  grid-column: 2/3;
+  /* background: no-repeat center; */
+  background-color: #ead9a4;
+}
+/* #pbg-showcase .menu-img:first-child{
+  background: url("../img/menu/NACHOS.jpg") no-repeat center;
+  background-size: cover;
+} */
 
 #pbg-details {
   grid-area: details;
   background-color: #bf9515;
   color: #000;
+  padding: 7em 4em;
+  /* text-align: center; */
 }
+
+#pbg-details h1 {
+  padding-bottom: 0.7em;
+}
+
+#pbg-showcase,
+#pbg-details {
+  margin-bottom: 3em;
+}
+
 /******************* Gallery Showcase End...**************** */
 
 /******************* Footer stuff lol...**************** */

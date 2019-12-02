@@ -4,14 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <!-- Icon logo -->
+    <link rel="icon" type="image/png" href="./img/wooden-beer-keg 3.png" />
+    <!-- Icon For apple devices -->
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="./img/wooden-beer-keg-2.png"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Gallery Mimic</title>
   </head>
   <body>
-    <div class="site-container showcase-wrapper">
-      <div id="pbg-links">Links</div>
-      <article id="pbg-showcase">showcase</article>
-      <aside id="pbg-details">details</aside>
+    <div id="showcase-wrapper">
+      <div id="pbg-links">
+        <a href="#" class="pbg-button" id="expand-btn">
+          <i class="fas fa-expand fa-2x"></i>
+        </a>
+        <a href="#" class="pbg-button" id="compress-btn">
+          <i class="fas fa-compress fa-2x"></i>
+        </a>
+        <a href="#" class="pbg-button" id="like-btn">
+          <i class="fas fa-heart fa-1x"></i>
+        </a>
+        <a href="#" class="pbg-button" id="share-btn"
+          ><i class="fas fa-share fa-1x"></i>
+        </a>
+        <a href="#" class="pbg-button" id="close-btn">
+          <i class="fas fa-times fa-3x"></i>
+        </a>
+      </div>
+
+      <article id="pbg-showcase">
+        <a href="#" class="pbg-button" id="prev-pbg-btn"
+          ><i class="fas fa-chevron-left fa-2x"></i
+        ></a>
+        <div class="menu-img">
+          <img src="./img/menu/MIXED SALAD.jpg" alt="Image of The Pub Menu" />
+        </div>
+        <a href="#" class="pbg-button" id="next-pbg-btn"
+          ><i class="fas fa-chevron-right fa-2x"></i
+        ></a>
+      </article>
+      <aside id="pbg-details">
+        <!-- <div class="menu-content"> -->
+        <h1>I'm an image title</h1>
+        <p>
+          Describe your image here. Click me and then “Organize Images” to
+          change my text.
+        </p>
+        <!-- </div> -->
+      </aside>
     </div>
     <script src="./js/main.js"></script>
   </body>
