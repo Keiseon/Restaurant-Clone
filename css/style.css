@@ -1910,7 +1910,7 @@ input {
 
 /* Utilities */
 #showcase-wrapper {
-  width: 90%;
+  width: 95%;
   height: 100vh;
   margin: 0 auto;
   display: grid;
@@ -1919,27 +1919,27 @@ input {
   grid-template-areas:
     "links links"
     "showcase details";
+  /* position: relative; */
+  color: #eee;
 }
 
 #pbg-links {
   grid-area: links;
   display: grid;
-  grid-template-columns: 0.4fr 0.3fr 0.5fr 4.9fr;
-  /* grid-template-rows: minmax(1em auto); */
-  color: #eee;
-  /* height: 1vh; */
+  grid-template-columns: 0.5fr 0.25fr 0.5fr 4.9fr; /*0.4fr 0.3fr 0.5fr 4.9fr;*/
   margin: 0% 0% 1em 0%;
-
-  /* justify-self: center; */
 }
 /* Showcase button defaults*/
 .pbg-button {
-  background-color: #999898;
-  color: #000;
-  padding: 1em;
+  color: #eee;
+  padding-top: 2em;
   justify-self: end;
-  align-self: center;
+  align-self: start;
   display: block;
+}
+.pbg-button:hover {
+  color: #cfa125;
+  transition: color 1s;
 }
 #compress-btn {
   display: none;
@@ -1948,40 +1948,49 @@ input {
 #like-btn,
 #share-btn {
   justify-self: start;
-  /* margin-top: 2em; */
-  /* margin-bottom: 1em; */
+}
+#like-btn,
+#share-btn {
+  margin-top: 0.7em;
 }
 #close-btn {
   justify-self: end;
-  /* margin-top: 2em; */
-  /* margin-bottom: 1em; */
 }
 
 #pbg-showcase {
   grid-area: showcase;
-  background-color: #fff;
-  color: #000;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  margin-top: -5em;
 }
 #prev-pbg-btn {
   justify-self: start;
+  align-self: center;
   grid-column: 1/2;
   margin: 1em;
 }
 #next-pbg-btn {
   justify-self: end;
+  align-self: center;
   grid-column: 3/4;
   margin: 1em;
 }
-#pbg-showcase .menu-img {
-  /* justify-self: center;
-  align-self: center;
-  width: 100%;
-  height: 100%; */
+#pbg-showcase .menu-img-wrapper {
   grid-column: 2/3;
-  /* background: no-repeat center; */
-  background-color: #ead9a4;
+  position: relative;
+  max-width: 560px;
+  max-height: 360px;
+  margin: 3em 0em 0em 0.3em;
+}
+
+.menu-img-wrapper #menu-img {
+  position: absolute;
+  background: no-repeat center;
+  /* max-width: 232px;
+  max-height: 232px; */
+  width: 100%;
+  height: 100%;
+  padding: 1em;
 }
 /* #pbg-showcase .menu-img:first-child{
   background: url("../img/menu/NACHOS.jpg") no-repeat center;
@@ -1990,10 +1999,9 @@ input {
 
 #pbg-details {
   grid-area: details;
-  background-color: #bf9515;
-  color: #000;
-  padding: 7em 4em;
-  /* text-align: center; */
+  padding: 6em 4em; /*was 7em 4em;*/
+  font-size: 1.2rem;
+  /* margin-top: -5em; */
 }
 
 #pbg-details h1 {
