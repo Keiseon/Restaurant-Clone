@@ -1085,6 +1085,11 @@ section .caption a:hover {
     display: none;
     transition: display ease-in 3s;
   }
+
+  .show {
+    display: all;
+    transition: display ease-in 3s;
+  }
 }
 
 /******************* Menu page End...**************** */
@@ -1956,9 +1961,10 @@ input {
   transition: color 1s;
 }
 #compress-btn {
-  display: none;
+  /* display: none; */
 }
 #expand-btn,
+#compress-btn,
 #like-btn,
 #share-btn {
   justify-self: start;
@@ -2006,10 +2012,53 @@ input {
   height: 100%;
   padding: 1em;
 }
-/* #pbg-showcase .menu-img:first-child{
-  background: url("../img/menu/NACHOS.jpg") no-repeat center;
-  background-size: cover;
-} */
+
+/* Utility Class */
+.maxOutImgWrapper {
+  margin: 0em 0em 0em 0em;
+  grid-column: 2/3;
+  width: 80vw;
+  height: 90vh;
+  /* transition: all 3s ease-in; */
+}
+.maxShowcase {
+  width: 95%;
+  height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: minmax(9.6em auto);
+  grid-template-areas:
+    "links links"
+    "showcase showcase";
+}
+
+.imgAdjustment {
+  width: 820px;
+  height: 1220px;
+  padding: 0%;
+  margin: 0%;
+}
+
+.hideLink {
+  display: none;
+  /* visibility: hidden; */
+  /* transition: display ease-in 3s; */
+}
+
+.visible {
+  visibility: visible;
+  /* transition: visibility ease-in 3s; */
+}
+.invisible {
+  visibility: hidden;
+  /* transition: visibility ease-in 3s; */
+}
+
+.showlink {
+  display: all;
+  transition: display ease-in 3s;
+}
 
 #pbg-details {
   grid-area: details;
