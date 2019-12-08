@@ -1934,14 +1934,13 @@ input {
   grid-template-areas:
     "links links"
     "showcase details";
-  /* position: relative; */
   color: #eee;
 }
 
 #pbg-links {
   grid-area: links;
   display: grid;
-  grid-template-columns: 0.5fr 0.25fr 0.5fr 4.9fr; /*0.4fr 0.3fr 0.5fr 4.9fr;*/
+  grid-template-columns: 0.5fr 0.25fr 0.5fr 4.9fr;
   margin: 0% 0% 1em 0%;
 }
 /* Showcase button defaults*/
@@ -1976,7 +1975,7 @@ input {
   grid-area: showcase;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  margin-top: -5em;
+  margin-top: -2em;
 }
 #prev-pbg-btn {
   justify-self: start;
@@ -2026,7 +2025,7 @@ input {
 
 #pbg-showcase,
 #pbg-details {
-  margin-bottom: 3em;
+  margin-bottom: 4em;
 }
 
 /******************* Gallery Showcase End...**************** */

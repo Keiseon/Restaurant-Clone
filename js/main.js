@@ -1,3 +1,4 @@
+// ----------- METHOD SCOPE START--------- GIVE METHODS SCOPE HERE
 // %%%%%%%%%%%    PUB Map Start %%%%%%%%%%%%
 const pubMapCtrl = () => {
   // Using the Google Map without that Api key thing lol
@@ -59,6 +60,49 @@ const checkBoxReset = () => {
 };
 
 // %%%%%%%%%%%%     Hamburger menu Code end   %%%%%%%%%%%%%
+
+// %%%%%%%%%%%%     Button-Spin Code start   %%%%%%%%%%%%%
+
+const buttonSpin = () => {
+  // Add event Listeners for the buttons
+  const expandBtn = document
+    .querySelector(".fa-expand")
+    .addEventListener("mouseover", () => {
+      const theLink = document.querySelector(".fa-expand");
+      theLink.classList.add("fa-spin");
+      // reset the Button after a short delay
+      setTimeout(function() {
+        theLink.classList.remove("fa-spin");
+      }, 500);
+    });
+  const compressBtn = document
+    .querySelector(".fa-compress")
+    .addEventListener("mouseover", () => {
+      const theLink = document.querySelector(".fa-compress");
+      theLink.classList.add("fa-spin");
+      // reset the Button after a short delay
+      setTimeout(function() {
+        theLink.classList.remove("fa-spin");
+      }, 500);
+    });
+  const closeBtn = document
+    .querySelector(".fa-times")
+    .addEventListener("mouseover", () => {
+      const theLink = document.querySelector(".fa-times");
+      theLink.classList.add("fa-spin");
+      // reset the Button after a short delay
+      setTimeout(function() {
+        theLink.classList.remove("fa-spin");
+      }, 500);
+    });
+};
+// %%%%%%%%%%%%     Button-Spin Code end   %%%%%%%%%%%%%
+
+// %%%%%%%%  Populate-Gallery-Showcase Code Start %%%%%%%%
+
+// %%%%%%%%  Populate-Gallery-Showcase Code end %%%%%%%%
+
+// ----------- METHOD SCOPE END---------
 
 // @@@@@@@@@@    Site Loader Control Start @@@@@@@@@@@@@
 var sPath = window.location.pathname;
@@ -200,6 +244,7 @@ if (sPage == "index.html") {
   // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
 } else if (sPage == "Pub.html") {
+  buttonSpin();
 }
 
 //@@@@@@@@@@@@   Site Loader Control End @@@@@@@@@@@@
