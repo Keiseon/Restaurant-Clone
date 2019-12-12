@@ -23,47 +23,59 @@
   </head>
   <body>
     <div id="showcase-wrapper">
+      <a href="#" class="pbg-button catchit" id="expand-btn">
+        <i class="fas fa-expand fa-2x"></i>
+      </a>
+      <a href="#" class="pbg-button hideLink" id="compress-btn">
+        <i class="fas fa-compress fa-2x"></i>
+      </a>
       <div id="pbg-links">
-        <a href="#" class="pbg-button catchit" id="expand-btn">
-          <i class="fas fa-expand fa-2x"></i>
-        </a>
-        <a href="#" class="pbg-button hideLink" id="compress-btn">
-          <i class="fas fa-compress fa-2x"></i>
-        </a>
         <a href="#" class="pbg-button" id="like-btn">
           <i class="fas fa-heart fa-1x"></i>
         </a>
         <a href="#" class="pbg-button" id="share-btn"
           ><i class="fas fa-share fa-1x"></i>
         </a>
-        <a href="./gallery.html" class="pbg-button" id="close-btn">
-          <i class="fas fa-times fa-3x"></i>
-        </a>
       </div>
+      <a href="./gallery.html" class="pbg-button" id="close-btn">
+        <i class="fas fa-times fa-3x"></i>
+      </a>
 
       <article id="pbg-showcase">
         <a href="#" class="pbg-button" id="prev-pbg-btn"
           ><i class="fas fa-chevron-left fa-2x"></i
         ></a>
-        <div class="menu-img-wrapper">
-          <img
-            id="menu-img"
-            src="./img/menu/MIXED SALAD.jpg"
-            alt="Image of The Pub Menu"
-          />
-        </div>
+
+        <!-- 
+          srcset="
+            elva-fairy-320w.jpg 320w,
+            elva-fairy-480w.jpg 480w,
+            elva-fairy-800w.jpg 800w
+          " -->
+        <img
+          id="menu-img"
+          srcset="
+            ./img/menu/POTATO WEDGES.jpg 320w,
+            ./img/menu/PIZZA MARGARITA.jpg 480w,
+            ./img/menu/MIXED SALAD.jpg 800w
+          "
+          sizes="(max-width: 320px) 280px,
+                    (max-width: 480px) 440px,
+                    800px"
+          src="./img/menu/MIXED SALAD.jpg"
+          alt="Image of The Pub Menu"
+        />
+
         <a href="#" class="pbg-button" id="next-pbg-btn"
           ><i class="fas fa-chevron-right fa-2x"></i
         ></a>
       </article>
       <aside id="pbg-details">
-        <!-- <div class="menu-content"> -->
         <h1>I'm an image title</h1>
         <p>
           Describe your image here. Click me and then “Organize Images” to
           change my text.
         </p>
-        <!-- </div> -->
       </aside>
     </div>
     <script src="./js/main.js"></script>
