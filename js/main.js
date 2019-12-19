@@ -110,14 +110,14 @@ const populateGallery = () => {
 
 // %%%%%%%%  Maximize-Gallery-Showcase start %%%%%%%%
 const maximizeG = () => {
-  const maxShowcase = document.querySelector("#showcase-wrapper");
-  const pbgShowcase = document.querySelector("#pbg-showcase");
+  const maxShowcase = document.querySelector(".showcase-wrapper");
+  const pbgLinks = document.querySelector(".pbg-links");
   const maximBtn = document.querySelector("#expand-btn");
   const compressBtn = document.querySelector("#compress-btn");
-  const likeBtn = document.querySelector("#like-btn");
+  // const likeBtn = document.querySelector("#like-btn");
   const shareBtn = document.querySelector("#share-btn");
-  const pbgDetails = document.querySelector("#pbg-details");
-  const menuImgWrapper = document.querySelector(".menu-img-wrapper");
+  const pbgDetails = document.querySelector(".pbg-details");
+  // const menuImgWrapper = document.querySelector(".menu-img-wrapper");
 
   maximBtn.addEventListener("click", e => {
     maxOutImgWrapper();
@@ -128,26 +128,22 @@ const maximizeG = () => {
   });
 
   const maxOutImgWrapper = () => {
+    pbgLinks.classList.add("invisible");
     maxShowcase.classList.add("maxShowcase");
-    pbgShowcase.classList.add("maxOutImgWrapper");
     pbgDetails.classList.add("hideLink");
-    shareBtn.classList.add("invisible");
-    likeBtn.classList.add("invisible");
     maximBtn.classList.add("hideLink");
     compressBtn.classList.remove("hideLink");
-    compressBtn.classList.add("showlink");
-    menuImgWrapper.classList.add("imgAdjustment");
+    // compressBtn.classList.add("showLink");
+    // menuImgWrapper.classList.add("imgAdjustment");
   };
   const minImgWrapper = () => {
+    pbgLinks.classList.remove("invisible");
     maxShowcase.classList.remove("maxShowcase");
-    pbgShowcase.classList.remove("maxOutImgWrapper");
     pbgDetails.classList.remove("hideLink");
-    shareBtn.classList.remove("invisible");
-    likeBtn.classList.remove("invisible");
-    maximBtn.classList.remove("hideLink");
-    compressBtn.classList.remove("showlink");
+    // compressBtn.classList.remove("showLink");
     compressBtn.classList.add("hideLink");
-    menuImgWrapper.classList.remove("imgAdjustment");
+    maximBtn.classList.remove("hideLink");
+    // menuImgWrapper.classList.remove("imgAdjustment");
   };
 };
 // %%%%%%%%  Maximize-Gallery-Showcase end %%%%%%%%
