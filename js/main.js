@@ -98,6 +98,51 @@ const buttonSpin = () => {
 };
 // %%%%%%%%%%%%     Button-Spin Code end   %%%%%%%%%%%%%
 
+// %%%%%%%%%%%%     Fullscreen Code Start   %%%%%%%%%%%%%
+
+// %%%%%%% Go into Fullscreen %%%%%%
+// function GoInFullscreen(element) {
+//   if(element.requestFullscreen)
+//     element.requestFullscreen();
+//   else if(element.mozRequestFullScreen)
+//     element.mozRequestFullScreen();
+//   else if(element.webkitRequestFullscreen)
+//     element.webkitRequestFullscreen();
+//   else if(element.msRequestFullscreen)
+//     element.msRequestFullscreen();
+// }
+
+// %%%%%%%  Exiting Full-Screen   %%%%%%
+// function GoOutFullscreen() {
+// 	if(document.exitFullscreen)
+// 		document.exitFullscreen();
+// 	else if(document.mozCancelFullScreen)
+// 		document.mozCancelFullScreen();
+// 	else if(document.webkitExitFullscreen)
+// 		document.webkitExitFullscreen();
+// 	else if(document.msExitFullscreen)
+// 		document.msExitFullscreen();
+// }
+
+// %%%%  Returns the DOM Node of the element which is in full-screen
+// %%%%%   Returns null if no element in full-screen
+// function CurrentFullScreenElement() {
+// 	return (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null);
+// }
+
+// Check For Fullscreen mode
+// function IsFullScreenCurrently() {
+// 	var full_screen_element = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
+
+// 	// If no element is in full-screen
+// 	if(full_screen_element === null)
+// 		return false;
+// 	else
+// 		return true;
+// }
+
+// %%%%%%%%%%%%     Fullscreen Code end   %%%%%%%%%%%%%
+
 // %%%%%%%%  Populate-Gallery-Showcase Code Start %%%%%%%%
 const populateGallery = () => {
   const arrayContainer = document.querySelectorAll(".gallery-item-container");
@@ -117,7 +162,7 @@ const maximizeG = () => {
   // const likeBtn = document.querySelector("#like-btn");
   const shareBtn = document.querySelector("#share-btn");
   const pbgDetails = document.querySelector(".pbg-details");
-  // const menuImgWrapper = document.querySelector(".menu-img-wrapper");
+  const menuImgWrapper = document.querySelector(".menu-img");
 
   maximBtn.addEventListener("click", e => {
     maxOutImgWrapper();
@@ -134,7 +179,7 @@ const maximizeG = () => {
     maximBtn.classList.add("hideLink");
     compressBtn.classList.remove("hideLink");
     // compressBtn.classList.add("showLink");
-    // menuImgWrapper.classList.add("imgAdjustment");
+    menuImgWrapper.classList.add("imgAdjustment");
   };
   const minImgWrapper = () => {
     pbgLinks.classList.remove("invisible");
@@ -143,7 +188,7 @@ const maximizeG = () => {
     // compressBtn.classList.remove("showLink");
     compressBtn.classList.add("hideLink");
     maximBtn.classList.remove("hideLink");
-    // menuImgWrapper.classList.remove("imgAdjustment");
+    menuImgWrapper.classList.remove("imgAdjustment");
   };
 };
 // %%%%%%%%  Maximize-Gallery-Showcase end %%%%%%%%

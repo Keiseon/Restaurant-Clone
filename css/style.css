@@ -2074,6 +2074,8 @@ input {
 }
 
 .imgAdjustment {
+  height: -webkit-fill-available;
+  width: unset;
   /* width: 820px;
   height: 1220px;
   padding: 0%;
