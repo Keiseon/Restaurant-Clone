@@ -98,51 +98,6 @@ const buttonSpin = () => {
 };
 // %%%%%%%%%%%%     Button-Spin Code end   %%%%%%%%%%%%%
 
-// %%%%%%%%%%%%     Fullscreen Code Start   %%%%%%%%%%%%%
-
-// %%%%%%% Go into Fullscreen %%%%%%
-// function GoInFullscreen(element) {
-//   if(element.requestFullscreen)
-//     element.requestFullscreen();
-//   else if(element.mozRequestFullScreen)
-//     element.mozRequestFullScreen();
-//   else if(element.webkitRequestFullscreen)
-//     element.webkitRequestFullscreen();
-//   else if(element.msRequestFullscreen)
-//     element.msRequestFullscreen();
-// }
-
-// %%%%%%%  Exiting Full-Screen   %%%%%%
-// function GoOutFullscreen() {
-// 	if(document.exitFullscreen)
-// 		document.exitFullscreen();
-// 	else if(document.mozCancelFullScreen)
-// 		document.mozCancelFullScreen();
-// 	else if(document.webkitExitFullscreen)
-// 		document.webkitExitFullscreen();
-// 	else if(document.msExitFullscreen)
-// 		document.msExitFullscreen();
-// }
-
-// %%%%  Returns the DOM Node of the element which is in full-screen
-// %%%%%   Returns null if no element in full-screen
-// function CurrentFullScreenElement() {
-// 	return (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null);
-// }
-
-// Check For Fullscreen mode
-// function IsFullScreenCurrently() {
-// 	var full_screen_element = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
-
-// 	// If no element is in full-screen
-// 	if(full_screen_element === null)
-// 		return false;
-// 	else
-// 		return true;
-// }
-
-// %%%%%%%%%%%%     Fullscreen Code end   %%%%%%%%%%%%%
-
 // %%%%%%%%  Populate-Gallery-Showcase Code Start %%%%%%%%
 const populateGallery = () => {
   const arrayContainer = document.querySelectorAll(".gallery-item-container");
@@ -166,10 +121,24 @@ const maximizeG = () => {
 
   maximBtn.addEventListener("click", e => {
     maxOutImgWrapper();
+
+    if (IsFullScreenCurrently()) {
+      console.log("fullscreen === Yes (Expand btn)");
+    } else {
+      console.log("fullscreen === No (Expand btn)");
+      GoInFullscreen(maxShowcase);
+    }
   });
 
   compressBtn.addEventListener("click", e => {
     minImgWrapper();
+
+    if (IsFullScreenCurrently()) {
+      console.log("fullscreen === Yes (Compress btn)");
+      GoOutFullscreen();
+    } else {
+      console.log("fullscreen === No (Compress btn)");
+    }
   });
 
   const maxOutImgWrapper = () => {
@@ -190,6 +159,46 @@ const maximizeG = () => {
     maximBtn.classList.remove("hideLink");
     menuImgWrapper.classList.remove("imgAdjustment");
   };
+
+  // %%%%%%%%%%%%     Fullscreen Code Start   %%%%%%%%%%%%%
+
+  // %%%%%%% Go into Fullscreen %%%%%%
+  function GoInFullscreen(element) {
+    if (element.requestFullscreen) element.requestFullscreen();
+    else if (element.mozRequestFullScreen) element.mozRequestFullScreen();
+    else if (element.webkitRequestFullscreen) element.webkitRequestFullscreen();
+    else if (element.msRequestFullscreen) element.msRequestFullscreen();
+  }
+
+  // %%%%%%%  Exiting Full-Screen   %%%%%%
+  function GoOutFullscreen() {
+    if (document.exitFullscreen) document.exitFullscreen();
+    else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    else if (document.msExitFullscreen) document.msExitFullscreen();
+  }
+
+  // %%%%  Returns the DOM Node of the element which is in full-screen
+  // %%%%%   Returns null if no element in full-screen
+  // function CurrentFullScreenElement() {
+  // 	return (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null);
+  // }
+
+  // Check For Fullscreen mode
+  function IsFullScreenCurrently() {
+    var full_screen_element =
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement ||
+      document.msFullscreenElement ||
+      null;
+
+    // If no element is in full-screen
+    if (full_screen_element === null) return false;
+    else return true;
+  }
+
+  // %%%%%%%%%%%%     Fullscreen Code end   %%%%%%%%%%%%%
 };
 // %%%%%%%%  Maximize-Gallery-Showcase end %%%%%%%%
 
