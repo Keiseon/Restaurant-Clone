@@ -114,7 +114,6 @@ const maximizeG = () => {
   const pbgLinks = document.querySelector(".pbg-links");
   const maximBtn = document.querySelector("#expand-btn");
   const compressBtn = document.querySelector("#compress-btn");
-  // const likeBtn = document.querySelector("#like-btn");
   const shareBtn = document.querySelector("#share-btn");
   const pbgDetails = document.querySelector(".pbg-details");
   const menuImgWrapper = document.querySelector(".menu-img");
@@ -122,10 +121,7 @@ const maximizeG = () => {
   maximBtn.addEventListener("click", e => {
     maxOutImgWrapper();
 
-    if (IsFullScreenCurrently()) {
-      console.log("fullscreen === Yes (Expand btn)");
-    } else {
-      console.log("fullscreen === No (Expand btn)");
+    if (!IsFullScreenCurrently()) {
       GoInFullscreen(maxShowcase);
     }
   });
@@ -134,10 +130,7 @@ const maximizeG = () => {
     minImgWrapper();
 
     if (IsFullScreenCurrently()) {
-      console.log("fullscreen === Yes (Compress btn)");
       GoOutFullscreen();
-    } else {
-      console.log("fullscreen === No (Compress btn)");
     }
   });
 
@@ -147,14 +140,12 @@ const maximizeG = () => {
     pbgDetails.classList.add("hideLink");
     maximBtn.classList.add("hideLink");
     compressBtn.classList.remove("hideLink");
-    // compressBtn.classList.add("showLink");
     menuImgWrapper.classList.add("imgAdjustment");
   };
   const minImgWrapper = () => {
     pbgLinks.classList.remove("invisible");
     maxShowcase.classList.remove("maxShowcase");
     pbgDetails.classList.remove("hideLink");
-    // compressBtn.classList.remove("showLink");
     compressBtn.classList.add("hideLink");
     maximBtn.classList.remove("hideLink");
     menuImgWrapper.classList.remove("imgAdjustment");
