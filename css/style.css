@@ -1993,6 +1993,7 @@ input {
 }
 #close-btn {
   grid-area: close-btn;
+  margin-right: 2em;
 }
 
 .pbg-showcase {
@@ -2034,15 +2035,9 @@ input {
 }
 
 /* Utility Class */
-.maxOutImgWrapper {
-  /* margin: 0em 0em 0em 0em;
-  grid-column: 2/3;
-  width: 80vw;
-  height: 90vh; */
-  /* transition: all 3s ease-in; */
-}
+
 .maxShowcase {
-  grid-template-columns: 4.3% 90.8% 1.4% 3.5%; /* top row is 55px in width old:4.3% 1160px 18px 3.5% */
+  grid-template-columns: 4.3% 90.8% 1.4% 3.5%;
   grid-template-areas:
     "compress-btn pbg-links pbg-links close-btn"
     "compress-btn pbg-showcase pbg-showcase close-btn";
@@ -2085,13 +2080,57 @@ input {
   /* margin-bottom: 4em; */
 }
 
-/******************* Gallery Showcase: Media Queries Start...**************** */
+/*********** Gallery Showcase: Media Queries Start...***** */
 @media screen and (max-width: 1095px) {
-  .pbg-showcase {
-    display: none;
+  .showcase-wrapper {
+    grid-template-columns: 5.3% 88% 6.3%;
+    grid-auto-rows: minmax(1.6em auto);
+    grid-template-areas:
+      "expand-btn pbg-links close-btn"
+      "expand-btn pbg-showcase close-btn"
+      "expand-btn pbg-details close-btn";
+  }
+
+  .pbg-details {
+    justify-self: center;
+    align-self: center;
+    text-align: center;
   }
 }
-/******************* Gallery Showcase: Media Queries End...**************** */
+
+@media screen and (max-width: 618px) {
+  .showcase-wrapper {
+    grid-template-columns: 5.3% 80% 3.3%;
+  }
+
+  .pbg-details {
+    padding: 0.2em 1em 2em 2.5em;
+  }
+
+  img.menu-img {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 518px) {
+  img.menu-img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 388px) {
+  img.menu-img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .pbg-details {
+    font-size: 1.1rem;
+  }
+}
+
+/********* Gallery Showcase: Media Queries End...******** */
 
 /******************* Gallery Showcase End...**************** */
 
