@@ -193,6 +193,18 @@ const maximizeG = () => {
 };
 // %%%%%%%%  Maximize-Gallery-Showcase end %%%%%%%%
 
+// ^^^^^^^^^  Grab-Gallery-Showcase-Image start ^^^^^^^^^
+
+// Take the image clicked on in the gallery page and put that imagein the "Pub.html" page
+
+// ^^^^^^^^^  Grab-Gallery-Showcase-Image end ^^^^^^^^^
+
+// ^^^^^^^^^  Select-Gallery-Showcase-Image start ^^^^^^^^^
+
+// Use the "prev" and "next" btns to select and populate the "Pub.html" with images from the "gallery.html"
+
+// ^^^^^^^^^  Select-Gallery-Showcase-Image end ^^^^^^^^^
+
 // ----------- METHOD SCOPE END---------
 
 // @@@@@@@@@@    Site Loader Control Start @@@@@@@@@@@@@
