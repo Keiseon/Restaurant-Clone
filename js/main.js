@@ -1,4 +1,4 @@
-// ----------- METHOD SCOPE START--------- GIVE METHODS SCOPE HERE
+// --------- METHOD SCOPE START------- GIVE METHODS SCOPE HERE
 // %%%%%%%%%%%    PUB Map Start %%%%%%%%%%%%
 const pubMapCtrl = () => {
   // Using the Google Map without that Api key thing lol
@@ -195,7 +195,34 @@ const maximizeG = () => {
 
 // ^^^^^^^^^  Grab-Gallery-Showcase-Image start ^^^^^^^^^
 
-// Take the image clicked on in the gallery page and put that imagein the "Pub.html" page
+// Take the image clicked on in the gallery page and put that image in the "Pub.html" page
+let img_Src = "grab_GSI() lol img_Src ???";
+let img_H1 = "grab_GSI() lol img_H1 ???";
+let img_P = "grab_GSI() lol img_P ???";
+let img_Like = "grab_GSI() lol img_Like ???";
+let img_Share = "grab_GSI() lol img_Share ???";
+
+const grab_GSI = () => {
+  //grab the whole container
+  // const arrayContainer = document.querySelectorAll(".gallery-item-container");
+  // for (let i = 0; i < arrayContainer.length; i++) {
+  //   console.log(arrayContainer[i].childNodes[i + 1]);
+  // }
+
+  const imgNode = document
+    .querySelector(".menu-Img")
+    .addEventListener("mouseover", () => {
+      const theLink = document.querySelector(".fa-tibmes");
+      theLink.classList.add("fa-spbin");
+      // reset the Button after a short delay
+      setTimeout(function() {
+        theLink.classList.remove("fa-snpin");
+      }, 500);
+    });
+
+  console.log(img_Src);
+  console.log(img_H1);
+};
 
 // ^^^^^^^^^  Grab-Gallery-Showcase-Image end ^^^^^^^^^
 
@@ -332,6 +359,9 @@ if (sPage == "index.html") {
   checkBoxReset();
   // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
+
+  // grab image container
+  grab_GSI();
 } else if (sPage == "menu.html") {
   // Set the Map
   pubMapCtrl();
@@ -348,6 +378,11 @@ if (sPage == "index.html") {
   toggleMenu();
 } else if (sPage == "Pub.html") {
   // Show in Fullscreen Mode
+  console.log(img_Src);
+  console.log(img_H1);
+  console.log(img_P);
+  console.log(img_Like);
+  console.log(img_Share);
   maximizeG();
   // Animate Buttons
   buttonSpin();
