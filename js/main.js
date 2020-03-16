@@ -209,19 +209,24 @@ const grab_GSI = () => {
   //   console.log(arrayContainer[i].childNodes[i + 1]);
   // }
 
-  const imgNode = document
-    .querySelector(".menu-Img")
-    .addEventListener("mouseover", () => {
-      const theLink = document.querySelector(".fa-tibmes");
-      theLink.classList.add("fa-spbin");
-      // reset the Button after a short delay
-      setTimeout(function() {
-        theLink.classList.remove("fa-snpin");
-      }, 500);
-    });
+  const imgNode = document.querySelectorAll(".gallery-item-container");
 
-  console.log(img_Src);
-  console.log(img_H1);
+  for (const img in imgNode) {
+    if (imgNode.hasOwnProperty(img)) {
+      const element = imgNode[img].firstElementChild.getAttribute("src");
+      console.log(element);
+    }
+  }
+
+  // .addEventListener("mouseover", () => {
+  //   img_Src = document.querySelector(".menu-Img");
+  //   console.log(img_Src);
+  // reset the img_Src after a short delay
+  //   setTimeout(function() {
+  //     img_Src = "img_Src was reset";
+  //     console.log(img_Src);
+  //   }, 3000);
+  // });
 };
 
 // ^^^^^^^^^  Grab-Gallery-Showcase-Image end ^^^^^^^^^
@@ -377,12 +382,10 @@ if (sPage == "index.html") {
   // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
 } else if (sPage == "Pub.html") {
-  // Show in Fullscreen Mode
+  // Show selected image
+  grab_GSI();
   console.log(img_Src);
-  console.log(img_H1);
-  console.log(img_P);
-  console.log(img_Like);
-  console.log(img_Share);
+  // Show in Fullscreen Mode
   maximizeG();
   // Animate Buttons
   buttonSpin();
