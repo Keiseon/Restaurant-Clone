@@ -196,43 +196,46 @@ const maximizeG = () => {
 // ^^^^^^^^^  Grab-Gallery-Showcase-Image start ^^^^^^^^^
 
 // Take the image clicked on in the gallery page and put that image in the "Pub.html" page
-let img_Src = "grab_GSI() lol img_Src ???";
-let img_H1 = "grab_GSI() lol img_H1 ???";
-let img_P = "grab_GSI() lol img_P ???";
-let img_Like = "grab_GSI() lol img_Like ???";
-let img_Share = "grab_GSI() lol img_Share ???";
-
 const grab_GSI = () => {
-  //grab the whole container
-  // const arrayContainer = document.querySelectorAll(".gallery-item-container");
-  // for (let i = 0; i < arrayContainer.length; i++) {
-  //   console.log(arrayContainer[i].childNodes[i + 1]);
-  // }
+  const lightbox = document.createElement("div");
+  lightbox.id = "lightbox";
+  document.body.appendChild(lightbox);
 
-  const imgNode = document.querySelectorAll(".gallery-item-container");
+  const images = document.querySelectorAll(".text-overlay");
+  images.forEach(image => {
+    image.addEventListener("click", e => {
+      lightbox.classList.add("active");
+      const img = image.previousElementSibling;
+      lightbox.appendChild(img);
+      console.log(image.previousElementSibling);
+    });
+  });
 
-  for (const img in imgNode) {
-    if (imgNode.hasOwnProperty(img)) {
-      const element = imgNode[img].firstElementChild.getAttribute("src");
-      console.log(element);
+  lightbox.addEventListener("click", e => {
+    // click on the image and the lightbox stays open
+    if (e.target !== e.currentTarget) {
+      return;
+    } else {
+      lightbox.classList.remove("active");
+      // lightbox.firstElementChild;
+      location.reload(true);
     }
-  }
-
-  // .addEventListener("mouseover", () => {
-  //   img_Src = document.querySelector(".menu-Img");
-  //   console.log(img_Src);
-  // reset the img_Src after a short delay
-  //   setTimeout(function() {
-  //     img_Src = "img_Src was reset";
-  //     console.log(img_Src);
-  //   }, 3000);
-  // });
+  });
 };
 
 // ^^^^^^^^^  Grab-Gallery-Showcase-Image end ^^^^^^^^^
 
 // ^^^^^^^^^  Select-Gallery-Showcase-Image start ^^^^^^^^^
+const getImageData = () => {
+  let localData = "?";
 
+  localData = JSON.parse(localStorage.getItem("h1"));
+
+  console.log(localData);
+  // console.log(localStorage.getItem("h1"));
+
+  // localStorage.clear();
+};
 // Use the "prev" and "next" btns to select and populate the "Pub.html" with images from the "gallery.html"
 
 // ^^^^^^^^^  Select-Gallery-Showcase-Image end ^^^^^^^^^
@@ -364,7 +367,6 @@ if (sPage == "index.html") {
   checkBoxReset();
   // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
-
   // grab image container
   grab_GSI();
 } else if (sPage == "menu.html") {
@@ -382,9 +384,6 @@ if (sPage == "index.html") {
   // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
 } else if (sPage == "Pub.html") {
-  // Show selected image
-  grab_GSI();
-  console.log(img_Src);
   // Show in Fullscreen Mode
   maximizeG();
   // Animate Buttons
