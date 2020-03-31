@@ -1812,7 +1812,104 @@ input {
   text-align: center;
 }
 
-#lightbox {
+/* lightbox start */
+.lightbox {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox .lightbox-img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 500px;
+  padding: 40px 0px;
+  cursor: pointer;
+  animation: lightbImage 0.5s ease;
+}
+
+@keyframes lightbImage {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.lightbox .lightbox-content {
+  position: relative;
+}
+
+.lightbox .lightbox-close {
+  position: absolute;
+  z-index: 101;
+  right: 0px;
+  height: 40px;
+  width: 40px;
+  top: 0px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 25px;
+  cursor: zoom-out;
+}
+
+.lightbox .lightbox-caption {
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  z-index: -1;
+}
+
+.lightbox .lightbox-controls div {
+  position: absolute;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 42px;
+  font-size: 35px;
+  font-weight: 400;
+  margin-top: -20px;
+  background-color: #ccc;
+  color: #000000;
+  cursor: pointer;
+  border-radius: 50%;
+  font-family: "Forum", cursive;
+  transition: all 0.5s ease;
+}
+
+.lightbox .lightbox-controls div:hover {
+  background-color: #bf9515;
+}
+
+.lightbox .lightbox-controls div.prev {
+  left: 30px;
+}
+
+.lightbox .lightbox-controls div.next {
+  right: 30px;
+}
+
+/* #lightbox {
   position: fixed;
   z-index: 1000;
   top: 0%;
@@ -1826,7 +1923,9 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
+
+/* lightbox end */
 
 /* ====================     MEDIA QUERIES (Gallery PAGE)
    1230 pixel aka 76.9em  fix 

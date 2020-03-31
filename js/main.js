@@ -193,52 +193,96 @@ const maximizeG = () => {
 };
 // %%%%%%%%  Maximize-Gallery-Showcase end %%%%%%%%
 
-// ^^^^^^^^^  Grab-Gallery-Showcase-Image start ^^^^^^^^^
+// ^^^^^^^^^  Lightbox start ^^^^^^^^^
+const lightboxCtrl = () => {
+  // hold the lightbox container
+  const lightboxContainer = document.querySelector(".lightbox");
+  // hold the image src and alt
+  const lightboxImage = document.querySelector(".lightbox-img");
+  // get the counter
+  const counter = document.querySelector(".lightbox-counter");
+  // grab the image title
+  const lightboxText = document.querySelector(".lightbox-text");
+  // grab the collection of image containers
+  const portfolioItems = document.querySelector(".gallery-wrapper").children;
+  // add next and prev buttons
+  const next = document.querySelector(".next");
+  const prev = document.querySelector(".prev");
 
-// Take the image clicked on in the gallery page and put that image in the "Pub.html" page
-const grab_GSI = () => {
-  const lightbox = document.createElement("div");
-  lightbox.id = "lightbox";
-  document.body.appendChild(lightbox);
+  let index;
+  let imgSrc;
+  let imgAlt;
+  let imgP;
+  let img_h1;
 
-  const images = document.querySelectorAll(".text-overlay");
-  images.forEach(image => {
-    image.addEventListener("click", e => {
-      lightbox.classList.add("active");
-      const img = image.previousElementSibling;
-      lightbox.appendChild(img);
-      console.log(image.previousElementSibling);
-    });
-  });
-
-  lightbox.addEventListener("click", e => {
-    // click on the image and the lightbox stays open
-    if (e.target !== e.currentTarget) {
-      return;
-    } else {
-      lightbox.classList.remove("active");
-      // lightbox.firstElementChild;
-      location.reload(true);
+  lightboxContainer.addEventListener("click", function(event) {
+    if (
+      event.target !== lightboxImage &&
+      event.target !== next &&
+      event.target !== prev
+    ) {
+      lightbox();
     }
   });
+
+  // access each container index
+  for (let i = 0; i < portfolioItems.length; i++) {
+    portfolioItems[i]
+      .querySelector(".text-overlay")
+      .addEventListener("click", function() {
+        index = i;
+        changeImage();
+        lightbox();
+      });
+  }
+
+  lightboxImage.addEventListener("click", function() {
+    if (index == portfolioItems.length - 1) {
+      index = 0;
+    } else {
+      index++;
+    }
+    changeImage();
+  });
+
+  next.addEventListener("click", function() {
+    if (index == portfolioItems.length - 1) {
+      index = 0;
+    } else {
+      index++;
+    }
+    changeImage();
+  });
+
+  prev.addEventListener("click", function() {
+    if (index == 0) {
+      index = portfolioItems.length - 1;
+    } else {
+      index--;
+    }
+    changeImage();
+  });
+
+  function lightbox() {
+    lightboxContainer.classList.toggle("open");
+  }
+
+  function changeImage() {
+    imgSrc = portfolioItems[index].querySelector("img").getAttribute("src");
+    imgAlt = portfolioItems[index].querySelector("img").getAttribute("alt");
+    imgP = portfolioItems[index].querySelector("p").textContent.trim();
+    img_h1 = portfolioItems[index].querySelector("h1").textContent.trim();
+
+    // console.log(`${imgSrc} --- and --- ${imgAlt} ### ${img_h1} *** ${imgP}`);
+    lightboxImage.src = imgSrc;
+    lightboxImage.alt = imgAlt;
+    lightboxText.innerHTML = portfolioItems[index]
+      .querySelector("h1")
+      .innerHTML.trim();
+    counter.innerHTML = ` ${index + 1} of ${portfolioItems.length}`;
+  }
 };
-
-// ^^^^^^^^^  Grab-Gallery-Showcase-Image end ^^^^^^^^^
-
-// ^^^^^^^^^  Select-Gallery-Showcase-Image start ^^^^^^^^^
-const getImageData = () => {
-  let localData = "?";
-
-  localData = JSON.parse(localStorage.getItem("h1"));
-
-  console.log(localData);
-  // console.log(localStorage.getItem("h1"));
-
-  // localStorage.clear();
-};
-// Use the "prev" and "next" btns to select and populate the "Pub.html" with images from the "gallery.html"
-
-// ^^^^^^^^^  Select-Gallery-Showcase-Image end ^^^^^^^^^
+// ^^^^^^^^^  Lightbox end ^^^^^^^^^
 
 // ----------- METHOD SCOPE END---------
 
@@ -368,7 +412,8 @@ if (sPage == "index.html") {
   // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
   // grab image container
-  grab_GSI();
+  lightboxCtrl();
+  // grab_GSI();
 } else if (sPage == "menu.html") {
   // Set the Map
   pubMapCtrl();
