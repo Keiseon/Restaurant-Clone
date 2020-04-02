@@ -31,19 +31,27 @@ const pubMapCtrl = () => {
 
 // %%%%%%%%%%%%     Hamburger menu Code Start   %%%%%%%%%%%%%
 
-// if checkbox is checked then send the menu-wrap to foreground and the site-container to the background
+// if checkbox is checked then send the menu-wrap to foreground and the site-container and footer (Find-us and copyright) to the background
 const toggleMenu = () => {
   // Grab the menu and the siteContainer to control their z-index
   const menuWrap = document.querySelector(".menu-wrap");
   const siteContainer = document.querySelector(".site-container");
+  // pull the Map
+  const footerMap = document.querySelector("#find-us");
+  // pull the copyright data
+  const footerCopyright = document.querySelector(".copyright");
   // Grab the checkbox value
   const checkBox = document.querySelector("#checkbox");
 
   if (checkBox.checked) {
     siteContainer.style.zIndex = 1; // push to back
+    footerMap.style.zIndex = 0; // push to back
+    footerCopyright.style.zIndex = 0; // push to back
     menuWrap.style.zIndex = 2; // pull to front
   } else {
     siteContainer.style.zIndex = 2; // pull to front
+    footerMap.style.zIndex = 1; // pull to front
+    footerCopyright.style.zIndex = 1; // pull to front
     menuWrap.style.zIndex = 1; // push to back
   }
 
