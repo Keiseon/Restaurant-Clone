@@ -1283,6 +1283,7 @@ ul {
 /* Name the grids */
 #event-data {
   grid-area: event-data;
+  margin-left: 40px;
 }
 
 #karaoke-img {
@@ -1294,7 +1295,7 @@ ul {
 }
 
 #happy-hours {
-  grid-area: happy-hours; /*happy-hour-data*/
+  grid-area: happy-hours;
 }
 
 #happy-hour-event {
@@ -1311,7 +1312,6 @@ ul {
 
 #special-offer-img {
   grid-area: special-offer-img;
-  /* padding-bottom: 4em; */
 }
 
 #special-offer-event {
@@ -1322,16 +1322,15 @@ ul {
 .event-container p {
   font-weight: 400;
   font-size: 0.8rem;
-  /* padding-right: 1em; */
 }
 #event-data h1 {
   font-size: 2.5em;
 }
 #event-data p {
-  /* padding: 1em 0em 1em 0em; */
   font-weight: 400;
-  font-size: 1.4em;
   text-align: left;
+  font-size: 0.9em;
+  width: 640px;
 }
 
 #karaoke-event,
@@ -1433,6 +1432,10 @@ ul {
   #brunch-event,
   #special-offer-event {
     padding: 0em 23%;
+  }
+
+  #event-data {
+    margin-left: 0px;
   }
 }
 /* ====================     MEDIA QUERIES (EVENT PAGE)
