@@ -281,7 +281,21 @@ const lightboxCtrl = () => {
     imgP = portfolioItems[index].querySelector("p").textContent.trim();
     img_h1 = portfolioItems[index].querySelector("h1").textContent.trim();
 
-    // console.log(`${imgSrc} --- and --- ${imgAlt} ### ${img_h1} *** ${imgP}`);
+    let totn_string = imgSrc;
+    totn_string = totn_string.replace(
+      "./img/menu/320-W-x-480-H",
+      "./img/menu/960-W-x-640-H"
+    );
+
+    console.log(
+      totn_string.replace(
+        "./img/menu/320-W-x-480-H",
+        "./img/menu/960-W-x-640-H"
+      ) +
+        "original src " +
+        imgSrc
+    );
+
     lightboxImage.src = imgSrc;
     lightboxImage.alt = imgAlt;
     lightboxText.innerHTML = portfolioItems[index]
