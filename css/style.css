@@ -1746,10 +1746,10 @@ input {
 
 .text-overlay h1 {
   color: black;
-  padding: 1.2em 0.63em 0em 1.9em; /*2.2em 0.63em 0em 1.9em;*/
+  padding-top: 1.2em;
   font-size: 1.2rem;
   font-weight: 300;
-  text-align: left;
+  justify-self: center;
   text-shadow: 0px 0.13em 0.13em #fff;
 }
 
@@ -1789,10 +1789,12 @@ input {
 .text-overlay ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .text-overlay ul li {
-  margin: 0.3em 0.5em 0.5em 0.5em;
+  margin-top: 0.3em;
+  margin-bottom: 0.5em;
+  padding: 0em 2em;
 }
 
 /* .gallery-item-container a:active,
@@ -1937,8 +1939,9 @@ input {
   }
 
   .text-overlay h1 {
-    padding: 0.5em 0.5em 0em 1.7em; /*2.2em 0.63em 0em 1.9em;*/
-    font-size: 1.2rem;
+    padding-top: 0.5em;
+    font-size: 1rem;
+    /* font-weight: 600; */
   }
 
   .text-overlay p {
@@ -1967,8 +1970,9 @@ input {
   }
 
   .text-overlay h1 {
-    padding: 0.2em 0.5em 0em 1.7em; /*2.2em 0.63em 0em 1.9em;*/
+    padding-top: 0.2em;
     font-size: 0.9rem;
+    /* font-weight: 600; */
   }
 
   .text-overlay p {
@@ -1998,10 +2002,9 @@ input {
     transition: all 1s ease-in-out;
   }
   .text-overlay h1 {
-    padding: 2em 0.2em 0.5em 0.4em;
+    padding-top: 2em;
     font-size: 0.8rem;
-    text-align: center;
-    background-color: deeppink;
+    /* font-weight: 600; */
   }
 
   .text-overlay p {
@@ -2013,13 +2016,10 @@ input {
     justify-content: space-around;
   }
   .text-overlay ul li {
-    margin: 0.8em 0.5em 0.5em 0.5em;
+    margin-top: 0.8em;
+    margin-bottom: 0.5em;
+    padding: 0em 2em;
   }
-
-  /* #heart-icon {
-    text-align: left;
-    padding-right: 2.6em;
-  } */
 }
 
 /* ====================     MEDIA QUERIES (Gallery PAGE)
@@ -2041,10 +2041,9 @@ input {
     transition: all 1s ease-in-out;
   }
   .text-overlay h1 {
-    padding: 2em 0.2em 0.5em 0.4em;
+    padding-top: 2em;
     font-size: 0.8rem;
-    text-align: center;
-    background-color: deeppink;
+    /* font-weight: 600; */
   }
 
   .text-overlay p {
@@ -2056,7 +2055,9 @@ input {
     justify-content: space-around;
   }
   .text-overlay ul li {
-    margin: 0.8em 0.5em 0.5em 0.5em;
+    margin-top: 0.8em;
+    margin-bottom: 0.5em;
+    /* padding: 0em 2em; */
   }
 }
 /******************* Gallery stuff End...**************** */
@@ -2184,6 +2185,7 @@ input {
   grid-area: pbg-details;
   padding: 3em 2em 2em 1em;
   font-size: 1.2rem;
+  width: 360px;
 }
 
 .pbg-details h1 {

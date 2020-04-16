@@ -79,7 +79,7 @@ const buttonSpin = () => {
       const theLink = document.querySelector(".fa-expand");
       theLink.classList.add("fa-spin");
       // reset the Button after a short delay
-      setTimeout(function() {
+      setTimeout(function () {
         theLink.classList.remove("fa-spin");
       }, 500);
     });
@@ -89,7 +89,7 @@ const buttonSpin = () => {
       const theLink = document.querySelector(".fa-compress");
       theLink.classList.add("fa-spin");
       // reset the Button after a short delay
-      setTimeout(function() {
+      setTimeout(function () {
         theLink.classList.remove("fa-spin");
       }, 500);
     });
@@ -99,7 +99,7 @@ const buttonSpin = () => {
       const theLink = document.querySelector(".fa-times");
       theLink.classList.add("fa-spin");
       // reset the Button after a short delay
-      setTimeout(function() {
+      setTimeout(function () {
         theLink.classList.remove("fa-spin");
       }, 500);
     });
@@ -126,7 +126,7 @@ const maximizeG = () => {
   const pbgDetails = document.querySelector(".pbg-details");
   const menuImgWrapper = document.querySelector(".menu-img");
 
-  maximBtn.addEventListener("click", e => {
+  maximBtn.addEventListener("click", (e) => {
     maxOutImgWrapper();
 
     if (!IsFullScreenCurrently()) {
@@ -134,7 +134,7 @@ const maximizeG = () => {
     }
   });
 
-  compressBtn.addEventListener("click", e => {
+  compressBtn.addEventListener("click", (e) => {
     minImgWrapper();
 
     if (IsFullScreenCurrently()) {
@@ -223,7 +223,7 @@ const lightboxCtrl = () => {
   let imgP;
   let img_h1;
 
-  lightboxContainer.addEventListener("click", function(event) {
+  lightboxContainer.addEventListener("click", function (event) {
     if (
       event.target !== lightboxImage &&
       event.target !== next &&
@@ -237,14 +237,14 @@ const lightboxCtrl = () => {
   for (let i = 0; i < portfolioItems.length; i++) {
     portfolioItems[i]
       .querySelector(".text-overlay")
-      .addEventListener("click", function() {
+      .addEventListener("click", function () {
         index = i;
         changeImage();
         lightbox();
       });
   }
 
-  lightboxImage.addEventListener("click", function() {
+  lightboxImage.addEventListener("click", function () {
     if (index == portfolioItems.length - 1) {
       index = 0;
     } else {
@@ -253,7 +253,7 @@ const lightboxCtrl = () => {
     changeImage();
   });
 
-  next.addEventListener("click", function() {
+  next.addEventListener("click", function () {
     if (index == portfolioItems.length - 1) {
       index = 0;
     } else {
@@ -262,7 +262,7 @@ const lightboxCtrl = () => {
     changeImage();
   });
 
-  prev.addEventListener("click", function() {
+  prev.addEventListener("click", function () {
     if (index == 0) {
       index = portfolioItems.length - 1;
     } else {
@@ -280,24 +280,56 @@ const lightboxCtrl = () => {
     imgAlt = portfolioItems[index].querySelector("img").getAttribute("alt");
     imgP = portfolioItems[index].querySelector("p").textContent.trim();
     img_h1 = portfolioItems[index].querySelector("h1").textContent.trim();
+    let lightHead = document.querySelector(".light-headTxt");
+    let lightPtxt = document.querySelector(".light-PTxt");
+
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      console.log("This is a Mobile Device");
+      console.log(isMobile);
+    } else {
+      console.log("This is a Desktop");
+      console.log(isMobile);
+    }
+
+    let ScreenWidth = window.innerWidth > 0 ? window.innerWidth : screen.width;
+
+    console.log(`Screen width: ${ScreenWidth}`);
 
     let totn_string = imgSrc;
+
     totn_string = totn_string.replace(
       "./img/menu/320-W-x-480-H",
       "./img/menu/960-W-x-640-H"
     );
 
-    console.log(
-      totn_string.replace(
+    totn_string = totn_string.replace("-320-W", "-960-W");
+
+    // console.log(`Fixed:  ( ${totn_string} )`);
+    // console.log(`Original:  ( ${imgSrc} )`);
+    // console.log(`Screen width: ${ScreenWidth}`);
+
+    if (ScreenWidth < 460) {
+      // If device === Portrait Mode (Phone) pull a small pic
+      totn_string = totn_string.replace(
         "./img/menu/320-W-x-480-H",
         "./img/menu/960-W-x-640-H"
-      ) +
-        "original src " +
-        imgSrc
-    );
+      );
+
+      totn_string = totn_string.replace("-320-W", "-960-W");
+
+      // console.log(`Fixed:  ( ${totn_string} )`);
+      // console.log(`Original:  ( ${imgSrc} )`);
+      // console.log(`Screen width: ${ScreenWidth}`);
+    } else if (ScreenWidth >= 460 && ScreenWidth <= 860) {
+      // If device === landscape Mode (Phone) pull a medium pic
+    }
 
     lightboxImage.src = imgSrc;
     lightboxImage.alt = imgAlt;
+    lightHead.innerHTML = img_h1;
+    lightPtxt.innerHTML = imgP;
+
     lightboxText.innerHTML = portfolioItems[index]
       .querySelector("h1")
       .innerHTML.trim();
@@ -381,12 +413,12 @@ if (sPage == "index.html") {
   };
 
   // Button Events that call your functions
-  next.addEventListener("click", e => {
+  next.addEventListener("click", (e) => {
     nextSlide();
     autoSlide();
   });
 
-  prev.addEventListener("click", e => {
+  prev.addEventListener("click", (e) => {
     prevSlide();
     autoSlide();
   });
