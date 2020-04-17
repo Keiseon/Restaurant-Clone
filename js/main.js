@@ -283,6 +283,7 @@ const lightboxCtrl = () => {
     let lightHead = document.querySelector(".light-headTxt");
     let lightPtxt = document.querySelector(".light-PTxt");
 
+    // change image sizes based on screen orientation
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
       console.log("This is a Mobile Device");
@@ -291,48 +292,48 @@ const lightboxCtrl = () => {
       console.log("This is a Desktop");
       console.log(isMobile);
     }
-
+    // show screen size
     let ScreenWidth = window.innerWidth > 0 ? window.innerWidth : screen.width;
 
     console.log(`Screen width: ${ScreenWidth}`);
 
-    let totn_string = imgSrc;
-
-    totn_string = totn_string.replace(
+    // Rewrite the image Source
+    let new_imgSrc = imgSrc;
+    new_imgSrc = new_imgSrc.replace(
       "./img/menu/320-W-x-480-H",
       "./img/menu/960-W-x-640-H"
     );
+    new_imgSrc = new_imgSrc.replace("-320-W", "-960-W");
 
-    totn_string = totn_string.replace("-320-W", "-960-W");
-
-    // console.log(`Fixed:  ( ${totn_string} )`);
+    // console.log(`Fixed:  ( ${new_imgSrc} )`);
     // console.log(`Original:  ( ${imgSrc} )`);
     // console.log(`Screen width: ${ScreenWidth}`);
 
     if (ScreenWidth < 460) {
       // If device === Portrait Mode (Phone) pull a small pic
-      totn_string = totn_string.replace(
+      new_imgSrc = new_imgSrc.replace(
         "./img/menu/320-W-x-480-H",
         "./img/menu/960-W-x-640-H"
       );
 
-      totn_string = totn_string.replace("-320-W", "-960-W");
+      new_imgSrc = new_imgSrc.replace("-320-W", "-960-W");
 
-      // console.log(`Fixed:  ( ${totn_string} )`);
+      // console.log(`Fixed:  ( ${new_imgSrc} )`);
       // console.log(`Original:  ( ${imgSrc} )`);
       // console.log(`Screen width: ${ScreenWidth}`);
     } else if (ScreenWidth >= 460 && ScreenWidth <= 860) {
       // If device === landscape Mode (Phone) pull a medium pic
     }
 
-    lightboxImage.src = imgSrc;
+    // lightboxImage.src = imgSrc;
+    lightboxImage.src = new_imgSrc;
     lightboxImage.alt = imgAlt;
     lightHead.innerHTML = img_h1;
     lightPtxt.innerHTML = imgP;
 
-    lightboxText.innerHTML = portfolioItems[index]
-      .querySelector("h1")
-      .innerHTML.trim();
+    // lightboxText.innerHTML = portfolioItems[index]
+    //   .querySelector("h1")
+    //   .innerHTML.trim();
     counter.innerHTML = ` ${index + 1} of ${portfolioItems.length}`;
   }
 };

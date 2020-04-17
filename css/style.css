@@ -1863,7 +1863,7 @@ input {
   position: relative;
 }
 
-.lightbox .lightbox-close {
+/* .lightbox .lightbox-close {
   position: absolute;
   z-index: 101;
   right: 0px;
@@ -1874,7 +1874,7 @@ input {
   line-height: 40px;
   font-size: 25px;
   cursor: zoom-out;
-}
+} */
 
 .lightbox .lightbox-caption {
   color: #fff;
@@ -1884,7 +1884,7 @@ input {
   width: 100%;
   bottom: 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   z-index: -1;
 }
 
@@ -1911,12 +1911,40 @@ input {
 }
 
 .lightbox .lightbox-controls div.prev {
-  left: 30px;
+  left: 35px;
+  /* left: 30px; */
 }
 
 .lightbox .lightbox-controls div.next {
-  right: 30px;
+  right: 30%;
+  /* right: 30px;  move the controls out of the */
 }
+
+.pbg-details {
+  padding: 0em 0em 2em 6em;
+  font-size: 1rem;
+  width: 340px;
+  /* padding: 2em 1em 2em 3em;
+  font-size: 1.2rem;
+  width: 360px; */
+}
+
+.pbg-details h1 {
+  font-weight: 300;
+  padding-bottom: 0.7em;
+}
+
+/* fix the lightbox if Screen size is off */
+.imgAdjustment {
+  flex-direction: column;
+  padding-top: 85px;
+}
+.detailsAdjustment {
+  padding: 0em 1em 0em 1em;
+  text-align: center;
+}
+
+/* end lightbox fix */
 
 /* lightbox end */
 
@@ -2160,11 +2188,6 @@ input {
     "compress-btn pbg-showcase pbg-showcase close-btn";
 }
 
-.imgAdjustment {
-  height: -webkit-fill-available;
-  width: unset;
-}
-
 .hideLink {
   display: none;
 }
@@ -2179,18 +2202,6 @@ input {
 .showLink {
   display: all;
   transition: display ease-in 3s;
-}
-
-.pbg-details {
-  grid-area: pbg-details;
-  padding: 3em 2em 2em 1em;
-  font-size: 1.2rem;
-  width: 360px;
-}
-
-.pbg-details h1 {
-  font-weight: 300;
-  padding-bottom: 0.7em;
 }
 
 .pbg-showcase,
