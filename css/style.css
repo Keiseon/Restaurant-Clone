@@ -11,6 +11,9 @@ font-family: "Roboto Condensed", sans-serif;
 @import url("https://fonts.googleapis.com/css?family=Forum&display=swap");
 /* font-family: 'Forum', cursive; */
 
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+/* font-family: 'Nanum Gothic', sans-serif; */
+
 /* CSS Variables for the Hamburger */
 :root {
   --primary-color: rgba(191, 149, 21, 0.822); /*rgba(244, 247, 66, 0.822);*/
@@ -1836,7 +1839,17 @@ input {
 }
 
 .lightbox.open {
-  display: flex;
+  /* display: flex; */
+  /* showcase-wrapper grid code*/
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 4.4em; /* top row is 70px in height */
+  grid-template-columns: 4.3% 65% 26.8% 3.5%; /* total = 1278 top row is 55px in width 55px 835px 343px 45px */
+  grid-auto-rows: minmax(1.6em auto);
+  /* grid-auto-columns: minmax(1.6em auto); */
+  grid-template-areas:
+    "expand-btn pbg-links pbg-links close-btn"
+    "expand-btn pbg-showcase pbg-details close-btn";
   z-index: 100;
 }
 
@@ -1895,19 +1908,19 @@ input {
   width: 40px;
   text-align: center;
   line-height: 42px;
-  font-size: 35px;
+  font-size: 28px;
   font-weight: 400;
   margin-top: -20px;
-  background-color: #ccc;
-  color: #000000;
+  background-color: #050505;
+  color: #fff;
   cursor: pointer;
   border-radius: 50%;
-  font-family: "Forum", cursive;
+  font-family: "Nanum Gothic", sans-serif;
   transition: all 0.5s ease;
 }
 
 .lightbox .lightbox-controls div:hover {
-  background-color: #bf9515;
+  color: #bf9515;
 }
 
 .lightbox .lightbox-controls div.prev {
@@ -2120,6 +2133,8 @@ input {
   padding-top: 2em;
   margin: 0em 0.8em 0em 0.5em;
   display: block;
+  /* lightbox temp fix below */
+  align-self: flex-start;
 }
 .pbg-button:hover {
   color: #cfa125;
@@ -2149,10 +2164,12 @@ input {
 #prev-pbg-btn {
   justify-self: start;
   grid-column: 1/2;
+  /* z-index: 7; */
 }
 #next-pbg-btn {
   justify-self: end;
   grid-column: 3/4;
+  /* z-index: 7; */
 }
 
 #prev-pbg-btn,

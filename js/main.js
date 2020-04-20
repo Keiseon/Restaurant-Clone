@@ -334,7 +334,7 @@ const lightboxCtrl = () => {
     // lightboxText.innerHTML = portfolioItems[index]
     //   .querySelector("h1")
     //   .innerHTML.trim();
-    counter.innerHTML = ` ${index + 1} of ${portfolioItems.length}`;
+    // counter.innerHTML = ` ${index + 1} of ${portfolioItems.length}`;
   }
 };
 // ^^^^^^^^^  Lightbox end ^^^^^^^^^
