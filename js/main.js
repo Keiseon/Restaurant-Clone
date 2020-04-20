@@ -469,6 +469,16 @@ if (sPage == "index.html") {
   // grab image container
   lightboxCtrl();
   // grab_GSI();
+} else if (sPage == "galleryFake.html") {
+  // Set the Map
+  pubMapCtrl();
+  // Reset the checkbox to default value
+  checkBoxReset();
+  // Re-stack the site siblings so the menu goes to the back
+  toggleMenu();
+  // grab image container
+  lightboxCtrl();
+  // grab_GSI();
 } else if (sPage == "menu.html") {
   // Set the Map
   pubMapCtrl();

@@ -21,7 +21,7 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
     <script defer src="./js/main.js"></script>
-    <title>[Gallery] | pub-and-bar (Mimic)</title>
+    <title>[ FAKE-Gallery]</title>
   </head>
   <body>
     <input id="checkbox" type="checkbox" class="toggler" />
@@ -281,25 +281,61 @@
       <!-- %%%%%%%%%% Gallery End %%%%%%%%%%% -->
 
       <!-- %%%%%%%%%% Lightbox Start %%%%%%%%%%% -->
-      <div class="lightbox">
-        <div class="lightbox-content">
-          <img src="" class="lightbox-img" alt="" />
-          <div class="lightbox-caption">
-            <!-- <span class="lightbox-text"></span> -->
-            <span class="lightbox-counter"></span>
+      <div class="showcase-wrapper">
+        <div id="expand-btn" class="pbg-button">
+          <i class="fas fa-expand fa-2x"></i>
+        </div>
+
+        <div class="pbg-button hideLink" id="compress-btn">
+          <i class="fas fa-compress fa-2x"></i>
+        </div>
+        <div class="pbg-links">
+          <div class="pbg-button" id="like-btn">
+            <i class="fas fa-heart fa-1x"></i>
           </div>
-          <!-- <div class="lightbox-controls">
-            <div class="prev"><</div>
-            <div class="next">></div>
-          </div> -->
+          <div class="pbg-button" id="share-btn">
+            <i class="fas fa-share fa-1x"></i>
+          </div>
         </div>
-        <div class="lightbox-controls">
-          <div class="prev">&#60;</div>
-          <div class="next">&#62;</div>
+        <div class="pbg-button" id="close-btn">
+          <i class="fas fa-times fa-3x"></i>
         </div>
+
+        <article class="lightbox">
+          <!-- pbg-showcase -->
+          <div class="pbg-button" id="prev-pbg-btn">
+            <i class="fas fa-chevron-left fa-2x"></i>
+          </div>
+          <div class="lightbox-content">
+            <img
+              src="./img/menu/960-W-x-640-H/SHRIMP-SALAD-960-W.jpg"
+              class="lightbox-img menu-img"
+              alt=""
+            />
+            <div class="lightbox-caption">
+              <!-- <span class="lightbox-text"></span> -->
+              <span class="lightbox-counter"> counter stuff </span>
+            </div>
+          </div>
+          <div class="pbg-button" id="next-pbg-btn">
+            <i class="fas fa-chevron-right fa-2x"></i>
+          </div>
+          <div class="lightbox-controls">
+            <div class="prev">&#60;</div>
+            <div class="next">&#62;</div>
+          </div>
+        </article>
         <aside class="pbg-details">
-          <h1 class="light-headTxt"></h1>
-          <p class="light-PTxt"></p>
+          <h1 class="light-headTxt">I'm an image title</h1>
+          <p class="light-PTxt">
+            Describe your image here. Click me and then “Organize Images” to
+            change my text.
+          </p>
+          <!-- <h1>I'm an image title</h1>
+          <p>
+            Describe your image here. Click me and then “Organize Images” to
+            change my text.
+          </p> -->
         </aside>
       </div>
       <!-- %%%%%%%%%% Lightbox End %%%%%%%%%%% -->

@@ -20,56 +20,64 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
     <script defer src="./js/main.js"></script>
-    <title>Gallery Mimic</title>
+    <title>PUB Page</title>
   </head>
   <body>
-    <div class="showcase-wrapper ">
-      <a tabindex="2" href="#" class="pbg-button" id="expand-btn">
+    <div class="showcase-wrapper">
+      <div id="expand-btn" class="pbg-button">
         <i class="fas fa-expand fa-2x"></i>
-      </a>
-      <a tabindex="7" href="#" class="pbg-button hideLink" id="compress-btn">
-        <i class="fas fa-compress fa-2x"></i>
-      </a>
-      <div class="pbg-links">
-        <a tabindex="3" href="#" class="pbg-button" id="like-btn">
-          <i class="fas fa-heart fa-1x"></i>
-        </a>
-        <a tabindex="4" href="#" class="pbg-button" id="share-btn"
-          ><i class="fas fa-share fa-1x"></i>
-        </a>
       </div>
-      <a tabindex="5" href="./gallery.html" class="pbg-button" id="close-btn">
+
+      <div class="pbg-button hideLink" id="compress-btn">
+        <i class="fas fa-compress fa-2x"></i>
+      </div>
+      <div class="pbg-links">
+        <div class="pbg-button" id="like-btn">
+          <i class="fas fa-heart fa-1x"></i>
+        </div>
+        <div class="pbg-button" id="share-btn">
+          <i class="fas fa-share fa-1x"></i>
+        </div>
+      </div>
+      <div class="pbg-button" id="close-btn">
         <i class="fas fa-times fa-3x"></i>
-      </a>
+      </div>
 
-      <article class="pbg-showcase">
-        <a tabindex="6" href="#" class="pbg-button" id="prev-pbg-btn"
-          ><i class="fas fa-chevron-left fa-2x"></i
-        ></a>
-        <img
-          class="menu-img"
-          srcset="
-            ./img/menu/320-W-x-480-H/CHICKEN-SANDWICH-320w.jpg 320w,
-            ./img/menu/480-W-x-320-H/MIXED-SALAD-480w.jpg      480w,
-            ./img/menu/960-W-x-640-H/PIZZA-MARGARITA-960w.jpg  960w
-          "
-          sizes="(max-width: 600px) 310px,
-                    (max-width: 1080px) 460px,
-                    940px"
-          src="./img/menu/480-W-x-320-H/MIXED-SALAD-480w.jpg"
-          alt="Image of The Pub Menu"
-        />
-
-        <a tabindex="1" href="#" class="pbg-button" id="next-pbg-btn"
-          ><i class="fas fa-chevron-right fa-2x"></i
-        ></a>
+      <article class="lightbox">
+        <!-- pbg-showcase -->
+        <div class="pbg-button" id="prev-pbg-btn">
+          <i class="fas fa-chevron-left fa-2x"></i>
+        </div>
+        <div class="lightbox-content">
+          <img
+            src="./img/menu/960-W-x-640-H/SHRIMP-SALAD-960-W.jpg"
+            class="lightbox-img menu-img"
+            alt=""
+          />
+          <div class="lightbox-caption">
+            <!-- <span class="lightbox-text"></span> -->
+            <span class="lightbox-counter"> counter stuff </span>
+          </div>
+        </div>
+        <div class="pbg-button" id="next-pbg-btn">
+          <i class="fas fa-chevron-right fa-2x"></i>
+        </div>
+        <div class="lightbox-controls">
+          <div class="prev">&#60;</div>
+          <div class="next">&#62;</div>
+        </div>
       </article>
       <aside class="pbg-details">
-        <h1>I'm an image title</h1>
-        <p>
+        <h1 class="light-headTxt">I'm an image title</h1>
+        <p class="light-PTxt">
           Describe your image here. Click me and then “Organize Images” to
           change my text.
         </p>
+        <!-- <h1>I'm an image title</h1>
+        <p>
+          Describe your image here. Click me and then “Organize Images” to
+          change my text.
+        </p> -->
       </aside>
     </div>
   </body>
