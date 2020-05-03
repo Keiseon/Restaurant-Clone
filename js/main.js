@@ -118,64 +118,65 @@ const populateGallery = () => {
 
 // %%%%%%%%  Maximize-Gallery-Showcase start %%%%%%%%
 const maximizeG = () => {
-  const maxShowcase = document.querySelector(".showcase-wrapper");
-  const pbgLinks = document.querySelector(".pbg-links");
-  const maximBtn = document.querySelector("#expand-btn");
-  const compressBtn = document.querySelector("#compress-btn");
-  const shareBtn = document.querySelector("#share-btn");
-  const pbgDetails = document.querySelector(".pbg-details");
-  const menuImgWrapper = document.querySelector(".menu-img");
+  // const maxShowcase = document.querySelector(".showcase-wrapper");
+  // const maxShowcase = document.querySelector(".lightbox");
+  // const pbgLinks = document.querySelector(".pbg-links");
+  // const maximBtn = document.querySelector("#expand-btn");
+  // const compressBtn = document.querySelector("#compress-btn");
+  // const shareBtn = document.querySelector("#share-btn");
+  // const pbgDetails = document.querySelector(".pbg-details");
+  // const menuImgWrapper = document.querySelector(".menu-img");
 
-  maximBtn.addEventListener("click", (e) => {
-    maxOutImgWrapper();
+  // maximBtn.addEventListener("click", (e) => {
+  //   maxOutImgWrapper();
 
-    if (!IsFullScreenCurrently()) {
-      GoInFullscreen(maxShowcase);
-    }
-  });
+  //   if (!IsFullScreenCurrently()) {
+  //     EnterFullScreen(maxShowcase);
+  //   }
+  // });
 
-  compressBtn.addEventListener("click", (e) => {
-    minImgWrapper();
+  // compressBtn.addEventListener("click", (e) => {
+  //   minImgWrapper();
 
-    if (IsFullScreenCurrently()) {
-      GoOutFullscreen();
-    }
-  });
+  //   if (IsFullScreenCurrently()) {
+  //     leaveFullScreen();
+  //   }
+  // });
 
-  const maxOutImgWrapper = () => {
-    pbgLinks.classList.add("invisible");
-    maxShowcase.classList.add("maxShowcase");
-    pbgDetails.classList.add("hideLink");
-    maximBtn.classList.add("hideLink");
-    compressBtn.classList.remove("hideLink");
-    menuImgWrapper.classList.add("imgAdjustment");
-  };
-  const minImgWrapper = () => {
-    pbgLinks.classList.remove("invisible");
-    maxShowcase.classList.remove("maxShowcase");
-    pbgDetails.classList.remove("hideLink");
-    compressBtn.classList.add("hideLink");
-    maximBtn.classList.remove("hideLink");
-    menuImgWrapper.classList.remove("imgAdjustment");
-  };
+  // const maxOutImgWrapper = () => {
+  //   // pbgLinks.classList.add("invisible");
+  //   maxShowcase.classList.add("maxShowcase");
+  //   pbgDetails.classList.add("hideLink");
+  //   maximBtn.classList.add("hideLink");
+  //   compressBtn.classList.remove("hideLink");
+  //   menuImgWrapper.classList.add("imgAdjustment");
+  // };
+  // const minImgWrapper = () => {
+  //   // pbgLinks.classList.remove("invisible");
+  //   maxShowcase.classList.remove("maxShowcase");
+  //   pbgDetails.classList.remove("hideLink");
+  //   compressBtn.classList.add("hideLink");
+  //   maximBtn.classList.remove("hideLink");
+  //   menuImgWrapper.classList.remove("imgAdjustment");
+  // };
 
   // %%%%%%%%%%%%     Fullscreen Code Start   %%%%%%%%%%%%%
 
   // %%%%%%% Go into Fullscreen %%%%%%
-  function GoInFullscreen(element) {
-    if (element.requestFullscreen) element.requestFullscreen();
-    else if (element.mozRequestFullScreen) element.mozRequestFullScreen();
-    else if (element.webkitRequestFullscreen) element.webkitRequestFullscreen();
-    else if (element.msRequestFullscreen) element.msRequestFullscreen();
-  }
+  // function EnterFullScreen(element) {
+  //   if (element.requestFullscreen) element.requestFullscreen();
+  //   else if (element.mozRequestFullScreen) element.mozRequestFullScreen();
+  //   else if (element.webkitRequestFullscreen) element.webkitRequestFullscreen();
+  //   else if (element.msRequestFullscreen) element.msRequestFullscreen();
+  // }
 
   // %%%%%%%  Exiting Full-Screen   %%%%%%
-  function GoOutFullscreen() {
-    if (document.exitFullscreen) document.exitFullscreen();
-    else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-    else if (document.msExitFullscreen) document.msExitFullscreen();
-  }
+  // function leaveFullScreen() {
+  //   if (document.exitFullscreen) document.exitFullscreen();
+  //   else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+  //   else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+  //   else if (document.msExitFullscreen) document.msExitFullscreen();
+  // }
 
   // %%%%  Returns the DOM Node of the element which is in full-screen
   // %%%%%   Returns null if no element in full-screen
@@ -184,19 +185,19 @@ const maximizeG = () => {
   // }
 
   // Check For Fullscreen mode
-  function IsFullScreenCurrently() {
-    var full_screen_element =
-      document.fullscreenElement ||
-      document.webkitFullscreenElement ||
-      document.mozFullScreenElement ||
-      document.msFullscreenElement ||
-      null;
+  // function IsFullScreenCurrently() {
+  //   var full_screen_element =
+  //     document.fullscreenElement ||
+  //     document.webkitFullscreenElement ||
+  //     document.mozFullScreenElement ||
+  //     document.msFullscreenElement ||
+  //     null;
 
-    // If no element is in full-screen
-    if (full_screen_element === null) return false;
-    else return true;
-  }
-
+  // If no element is in full-screen
+  //   if (full_screen_element === null) return false;
+  //   else return true;
+  // }
+  console.log("This method is merged into the lightbox method");
   // %%%%%%%%%%%%     Fullscreen Code end   %%%%%%%%%%%%%
 };
 // %%%%%%%%  Maximize-Gallery-Showcase end %%%%%%%%
@@ -213,6 +214,11 @@ const lightboxCtrl = () => {
   const lightboxText = document.querySelector(".lightbox-text");
   // grab the collection of image containers
   const portfolioItems = document.querySelector(".gallery-wrapper").children;
+  // Grab buttons
+  const expandBtn = document.querySelector("#expand-btn");
+  const compressBtn = document.querySelector("#compress-btn");
+  const closeBtn = document.querySelector("#close-btn");
+
   // add next and prev buttons
   const next = document.querySelector(".next");
   const prev = document.querySelector(".prev");
@@ -223,13 +229,107 @@ const lightboxCtrl = () => {
   let imgP;
   let img_h1;
 
+  // %%%%%%%%  Maximize-Gallery-Showcase Variables %%%%%%%%
+  // const lightboxContainer = document.querySelector(".lightbox");
+  const pbgLinks = document.querySelector(".pbg-links");
+  // const expandBtn = document.querySelector("#expand-btn");
+  // const compressBtn = document.querySelector("#compress-btn");
+  const shareBtn = document.querySelector("#share-btn");
+  const pbgDetails = document.querySelector(".pbg-details");
+  const menuImgWrapper = document.querySelector(".menu-img");
+
+  // %%%%%%%%  Maximize-Gallery-Showcase Methods start %%%%%%%%
+
+  //Event Listeners  start
+  expandBtn.addEventListener("click", (e) => {
+    maxOutImgWrapper();
+
+    if (!IsFullScreenCurrently()) {
+      EnterFullScreen(lightboxContainer);
+      // turn on the lightbox again
+      lightbox();
+    }
+  });
+
+  compressBtn.addEventListener("click", (e) => {
+    minImgWrapper();
+
+    if (IsFullScreenCurrently()) {
+      leaveFullScreen();
+    }
+    // turn on the lightbox again
+    lightbox();
+  });
+  //Event Listeners  end
+
+  // Methods
+
+  const maxOutImgWrapper = () => {
+    // pbgLinks.classList.add("invisible");
+    lightboxContainer.classList.add("maxShowcase");
+    pbgDetails.classList.add("hideLink");
+    expandBtn.classList.add("hideLink");
+    compressBtn.classList.remove("hideLink");
+    menuImgWrapper.classList.add("imgAdjustment");
+  };
+  const minImgWrapper = () => {
+    pbgLinks.classList.remove("invisible");
+    lightboxContainer.classList.remove("maxShowcase");
+    pbgDetails.classList.remove("hideLink");
+    compressBtn.classList.add("hideLink");
+    expandBtn.classList.remove("hideLink");
+    menuImgWrapper.classList.remove("imgAdjustment");
+  };
+
+  // %%%%%%%%%%%%     Fullscreen Code Start   %%%%%%%%%%%%%
+
+  // %%%%%%% Go into Fullscreen %%%%%%
+  function EnterFullScreen(element) {
+    if (element.requestFullscreen) element.requestFullscreen();
+    else if (element.mozRequestFullScreen) element.mozRequestFullScreen();
+    else if (element.webkitRequestFullscreen) element.webkitRequestFullscreen();
+    else if (element.msRequestFullscreen) element.msRequestFullscreen();
+  }
+
+  // %%%%%%%  Exiting Full-Screen   %%%%%%
+  function leaveFullScreen() {
+    if (document.exitFullscreen) document.exitFullscreen();
+    else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    else if (document.msExitFullscreen) document.msExitFullscreen();
+  }
+
+  // Check For Fullscreen mode
+  function IsFullScreenCurrently() {
+    var full_screen_element =
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement ||
+      document.msFullscreenElement ||
+      null;
+
+    // If no element is in full-screen
+    if (full_screen_element === null) return false;
+    else return true;
+  }
+
+  // %%%%%%%%  Maximize-Gallery-Showcase Methods end %%%%%%%%
+
   lightboxContainer.addEventListener("click", function (event) {
     if (
       event.target !== lightboxImage &&
       event.target !== next &&
-      event.target !== prev
+      event.target !== prev &&
+      event.target !== expandBtn &&
+      event.target !== compressBtn &&
+      event.target !== closeBtn
     ) {
       lightbox();
+      // If the lightbox is in fullscreen mode then leave fullscreen mode and adjust classes to show buttons eg expand btn
+      if (IsFullScreenCurrently()) {
+        minImgWrapper();
+        leaveFullScreen();
+      }
     }
   });
 
@@ -479,6 +579,10 @@ if (sPage == "index.html") {
   // grab image container
   lightboxCtrl();
   // grab_GSI();
+  // Show in Fullscreen Mode
+  // maximizeG();
+  // Animate Buttons
+  buttonSpin();
 } else if (sPage == "menu.html") {
   // Set the Map
   pubMapCtrl();

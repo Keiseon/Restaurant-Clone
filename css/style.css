@@ -1738,6 +1738,7 @@ input {
 .text-overlay {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   position: absolute;
+  cursor: pointer;
   height: 100%;
   width: 100%;
   background: #cfa125;
@@ -1834,7 +1835,7 @@ input {
   display: none;
   justify-content: center;
   align-items: center;
-  cursor: zoom-out;
+  /* cursor: zoom-out; */
   padding: 0px 15px;
 }
 
@@ -1940,6 +1941,7 @@ input {
   /* padding: 2em 1em 2em 3em;
   font-size: 1.2rem;
   width: 360px; */
+  animation: lightbImage 0.5s ease;
 }
 
 .pbg-details h1 {
@@ -2138,6 +2140,7 @@ input {
 }
 .pbg-button:hover {
   color: #cfa125;
+  cursor: pointer;
   transition: color 1s;
 }
 #compress-btn {
@@ -2199,10 +2202,12 @@ input {
 /* Utility Class */
 
 .maxShowcase {
-  grid-template-columns: 4.3% 90.8% 1.4% 3.5%;
-  grid-template-areas:
-    "compress-btn pbg-links pbg-links close-btn"
-    "compress-btn pbg-showcase pbg-showcase close-btn";
+  grid-template-columns: 4.3% 70.8% 1.4% 3.5%;
+  /* grid-template-columns: 4.3% 90.8% 1.4% 3.5%; */
+
+  grid-template-areas: "compress-btn pbg-links pbg-links close-btn";
+  /* "compress-btn pbg-showcase pbg-showcase close-btn"; */
+  animation: lightbImage 0.5s ease;
 }
 
 .hideLink {
