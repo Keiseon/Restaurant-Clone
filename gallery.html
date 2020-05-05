@@ -281,27 +281,41 @@
       <!-- %%%%%%%%%% Gallery End %%%%%%%%%%% -->
 
       <!-- %%%%%%%%%% Lightbox Start %%%%%%%%%%% -->
-      <div class="lightbox">
-        <div class="lightbox-content">
-          <img src="" class="lightbox-img" alt="" />
-          <div class="lightbox-caption">
-            <!-- <span class="lightbox-text"></span> -->
-            <span class="lightbox-counter"></span>
-          </div>
-          <!-- <div class="lightbox-controls">
-            <div class="prev"><</div>
-            <div class="next">></div>
-          </div> -->
+
+      <article class="lightbox">
+        <div id="expand-btn" class="pbg-button">
+          <i class="fas fa-expand fa-2x"></i>
         </div>
-        <div class="lightbox-controls">
-          <div class="prev">&#60;</div>
-          <div class="next">&#62;</div>
+
+        <div class="pbg-button hideLink" id="compress-btn">
+          <i class="fas fa-compress fa-2x"></i>
+        </div>
+        <div class="pbg-links">
+          <div class="pbg-button" id="like-btn">
+            <i class="fas fa-heart fa-1x"></i>
+          </div>
+          <div class="pbg-button" id="share-btn">
+            <i class="fas fa-share fa-1x"></i>
+          </div>
+        </div>
+        <div class="pbg-button" id="close-btn">
+          <i class="fas fa-times fa-3x"></i>
+        </div>
+        <div class="pbg-showcase">
+          <div class="lightbox-controls">
+            <div class="prev">&#60;</div>
+          </div>
+          <img src="" class="lightbox-img menu-img" alt="" />
+          <div class="lightbox-controls">
+            <div class="next">&#62;</div>
+          </div>
         </div>
         <aside class="pbg-details">
           <h1 class="light-headTxt"></h1>
           <p class="light-PTxt"></p>
         </aside>
-      </div>
+      </article>
+
       <!-- %%%%%%%%%% Lightbox End %%%%%%%%%%% -->
 
       <footer>

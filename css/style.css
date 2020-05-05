@@ -1839,9 +1839,7 @@ input {
   padding: 0px 15px;
 }
 
-.lightbox.open {
-  /* display: flex; */
-  /* showcase-wrapper grid code*/
+.openLightbox {
   margin: 0 auto;
   display: grid;
   grid-template-rows: 4.4em; /* top row is 70px in height */
@@ -2202,16 +2200,30 @@ input {
 /* Utility Class */
 
 .maxShowcase {
-  grid-template-columns: 4.3% 70.8% 1.4% 3.5%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 4.4em; /* top row is 70px in height */
+  grid-template-columns: 4.3% 65% 26.8% 3.5%; /* total = 1278 top row is 55px in width 55px 835px 343px 45px */
+  grid-auto-rows: minmax(1.6em auto);
+  /* grid-auto-columns: minmax(1.6em auto); */
+  grid-template-areas:
+    "compress-btn pbg-links pbg-links close-btn"
+    "compress-btn pbg-showcase pbg-details close-btn";
+  z-index: 100;
   /* grid-template-columns: 4.3% 90.8% 1.4% 3.5%; */
-
-  grid-template-areas: "compress-btn pbg-links pbg-links close-btn";
-  /* "compress-btn pbg-showcase pbg-showcase close-btn"; */
+  /* 
+  grid-template-areas: "compress-btn pbg-links pbg-links close-btn"
+  "compress-btn pbg-showcase pbg-showcase close-btn"; */
   animation: lightbImage 0.5s ease;
 }
 
 .hideLink {
   display: none;
+}
+
+.hideElement {
+  position: absolute;
+  left: -1000rem;
 }
 
 .visible {

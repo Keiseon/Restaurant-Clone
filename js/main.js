@@ -219,6 +219,12 @@ const lightboxCtrl = () => {
   const compressBtn = document.querySelector("#compress-btn");
   const closeBtn = document.querySelector("#close-btn");
 
+  // *** This allows me to hide the hamburger menu so it doesn't mess with structure ***{
+  const hamburgerCtrl = document.querySelector(".hamburger");
+  const menuWrapCtrl = document.querySelector(".menu-wrap");
+  const checkboxCtrl = document.querySelector("#checkbox");
+  // }  // *** This allows me to hide the hamburger menu so it doesn't mess with structure ***
+
   // add next and prev buttons
   const next = document.querySelector(".next");
   const prev = document.querySelector(".prev");
@@ -230,10 +236,7 @@ const lightboxCtrl = () => {
   let img_h1;
 
   // %%%%%%%%  Maximize-Gallery-Showcase Variables %%%%%%%%
-  // const lightboxContainer = document.querySelector(".lightbox");
   const pbgLinks = document.querySelector(".pbg-links");
-  // const expandBtn = document.querySelector("#expand-btn");
-  // const compressBtn = document.querySelector("#compress-btn");
   const shareBtn = document.querySelector("#share-btn");
   const pbgDetails = document.querySelector(".pbg-details");
   const menuImgWrapper = document.querySelector(".menu-img");
@@ -242,43 +245,91 @@ const lightboxCtrl = () => {
 
   //Event Listeners  start
   expandBtn.addEventListener("click", (e) => {
-    maxOutImgWrapper();
-
     if (!IsFullScreenCurrently()) {
+      // turn on the maxShowcase lightbox layout
+      maxOutImgWrapper();
       EnterFullScreen(lightboxContainer);
-      // turn on the lightbox again
-      lightbox();
     }
   });
 
   compressBtn.addEventListener("click", (e) => {
-    minImgWrapper();
-
     if (IsFullScreenCurrently()) {
+      // turn on the lightbox again
+      minImgWrapper();
       leaveFullScreen();
+      lightbox();
     }
-    // turn on the lightbox again
-    lightbox();
+    if (lightboxContainer.classList.contains("openLightbox")) {
+      removeMainMenu();
+    }
   });
   //Event Listeners  end
 
   // Methods
 
+  // Move the hamburger menu from the screen when the lightbox is in view so that it doesn't damage the structure of the lightbox grid
+  const removeMainMenu = () => {
+    // if the hamburger menu isn't off the screen, remove it else do nothing
+    if (
+      !(
+        hamburgerCtrl.classList.contains("hideLink") ||
+        menuWrapCtrl.classList.contains("hideLink") ||
+        checkboxCtrl.classList.contains("hideLink")
+      )
+    ) {
+      hamburgerCtrl.classList.add("hideLink");
+      checkboxCtrl.classList.add("hideLink");
+      menuWrapCtrl.classList.add("hideLink");
+    }
+  };
+
+  // Set the hamburger menu back to normal
+  const returnMainMenu = () => {
+    // if the hamburger menu is off the screen, return it to normal else do nothing
+    if (
+      hamburgerCtrl.classList.contains("hideLink") ||
+      menuWrapCtrl.classList.contains("hideLink") ||
+      checkboxCtrl.classList.contains("hideLink")
+    ) {
+      hamburgerCtrl.classList.remove("hideLink");
+      checkboxCtrl.classList.remove("hideLink");
+      menuWrapCtrl.classList.remove("hideLink");
+    }
+  };
   const maxOutImgWrapper = () => {
-    // pbgLinks.classList.add("invisible");
-    lightboxContainer.classList.add("maxShowcase");
+    pbgLinks.classList.add("invisible");
+    // for the fullscreen layout, remove the hamburger menu, turn off the standard lightbox layout (openLightbox) and turn on the (maxShowcase) layout
+    if (lightboxContainer.classList.contains("openLightbox")) {
+      console.log("classlist has openLightbox class");
+      removeMainMenu();
+
+      // lightboxContainer.classList.remove("openLightbox");
+      lightboxContainer.classList.add("maxShowcase");
+    }
+
     pbgDetails.classList.add("hideLink");
     expandBtn.classList.add("hideLink");
     compressBtn.classList.remove("hideLink");
     menuImgWrapper.classList.add("imgAdjustment");
   };
   const minImgWrapper = () => {
+    // for the standard layout, remove the hamburger menu, turn off the fullscreen (maxShowcase ) layout and turn on the (openLightbox) layout
+    if (lightboxContainer.classList.contains("maxShowcase")) {
+      console.log("classlist has maxShowcase class");
+      // removeMainMenu();
+      lightboxContainer.classList.remove("maxShowcase");
+      // lightboxContainer.classList.add("openLightbox");
+      lightbox();
+    }
     pbgLinks.classList.remove("invisible");
     lightboxContainer.classList.remove("maxShowcase");
     pbgDetails.classList.remove("hideLink");
     compressBtn.classList.add("hideLink");
     expandBtn.classList.remove("hideLink");
     menuImgWrapper.classList.remove("imgAdjustment");
+    hamburgerCtrl.classList.remove("hideLink");
+    checkboxCtrl.classList.remove("hideLink");
+    menuWrapCtrl.classList.remove("hideLink");
   };
 
   // %%%%%%%%%%%%     Fullscreen Code Start   %%%%%%%%%%%%%
@@ -330,6 +381,14 @@ const lightboxCtrl = () => {
         minImgWrapper();
         leaveFullScreen();
       }
+      if (
+        lightboxContainer.classList.contains("openLightbox") ||
+        lightboxContainer.classList.contains("maxShowcase")
+      ) {
+        removeMainMenu();
+      } else {
+        returnMainMenu();
+      }
     }
   });
 
@@ -372,7 +431,23 @@ const lightboxCtrl = () => {
   });
 
   function lightbox() {
-    lightboxContainer.classList.toggle("open");
+    lightboxContainer.classList.toggle("openLightbox");
+
+    // if the lightbox is opened or in fullscreen mode, then get rid of the hamburger menu. Set it back to normal when the lightbox is closed
+    if (
+      lightboxContainer.classList.contains("openLightbox") ||
+      lightboxContainer.classList.contains("maxShowcase")
+    ) {
+      removeMainMenu();
+    } else if (
+      !(
+        lightboxContainer.classList.contains("openLightbox") &&
+        lightboxContainer.classList.contains("maxShowcase")
+      )
+    ) {
+      console.log("Return menu from lightbox method");
+      returnMainMenu();
+    }
   }
 
   function changeImage() {
@@ -566,6 +641,8 @@ if (sPage == "index.html") {
   checkBoxReset();
   // Re-stack the site siblings so the menu goes to the back
   toggleMenu();
+  // Animate Buttons
+  buttonSpin();
   // grab image container
   lightboxCtrl();
   // grab_GSI();
