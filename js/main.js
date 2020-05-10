@@ -240,6 +240,7 @@ const lightboxCtrl = () => {
   const shareBtn = document.querySelector("#share-btn");
   const pbgDetails = document.querySelector(".pbg-details");
   const menuImgWrapper = document.querySelector(".menu-img");
+  const pbgShowcase = document.querySelector(".pbg-showcase");
 
   // %%%%%%%%  Maximize-Gallery-Showcase Methods start %%%%%%%%
 
@@ -297,14 +298,27 @@ const lightboxCtrl = () => {
     }
   };
   const maxOutImgWrapper = () => {
-    pbgLinks.classList.add("invisible");
+    pbgLinks.classList.add("hideElement");
     // for the fullscreen layout, remove the hamburger menu, turn off the standard lightbox layout (openLightbox) and turn on the (maxShowcase) layout
     if (lightboxContainer.classList.contains("openLightbox")) {
       console.log("classlist has openLightbox class");
       removeMainMenu();
-
+      // Adding fullscreen adjustments for when you expand to fullscreen mode
       // lightboxContainer.classList.remove("openLightbox");
       lightboxContainer.classList.add("maxShowcase");
+
+      // to line up the buttons on either side of the image in the lightbox
+      pbgShowcase.classList.add("alignShowcase");
+
+      // remove normal image size class
+      lightboxImage.classList.remove("menu-img");
+
+      // to make the dimensions of the image much bigger
+      lightboxImage.classList.add("XLlightbox-img");
+
+      // reposition prev button and next button
+      next.classList.replace("next", "bigNext");
+      prev.classList.replace("prev", "bigPrev");
     }
 
     pbgDetails.classList.add("hideLink");
@@ -319,9 +333,22 @@ const lightboxCtrl = () => {
       // removeMainMenu();
       lightboxContainer.classList.remove("maxShowcase");
       // lightboxContainer.classList.add("openLightbox");
+
+      // to remove the line up of buttons on either side of the image in the lightbox
+      pbgShowcase.classList.remove("alignShowcase");
+
+      // add normal image size class
+      lightboxImage.classList.add("menu-img");
+
+      // to remove the dimensions of the image that made it bigger
+      lightboxImage.classList.remove("XLlightbox-img");
+
+      // reposition prev button and next button
+      next.classList.replace("bigNext", "next");
+      prev.classList.replace("bigPrev", "prev");
       lightbox();
     }
-    pbgLinks.classList.remove("invisible");
+    pbgLinks.classList.remove("hideElement");
     lightboxContainer.classList.remove("maxShowcase");
     pbgDetails.classList.remove("hideLink");
     compressBtn.classList.add("hideLink");

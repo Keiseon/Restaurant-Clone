@@ -1862,6 +1862,17 @@ input {
   animation: lightbImage 0.5s ease;
 }
 
+/* Use this adjustment for Fullscreen Lightbox img remove menu-img class only */
+.lightbox .XLlightbox-img {
+  width: 750px;
+  max-width: 750px;
+  height: 650px;
+  max-height: 650px;
+  padding: 0px 0px;
+  cursor: pointer;
+  animation: lightbImage 0.5s ease;
+}
+
 @keyframes lightbImage {
   0% {
     transform: scale(0);
@@ -1931,6 +1942,13 @@ input {
   right: 30%;
   /* right: 30px;  move the controls out of the */
 }
+/* Use this adjustment for Fullscreen Lightbox Buttons big prev and next remove next and prev classes*/
+.lightbox .lightbox-controls .bigPrev {
+  left: 80px;
+}
+.lightbox .lightbox-controls .bigNext {
+  right: 80px;
+}
 
 .pbg-details {
   padding: 0em 0em 2em 6em;
@@ -1950,6 +1968,7 @@ input {
 /* fix the lightbox if Screen size is off */
 .imgAdjustment {
   flex-direction: column;
+  /* width: 50px; */
   padding-top: 85px;
 }
 .detailsAdjustment {
@@ -2202,19 +2221,22 @@ input {
 .maxShowcase {
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 4.4em; /* top row is 70px in height */
-  grid-template-columns: 4.3% 65% 26.8% 3.5%; /* total = 1278 top row is 55px in width 55px 835px 343px 45px */
+  grid-template-rows: 4.4em; /*top row is 70px in height */
+  grid-template-columns: 5% 90% 5%; /* total = 1278 top row is 55px in width 55px 835px 343px 45px */
   grid-auto-rows: minmax(1.6em auto);
-  /* grid-auto-columns: minmax(1.6em auto); */
+  grid-auto-columns: minmax(1.6em auto);
   grid-template-areas:
-    "compress-btn pbg-links pbg-links close-btn"
-    "compress-btn pbg-showcase pbg-details close-btn";
+    "compress-btn pbg-showcase close-btn"
+    "compress-btn pbg-showcase close-btn";
   z-index: 100;
-  /* grid-template-columns: 4.3% 90.8% 1.4% 3.5%; */
-  /* 
-  grid-template-areas: "compress-btn pbg-links pbg-links close-btn"
-  "compress-btn pbg-showcase pbg-showcase close-btn"; */
   animation: lightbImage 0.5s ease;
+}
+
+/* Use this adjustment for Fullscreen Lightbox showcase remove maxShowcase and openLightbox class only */
+.alignShowcase {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
 }
 
 .hideLink {
