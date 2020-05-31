@@ -74,7 +74,6 @@
             src="./img/menu/320-W-x-480-H/cheeseburger-320-W.jpg"
             alt="image of a Cheese Burger"
           />
-
           <div class="text-overlay">
             <h1>CHEESE BURGER</h1>
             <p class="img_p_description">
@@ -82,7 +81,9 @@
               change my text.
             </p>
             <ul>
-              <li><i id="heart-icon" class="far fa-heart"> </i></li>
+              <li>
+                <i id="heart-icon" class="far fa-heart"></i>
+              </li>
               <li><i id="share-icon" class="fas fa-share"> </i></li>
             </ul>
           </div>
@@ -292,10 +293,12 @@
         </div>
         <div class="pbg-links">
           <div class="pbg-button" id="like-btn">
-            <i class="fas fa-heart fa-1x"></i>
+            <i id="heart-icon" class="heartLikeIcon fas fa-heart fa-1x">
+              <span class="heartTooltip">Love</span></i
+            >
           </div>
           <div class="pbg-button" id="share-btn">
-            <i class="fas fa-share fa-1x"></i>
+            <i id="share-icon" class="fas fa-share fa-1x"></i>
           </div>
         </div>
         <div class="pbg-button" id="close-btn">

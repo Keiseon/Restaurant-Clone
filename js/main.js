@@ -116,91 +116,100 @@ const populateGallery = () => {
 };
 // %%%%%%%%  Populate-Gallery-Showcase Code end %%%%%%%%
 
-// %%%%%%%%  Maximize-Gallery-Showcase start %%%%%%%%
-const maximizeG = () => {
-  // const maxShowcase = document.querySelector(".showcase-wrapper");
-  // const maxShowcase = document.querySelector(".lightbox");
-  // const pbgLinks = document.querySelector(".pbg-links");
-  // const maximBtn = document.querySelector("#expand-btn");
-  // const compressBtn = document.querySelector("#compress-btn");
-  // const shareBtn = document.querySelector("#share-btn");
-  // const pbgDetails = document.querySelector(".pbg-details");
-  // const menuImgWrapper = document.querySelector(".menu-img");
+// %%%%%%%%  Stored likes (Local Storage) Code start %%%%%%%%
+const stored_Likes = () => {
+  let imgNode = -1; // this holds the index of the each img at any given time
+  // Grab the img gallery containers
+  const menuImgContainers = document.querySelector(".gallery-wrapper").children;
 
-  // maximBtn.addEventListener("click", (e) => {
-  //   maxOutImgWrapper();
+  // set imgs to "liked" or "disliked" state
+  const setImgState = (imgNode) => {
+    let currentImg = menuImgContainers[imgNode].querySelector("#heart-icon");
 
-  //   if (!IsFullScreenCurrently()) {
-  //     EnterFullScreen(maxShowcase);
-  //   }
-  // });
+    if (localStorage.getItem(imgNode) === "liked") {
+      // if the element has been "liked" set it to a liked state
+      if (
+        !currentImg.classList.contains("heartFlag") ||
+        !currentImg.classList.contains("likeFlag")
+      ) {
+        currentImg.classList.add("heartFlag");
+        const sup = document.createElement("sup");
+        sup.textContent = " 1 ";
+        sup.classList.add("likeFlag");
+        currentImg.appendChild(sup);
+      }
+    } else if (localStorage.getItem(imgNode) === "disliked") {
+      // else set it to "disliked" state
+      if (
+        currentImg.classList.contains("heartFlag") ||
+        currentImg.classList.contains("likeFlag")
+      ) {
+        const element = document.querySelector(".likeFlag");
+        element.remove(); // remove the "1" for liked state
+        currentImg.classList.remove("heartFlag"); // change the color of the heart back to white
+      }
+    }
+    console.log(currentImg);
+  };
 
-  // compressBtn.addEventListener("click", (e) => {
-  //   minImgWrapper();
+  // if No Local Storage exists, create one
+  if (!localStorage.getItem(1)) {
+    for (let i = 0; i < 12; i++) {
+      localStorage.setItem(i, "disliked");
+      setImgState(i); // Read local storage and reset each img
+    }
+    // localStorage.setItem("myCat", "Tom");
+    console.log("local storage was just created");
+    // console.log(localStorage.getItem("myCat"));
+  } else {
+    // else if Local Storage already exists, manipulate it
 
-  //   if (IsFullScreenCurrently()) {
-  //     leaveFullScreen();
-  //   }
-  // });
+    localStorage.setItem(11, "liked");
+    localStorage.setItem(9, "liked");
+    localStorage.setItem(10, "liked");
+    localStorage.setItem(8, "liked");
+    console.log("local storage already exist and will now be manipulated");
 
-  // const maxOutImgWrapper = () => {
-  //   // pbgLinks.classList.add("invisible");
-  //   maxShowcase.classList.add("maxShowcase");
-  //   pbgDetails.classList.add("hideLink");
-  //   maximBtn.classList.add("hideLink");
-  //   compressBtn.classList.remove("hideLink");
-  //   menuImgWrapper.classList.add("imgAdjustment");
-  // };
-  // const minImgWrapper = () => {
-  //   // pbgLinks.classList.remove("invisible");
-  //   maxShowcase.classList.remove("maxShowcase");
-  //   pbgDetails.classList.remove("hideLink");
-  //   compressBtn.classList.add("hideLink");
-  //   maximBtn.classList.remove("hideLink");
-  //   menuImgWrapper.classList.remove("imgAdjustment");
-  // };
+    // Read Local Storage
+    for (let i = 0; i < 12; i++) {
+      imgNode = i;
+      setImgState(imgNode);
+      console.log(imgNode);
+    }
+  }
 
-  // %%%%%%%%%%%%     Fullscreen Code Start   %%%%%%%%%%%%%
+  // access each container index
+  for (let i = 0; i < menuImgContainers.length; i++) {
+    menuImgContainers[i]
+      .querySelector("#heart-icon")
+      .addEventListener("click", function () {
+        let heartBtn = document.querySelector("#heart-icon");
+        console.log(`this is the ( stored_Likes())${heartBtn[i]}`);
+        // if the element has been "liked" already then set it to "unliked" state else set it to "liked" state
+        if (heartBtn.classList.contains("heartFlag")) {
+          const element = document.querySelector(".likeFlag");
+          element.remove(); // remove the "1" for liked state
+          heartBtn.classList.remove("heartFlag"); // change the color of the heart back to white
+        } else {
+          heartBtn.classList.add("heartFlag");
+          const sup = document.createElement("sup");
+          sup.textContent = " 1 ";
+          sup.classList.add("likeFlag");
+          heartBtn.appendChild(sup);
+        }
+      });
+    // console.log(menuImgContainers[i]);
+    // .addEventListener("click", function () {
 
-  // %%%%%%% Go into Fullscreen %%%%%%
-  // function EnterFullScreen(element) {
-  //   if (element.requestFullscreen) element.requestFullscreen();
-  //   else if (element.mozRequestFullScreen) element.mozRequestFullScreen();
-  //   else if (element.webkitRequestFullscreen) element.webkitRequestFullscreen();
-  //   else if (element.msRequestFullscreen) element.msRequestFullscreen();
-  // }
+    //   index = i;
+    //   changeImage();
+    //   lightbox();
 
-  // %%%%%%%  Exiting Full-Screen   %%%%%%
-  // function leaveFullScreen() {
-  //   if (document.exitFullscreen) document.exitFullscreen();
-  //   else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-  //   else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-  //   else if (document.msExitFullscreen) document.msExitFullscreen();
-  // }
-
-  // %%%%  Returns the DOM Node of the element which is in full-screen
-  // %%%%%   Returns null if no element in full-screen
-  // function CurrentFullScreenElement() {
-  // 	return (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null);
-  // }
-
-  // Check For Fullscreen mode
-  // function IsFullScreenCurrently() {
-  //   var full_screen_element =
-  //     document.fullscreenElement ||
-  //     document.webkitFullscreenElement ||
-  //     document.mozFullScreenElement ||
-  //     document.msFullscreenElement ||
-  //     null;
-
-  // If no element is in full-screen
-  //   if (full_screen_element === null) return false;
-  //   else return true;
-  // }
-  console.log("This method is merged into the lightbox method");
-  // %%%%%%%%%%%%     Fullscreen Code end   %%%%%%%%%%%%%
+    // });
+  }
+  // console.log(arrayContainer[0].childNodes[1]);
 };
-// %%%%%%%%  Maximize-Gallery-Showcase end %%%%%%%%
+// %%%%%%%%  Stored likes (Local Storage) Code end %%%%%%%%
 
 // ^^^^^^^^^  Lightbox start ^^^^^^^^^
 const lightboxCtrl = () => {
@@ -238,11 +247,33 @@ const lightboxCtrl = () => {
   // %%%%%%%%  Maximize-Gallery-Showcase Variables %%%%%%%%
   const pbgLinks = document.querySelector(".pbg-links");
   const shareBtn = document.querySelector("#share-btn");
+  const likeBtn = document.querySelector(".heartLikeIcon");
   const pbgDetails = document.querySelector(".pbg-details");
   const menuImgWrapper = document.querySelector(".menu-img");
   const pbgShowcase = document.querySelector(".pbg-showcase");
 
   // %%%%%%%%  Maximize-Gallery-Showcase Methods start %%%%%%%%
+
+  // Create like button Flag
+
+  const like_Unlike_Flag = () => {
+    // if the element has been "liked" already then set it to "unliked" state else set it to "liked" state
+    if (likeBtn.classList.contains("heartFlag")) {
+      const element = document.querySelector(".likeFlag");
+      element.remove(); // remove the "1" for liked state
+      likeBtn.classList.remove("heartFlag"); // change the color of the heart back to white
+    } else {
+      likeBtn.classList.add("heartFlag");
+      const sup = document.createElement("sup");
+      sup.textContent = " 1 ";
+      sup.classList.add("likeFlag");
+      likeBtn.appendChild(sup);
+    }
+  };
+  //  Like flag click event
+  likeBtn.addEventListener("click", () => {
+    like_Unlike_Flag();
+  });
 
   //Event Listeners  start
   expandBtn.addEventListener("click", (e) => {
@@ -329,8 +360,6 @@ const lightboxCtrl = () => {
   const minImgWrapper = () => {
     // for the standard layout, remove the hamburger menu, turn off the fullscreen (maxShowcase ) layout and turn on the (openLightbox) layout
     if (lightboxContainer.classList.contains("maxShowcase")) {
-      console.log("classlist has maxShowcase class");
-      // removeMainMenu();
       lightboxContainer.classList.remove("maxShowcase");
       // lightboxContainer.classList.add("openLightbox");
 
@@ -400,6 +429,8 @@ const lightboxCtrl = () => {
       event.target !== prev &&
       event.target !== expandBtn &&
       event.target !== compressBtn &&
+      event.target !== likeBtn &&
+      event.target !== shareBtn &&
       event.target !== closeBtn
     ) {
       lightbox();
@@ -472,7 +503,6 @@ const lightboxCtrl = () => {
         lightboxContainer.classList.contains("maxShowcase")
       )
     ) {
-      console.log("Return menu from lightbox method");
       returnMainMenu();
     }
   }
@@ -687,6 +717,7 @@ if (sPage == "index.html") {
   // maximizeG();
   // Animate Buttons
   buttonSpin();
+  stored_Likes();
 } else if (sPage == "menu.html") {
   // Set the Map
   pubMapCtrl();

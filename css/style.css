@@ -1783,8 +1783,63 @@ input {
   cursor: pointer;
 }
 
+/* This flag goes on the parent element of the sup element (<i></i>) to turn the heart red once a user hits like */
+.heartFlag {
+  color: #f00 !important;
+}
+
 #heart-icon:hover {
   color: red;
+}
+
+/* Flags */
+/* This flag goes on the sup element once a user hits like */
+.likeFlag {
+  color: #fff;
+  font-size: 1.2em;
+  padding-left: 4px;
+  font-weight: 200;
+  font-family: "Forum", cursive;
+}
+
+/* Tooltip margin for heart like icon (parent element of the tooltip) */
+.heartLikeIcon:hover .heartTooltip {
+  display: block;
+}
+
+/* Tooltip for heart button in the lightbox */
+.heartTooltip {
+  display: none;
+  opacity: 0;
+  background: #000;
+  color: #ccc;
+  margin-top: 13px;
+  position: absolute;
+  z-index: 1000;
+  text-align: center;
+  border: 1px solid #ccc;
+  width: 0px;
+  height: 23px;
+  animation: tooltipFade 1s ease-in forwards;
+}
+
+/* Fade in tooltip */
+@keyframes tooltipFade {
+  from {
+    width: 0px;
+    display: none;
+    opacity: 0;
+  }
+  to {
+    width: 45px;
+    display: block;
+    opacity: 1;
+  }
+}
+
+/* Tooltip margin for heart like icon (parent element of the tooltip) */
+.heartLikeIcon {
+  /* margin: 25px; */
 }
 #share-icon:hover {
   color: white;
@@ -1794,6 +1849,7 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  /* z-index: 5; */
 }
 .text-overlay ul li {
   margin-top: 0.3em;
@@ -1831,7 +1887,8 @@ input {
   width: 100%;
   height: 100%;
   z-index: -6;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 1);
+  /* background-color: rgba(0, 0, 0, 0.9); */
   display: none;
   justify-content: center;
   align-items: center;
@@ -1864,10 +1921,14 @@ input {
 
 /* Use this adjustment for Fullscreen Lightbox img remove menu-img class only */
 .lightbox .XLlightbox-img {
-  width: 750px;
-  max-width: 750px;
-  height: 650px;
-  max-height: 650px;
+  width: 1024px;
+  max-width: 1024px;
+  /* width: 750px;
+  max-width: 750px; */
+  height: 768px;
+  max-height: 768px;
+  /* height: 650px;
+  max-height: 650px; */
   padding: 0px 0px;
   cursor: pointer;
   animation: lightbImage 0.5s ease;
@@ -1953,6 +2014,7 @@ input {
 .pbg-details {
   padding: 0em 0em 2em 6em;
   font-size: 1rem;
+  /* max-width: 100%; */
   width: 340px;
   /* padding: 2em 1em 2em 3em;
   font-size: 1.2rem;
@@ -2170,6 +2232,16 @@ input {
 #like-btn,
 #share-btn {
   padding-right: 20px;
+}
+#like-btn > #heart-icon,
+#share-btn > #share-icon {
+  color: #fff;
+}
+#like-btn > #heart-icon:hover {
+  color: red;
+}
+#share-btn > #share-icon:hover {
+  color: #1da1f2;
 }
 #close-btn {
   grid-area: close-btn;
