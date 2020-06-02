@@ -149,65 +149,48 @@ const stored_Likes = () => {
         currentImg.classList.remove("heartFlag"); // change the color of the heart back to white
       }
     }
-    console.log(currentImg);
   };
 
   // if No Local Storage exists, create one
-  if (!localStorage.getItem(1)) {
-    for (let i = 0; i < 12; i++) {
+  if (!localStorage.getItem(0)) {
+    for (let i = 0; i < menuImgContainers.length; i++) {
       localStorage.setItem(i, "disliked");
-      setImgState(i); // Read local storage and reset each img
+      setImgState(i); // Read local storage and reset each img state
     }
-    // localStorage.setItem("myCat", "Tom");
-    console.log("local storage was just created");
-    // console.log(localStorage.getItem("myCat"));
   } else {
     // else if Local Storage already exists, manipulate it
-
     localStorage.setItem(11, "liked");
     localStorage.setItem(9, "liked");
     localStorage.setItem(10, "liked");
     localStorage.setItem(8, "liked");
     console.log("local storage already exist and will now be manipulated");
+    console.log(menuImgContainers.length);
 
     // Read Local Storage
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < menuImgContainers.length; i++) {
       imgNode = i;
-      setImgState(imgNode);
-      console.log(imgNode);
+      setImgState(imgNode); // Read local storage and reset each img state
     }
   }
 
   // access each container index
+  // Listen for "like" or "dislike" state on each img
   for (let i = 0; i < menuImgContainers.length; i++) {
     menuImgContainers[i]
       .querySelector("#heart-icon")
       .addEventListener("click", function () {
         let heartBtn = document.querySelector("#heart-icon");
         console.log(`this is the ( stored_Likes())${heartBtn[i]}`);
-        // if the element has been "liked" already then set it to "unliked" state else set it to "liked" state
-        if (heartBtn.classList.contains("heartFlag")) {
-          const element = document.querySelector(".likeFlag");
-          element.remove(); // remove the "1" for liked state
-          heartBtn.classList.remove("heartFlag"); // change the color of the heart back to white
+        // if the element has been "liked" already then set it to "disliked" state else set it to "liked" state
+        if (localStorage.getItem(i) === "liked") {
+          localStorage.setItem(i) = "disliked";
+          setImgState(i);
         } else {
-          heartBtn.classList.add("heartFlag");
-          const sup = document.createElement("sup");
-          sup.textContent = " 1 ";
-          sup.classList.add("likeFlag");
-          heartBtn.appendChild(sup);
+          localStorage.setItem(i) = "liked";
+          setImgState(i);
         }
       });
-    // console.log(menuImgContainers[i]);
-    // .addEventListener("click", function () {
-
-    //   index = i;
-    //   changeImage();
-    //   lightbox();
-
-    // });
   }
-  // console.log(arrayContainer[0].childNodes[1]);
 };
 // %%%%%%%%  Stored likes (Local Storage) Code end %%%%%%%%
 
@@ -258,6 +241,7 @@ const lightboxCtrl = () => {
 
   const like_Unlike_Flag = () => {
     // if the element has been "liked" already then set it to "unliked" state else set it to "liked" state
+    // use portfolioItems[i]
     if (likeBtn.classList.contains("heartFlag")) {
       const element = document.querySelector(".likeFlag");
       element.remove(); // remove the "1" for liked state
@@ -453,7 +437,7 @@ const lightboxCtrl = () => {
   // access each container index
   for (let i = 0; i < portfolioItems.length; i++) {
     portfolioItems[i]
-      .querySelector(".text-overlay")
+      .querySelector(".img_description")
       .addEventListener("click", function () {
         index = i;
         changeImage();

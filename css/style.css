@@ -1787,6 +1787,9 @@ input {
 .heartFlag {
   color: #f00 !important;
 }
+.heartFlag:hover {
+  color: #ffffff !important;
+}
 
 #heart-icon:hover {
   color: red;
