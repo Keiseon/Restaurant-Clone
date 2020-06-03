@@ -1806,7 +1806,7 @@ input {
 }
 
 /* Tooltip margin for heart like icon (parent element of the tooltip) */
-.heartLikeIcon:hover .heartTooltip {
+#heartLikeIcon:hover .heartTooltip {
   display: block;
 }
 
@@ -1841,7 +1841,7 @@ input {
 }
 
 /* Tooltip margin for heart like icon (parent element of the tooltip) */
-.heartLikeIcon {
+#heartLikeIcon {
   /* margin: 25px; */
 }
 #share-icon:hover {

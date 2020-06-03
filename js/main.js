@@ -226,11 +226,12 @@ const lightboxCtrl = () => {
   let imgAlt;
   let imgP;
   let img_h1;
+  let img_likeBtn;
 
   // %%%%%%%%  Maximize-Gallery-Showcase Variables %%%%%%%%
   const pbgLinks = document.querySelector(".pbg-links");
   const shareBtn = document.querySelector("#share-btn");
-  const likeBtn = document.querySelector(".heartLikeIcon");
+  const likeBtn = document.querySelector("#heartLikeIcon");
   const pbgDetails = document.querySelector(".pbg-details");
   const menuImgWrapper = document.querySelector(".menu-img");
   const pbgShowcase = document.querySelector(".pbg-showcase");
@@ -240,13 +241,14 @@ const lightboxCtrl = () => {
   // Create like button Flag
 
   const like_Unlike_Flag = () => {
-    // if the element has been "liked" already then set it to "unliked" state else set it to "liked" state
+    // if the element has been "liked" already then set it to "disliked" state else set it to "liked" state
     // use portfolioItems[i]
+    // if (portfolioItems[i])
     if (likeBtn.classList.contains("heartFlag")) {
       const element = document.querySelector(".likeFlag");
       element.remove(); // remove the "1" for liked state
       likeBtn.classList.remove("heartFlag"); // change the color of the heart back to white
-    } else {
+    } else if (!likeBtn.classList.contains("heartFlag")) {
       likeBtn.classList.add("heartFlag");
       const sup = document.createElement("sup");
       sup.textContent = " 1 ";
@@ -490,12 +492,16 @@ const lightboxCtrl = () => {
       returnMainMenu();
     }
   }
-
+  // Get img from gallery and populate the lightbox with it
   function changeImage() {
     imgSrc = portfolioItems[index].querySelector("img").getAttribute("src");
     imgAlt = portfolioItems[index].querySelector("img").getAttribute("alt");
     imgP = portfolioItems[index].querySelector("p").textContent.trim();
     img_h1 = portfolioItems[index].querySelector("h1").textContent.trim();
+    img_likeBtn = portfolioItems[index]
+      .querySelector("#heart-icon")
+      .getAttribute("class");
+    console.log(img_likeBtn);
     let lightHead = document.querySelector(".light-headTxt");
     let lightPtxt = document.querySelector(".light-PTxt");
 
@@ -541,11 +547,16 @@ const lightboxCtrl = () => {
       // If device === landscape Mode (Phone) pull a medium pic
     }
 
-    // lightboxImage.src = imgSrc;
+    // take content from the gallery and add it to the lightbox elements
     lightboxImage.src = new_imgSrc;
     lightboxImage.alt = imgAlt;
     lightHead.innerHTML = img_h1;
     lightPtxt.innerHTML = imgP;
+
+    // clear the likeBtn classlist with regex
+    likeBtn.className = "";
+    // add the classes from the gallery likeBtn
+    likeBtn.className = img_likeBtn;
 
     // lightboxText.innerHTML = portfolioItems[index]
     //   .querySelector("h1")
