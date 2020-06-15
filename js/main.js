@@ -125,13 +125,11 @@ const stored_Likes = () => {
   // set imgs to "liked" or "disliked" state
   const setImgState = (imgNode) => {
     let currentImg = menuImgContainers[imgNode].querySelector("#heart-icon");
+    // let currentLightboxImg = document.querySelector("#heartLikeIcon");
 
     // If the click event comes from the "gallery" then make changes to the gallery only
 
-    if (
-      localStorage.getItem(imgNode) === "liked" &&
-      localStorage.getItem("lightbox") === "gallery"
-    ) {
+    if (localStorage.getItem(imgNode) === "liked") {
       // if the element has been "liked" set it to a liked state
       if (!currentImg.classList.contains("heartFlag")) {
         currentImg.classList.add("heartFlag");
@@ -140,52 +138,45 @@ const stored_Likes = () => {
         sup.classList.add("likeFlag");
         currentImg.appendChild(sup);
       }
-    } else if (
-      localStorage.getItem(imgNode) === "disliked" &&
-      localStorage.getItem("lightbox") === "gallery"
-    ) {
+      console.log("gallery img already set to look liked");
+    } else if (localStorage.getItem(imgNode) === "disliked") {
       // else set it to "disliked" state
       if (currentImg.classList.contains("heartFlag")) {
         const element = currentImg.lastChild;
         element.remove(); // remove the "1" for liked state
-        currentImg.classList.remove("heartFlag"); // change the color of the heart back to white
-      }
+        currentImg.classList.remove("heartFlag");
+      } // change the color of the heart back to white
+      console.log("gallery img already set to look disliked");
     }
 
     // If the click event comes from the "lightbox" then make changes to the lightbox and reset the "lightbox" item to "gallery" in local storage
-    if (
-      localStorage.getItem(imgNode) === "liked" &&
-      localStorage.getItem("lightbox") === "lightbox"
-    ) {
-      // if the element has been "liked" set it to a liked state
-      if (localStorage.getItem(imgNode) === "liked") {
-        console.log("LIKED STATE: SET in the lightbox");
-      }
-      localStorage.setItem("lightbox", "gallery");
+    // if (
+    //   localStorage.getItem(imgNode) === "liked" &&
+    //   localStorage.getItem("likeClickLocation") === "lightbox"
+    // ) {
+    // if the element has been "liked" set it to a liked state
+    // console.log(`(setImgState()) Image is liked`);
+    // console.log("LIKED STATE: SET in the lightbox");
+    // localStorage.setItem("lightbox", "gallery");
 
-      console.log("lightbox item reset to 'gallery' in localStorage");
-      // if (!currentImg.classList.contains("heartFlag")) {
-      //   currentImg.classList.add("heartFlag");
-      //   const sup = document.createElement("sup");
-      //   sup.textContent = "1";
-      //   sup.classList.add("likeFlag");
-      //   currentImg.appendChild(sup);
-      // }
-    } else if (
-      localStorage.getItem(imgNode) === "disliked" &&
-      localStorage.getItem("lightbox") === "lightbox"
-    ) {
-      // else set it to "disliked" state
-      console.log("DISLIKED STATE: SET in the lightbox");
-      localStorage.setItem("lightbox", "gallery");
-
-      console.log("lightbox item reset to 'gallery' in localStorage");
-      // if (currentImg.classList.contains("heartFlag")) {
-      //   const element = currentImg.lastChild;
-      //   element.remove(); // remove the "1" for liked state
-      //   currentImg.classList.remove("heartFlag"); // change the color of the heart back to white
-      // }
-    }
+    // if the element has been "liked" set it to a liked state
+    //   currentLightboxImg.classList.add("heartFlag");
+    //   const sup = document.createElement("sup");
+    //   sup.textContent = "1";
+    //   sup.classList.add("likeFlag");
+    //   currentLightboxImg.appendChild(sup);
+    // } else if (
+    //   localStorage.getItem(imgNode) === "disliked" &&
+    //   localStorage.getItem("likeClickLocation") === "lightbox"
+    // ) {
+    // console.log(`(setImgState()) Image is disliked`);
+    // else set it to "disliked" state
+    // console.log("DISLIKED STATE: SET in the lightbox");
+    // else set it to "disliked" state
+    // const element = currentLightboxImg.lastChild;
+    // element.remove(); // remove the "1" for liked state
+    // currentLightboxImg.classList.remove("heartFlag"); // change the color of the heart back to white
+    // }
   };
 
   // if No Local Storage exists, create one
@@ -195,7 +186,7 @@ const stored_Likes = () => {
       setImgState(i); // Read local storage and reset each img state
     }
     // Set "lightbox" trigger to know when a like click comes from the lightbox or the gallery
-    localStorage.setItem("lightbox", "gallery");
+    // localStorage.setItem("likeClickLocation", "gallery");
   } else {
     // else if Local Storage already exists, manipulate it
     // Read Local Storage
@@ -212,19 +203,12 @@ const stored_Likes = () => {
       .querySelector("#heart-icon")
       .addEventListener("click", function () {
         // if the element has been "liked" already [in the "gallery"] then set it to "disliked" state [in the "gallery"] else set it to "liked" state [in the "gallery"]
-        if (
-          localStorage.getItem(i) === "liked" &&
-          localStorage.getItem("lightbox") === "gallery"
-        ) {
+        if (localStorage.getItem(i) === "liked") {
           localStorage.setItem(i, "disliked");
-          setImgState(i);
-        } else if (
-          localStorage.getItem(i) === "disliked" &&
-          localStorage.getItem("lightbox") === "gallery"
-        ) {
+        } else {
           localStorage.setItem(i, "liked");
-          setImgState(i);
         }
+        setImgState(i);
       });
   }
 };
@@ -278,63 +262,37 @@ const lightboxCtrl = () => {
 
   const like_Unlike_Flag = () => {
     // if the element has been "liked" already then set it to "disliked" state else set it to "liked" state in the lightbox\
-    if (
-      localStorage.getItem(index) === "liked" &&
-      localStorage.getItem("lightbox") === "lightbox"
-    ) {
-      console.log(
-        ` index (${index}) was found, img was {${localStorage.getItem(index)}}`
-      );
-      // set it to "disliked" state
-      localStorage.setItem(index, "disliked");
-      console.log(
-        ` index (${index}) was changed, img is now {${localStorage.getItem(
-          index
-        )}}`
-      );
-      // Read Local Storage
-      // Set lightbox key in local Storage to "lightbox" then call stored_Likes()
-      // localStorage.setItem("lightbox", "lightbox");
-      // stored_Likes();
-    } else if (
-      localStorage.getItem(index) === "disliked" &&
-      localStorage.getItem("lightbox") === "lightbox"
-    ) {
-      console.log(
-        ` index (${index}) was found, img was {${localStorage.getItem(index)}}`
-      );
+    if (localStorage.getItem(index) === "liked") {
       // set it to "liked" state
-      localStorage.setItem(index, "liked");
-      console.log(
-        ` index (${index}) was changed, img is now {${localStorage.getItem(
-          index
-        )}}`
-      );
-      // Read Local Storage
-      // Set lightbox key in local Storage to "lightbox" then call stored_Likes()
-      // localStorage.setItem("lightbox", "lightbox");
-      // stored_Likes();
+      if (!likeBtn.classList.contains("heartFlag")) {
+        likeBtn.classList.add("heartFlag");
+        const sup = document.createElement("sup");
+        sup.textContent = "1";
+        sup.classList.add("likeFlag");
+        likeBtn.appendChild(sup);
+      }
+      console.log("likebtn already set to look liked");
+    } else if (localStorage.getItem(index) === "disliked") {
+      // set it to "disliked" state
+      if (likeBtn.classList.contains("heartFlag")) {
+        const element = likeBtn.lastChild;
+        element.remove(); // remove the "1" for liked state
+        likeBtn.classList.remove("heartFlag");
+      } // change the color of the heart back to normal
+      console.log("likebtn already set to look disliked");
     }
-    // use portfolioItems[i]
-    // if (portfolioItems[i])
-    // if (likeBtn.classList.contains("heartFlag")) {
-    //   const element = document.querySelector(".likeFlag");
-    //   element.remove(); // remove the "1" for liked state
-    //   likeBtn.classList.remove("heartFlag"); // change the color of the heart back to white
-    // } else if (!likeBtn.classList.contains("heartFlag")) {
-    //   likeBtn.classList.add("heartFlag");
-    //   const sup = document.createElement("sup");
-    //   sup.textContent = " 1 ";
-    //   sup.classList.add("likeFlag");
-    //   likeBtn.appendChild(sup);
-    // }
   };
+
   //  Like flag click event
   likeBtn.addEventListener("click", () => {
-    // Set lightbox key in local Storage to "lightbox" then call stored_Likes()
-    localStorage.setItem("lightbox", "lightbox");
+    // the click event toggles between "liked" and "disliked" in LocalStorage
+    // then it calls like_Unlike_Flag() to set its corresponding state
+    if (localStorage.getItem(index) === "liked") {
+      localStorage.setItem(index, "disliked");
+    } else {
+      localStorage.setItem(index, "liked");
+    }
     like_Unlike_Flag();
-    stored_Likes();
   });
 
   //Event Listeners  start
@@ -352,10 +310,15 @@ const lightboxCtrl = () => {
       minImgWrapper();
       leaveFullScreen();
       lightbox();
+      stored_Likes();
     }
     if (lightboxContainer.classList.contains("openLightbox")) {
       removeMainMenu();
     }
+  });
+
+  closeBtn.addEventListener("click", (e) => {
+    stored_Likes();
   });
   //Event Listeners  end
 
@@ -509,6 +472,8 @@ const lightboxCtrl = () => {
       } else {
         returnMainMenu();
       }
+    } else {
+      stored_Likes();
     }
   });
 
@@ -628,43 +593,8 @@ const lightboxCtrl = () => {
     lightHead.innerHTML = img_h1;
     lightPtxt.innerHTML = imgP;
 
-    // clear the likeBtn classlist
-    likeBtn.className = "";
-    // add the classes from the gallery likeBtn
-    likeBtn.className = img_likeBtn;
-
-    // target the gallery like btn
-    // if the like Flag is present add it to the likeBtn in the lightbox
-    img_likeBtn = portfolioItems[index].querySelector("#heart-icon");
-    if (img_likeBtn.querySelector("sup")) {
-      if (likeBtn.querySelector("sup")) {
-        console.log(
-          `before it was this ${likeBtn.querySelector("sup").className}`
-        );
-
-        let element = likeBtn.querySelector("sup");
-        element.parentNode.removeChild(element);
-        console.log(`now it is no more`);
-      } else {
-        likeBtn.appendChild(img_likeBtn.firstElementChild);
-        console.log("sup appended to likeBtn");
-        // console.log(img_likeBtn.querySelector("sup").className);
-      }
-    } else if (!img_likeBtn.querySelector("sup")) {
-      if (likeBtn.querySelector("sup")) {
-        console.log(`before it shouldnt have a sup but if it does`);
-
-        let element = likeBtn.querySelector("sup");
-        element.parentNode.removeChild(element);
-        console.log(`now it is gone`);
-      }
-      console.log("Nah G we doh have no sup element here nah lol");
-    }
-
-    // lightboxText.innerHTML = portfolioItems[index]
-    //   .querySelector("h1")
-    //   .innerHTML.trim();
-    // counter.innerHTML = ` ${index + 1} of ${portfolioItems.length}`;
+    // check storage and set the likebtn to like or disliked state
+    like_Unlike_Flag();
   }
 };
 // ^^^^^^^^^  Lightbox end ^^^^^^^^^
