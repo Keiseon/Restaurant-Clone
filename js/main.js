@@ -121,15 +121,16 @@ const stored_Likes = () => {
   let imgNode = -1; // this holds the index of the each img at any given time
   // Grab the img gallery containers
   const menuImgContainers = document.querySelector(".gallery-wrapper").children;
+  let imgKey = localStorage.getItem(imgNode);
 
   // set imgs to "liked" or "disliked" state
   const setImgState = (imgNode) => {
     let currentImg = menuImgContainers[imgNode].querySelector("#heart-icon");
-    // let currentLightboxImg = document.querySelector("#heartLikeIcon");
 
-    // If the click event comes from the "gallery" then make changes to the gallery only
+    // update the imgKey AFTER page load to get the latest state of the img from localStorage
+    imgKey = localStorage.getItem(imgNode);
 
-    if (localStorage.getItem(imgNode) === "liked") {
+    if (imgKey === "liked") {
       // if the element has been "liked" set it to a liked state
       if (!currentImg.classList.contains("heartFlag")) {
         currentImg.classList.add("heartFlag");
@@ -138,45 +139,14 @@ const stored_Likes = () => {
         sup.classList.add("likeFlag");
         currentImg.appendChild(sup);
       }
-      console.log("gallery img already set to look liked");
-    } else if (localStorage.getItem(imgNode) === "disliked") {
+    } else if (imgKey === "disliked") {
       // else set it to "disliked" state
       if (currentImg.classList.contains("heartFlag")) {
         const element = currentImg.lastChild;
         element.remove(); // remove the "1" for liked state
         currentImg.classList.remove("heartFlag");
       } // change the color of the heart back to white
-      console.log("gallery img already set to look disliked");
     }
-
-    // If the click event comes from the "lightbox" then make changes to the lightbox and reset the "lightbox" item to "gallery" in local storage
-    // if (
-    //   localStorage.getItem(imgNode) === "liked" &&
-    //   localStorage.getItem("likeClickLocation") === "lightbox"
-    // ) {
-    // if the element has been "liked" set it to a liked state
-    // console.log(`(setImgState()) Image is liked`);
-    // console.log("LIKED STATE: SET in the lightbox");
-    // localStorage.setItem("lightbox", "gallery");
-
-    // if the element has been "liked" set it to a liked state
-    //   currentLightboxImg.classList.add("heartFlag");
-    //   const sup = document.createElement("sup");
-    //   sup.textContent = "1";
-    //   sup.classList.add("likeFlag");
-    //   currentLightboxImg.appendChild(sup);
-    // } else if (
-    //   localStorage.getItem(imgNode) === "disliked" &&
-    //   localStorage.getItem("likeClickLocation") === "lightbox"
-    // ) {
-    // console.log(`(setImgState()) Image is disliked`);
-    // else set it to "disliked" state
-    // console.log("DISLIKED STATE: SET in the lightbox");
-    // else set it to "disliked" state
-    // const element = currentLightboxImg.lastChild;
-    // element.remove(); // remove the "1" for liked state
-    // currentLightboxImg.classList.remove("heartFlag"); // change the color of the heart back to white
-    // }
   };
 
   // if No Local Storage exists, create one
@@ -196,21 +166,39 @@ const stored_Likes = () => {
     }
   }
 
-  // access each container index
-  // Listen for "like" or "dislike" state on each img
+  // Read Local Storage
   for (let i = 0; i < menuImgContainers.length; i++) {
-    menuImgContainers[i]
-      .querySelector("#heart-icon")
-      .addEventListener("click", function () {
-        // if the element has been "liked" already [in the "gallery"] then set it to "disliked" state [in the "gallery"] else set it to "liked" state [in the "gallery"]
-        if (localStorage.getItem(i) === "liked") {
-          localStorage.setItem(i, "disliked");
-        } else {
-          localStorage.setItem(i, "liked");
-        }
-        setImgState(i);
-      });
+    imgNode = i;
+    setImgState(imgNode); // Read local storage and reset each img state
   }
+
+  // // access each container index
+  // // Listen for "like" or "dislike" state on each img
+  document.querySelectorAll("#heart-icon").forEach((likeState) => {
+    likeState.addEventListener(
+      "click",
+      (event) => {
+        // if the element has been "liked" already [in the "gallery"] then set it to "disliked" state [in the "gallery"] else set it to "liked" state [in the "gallery"]
+
+        // get the hidden marker from the span tag inside the heart icon
+        let marker = parseInt(likeState.firstElementChild.textContent, 10);
+
+        // update the imgKey onclick AFTER page load to get the latest state of the img from localStorage
+        imgKey = localStorage.getItem(marker);
+
+        // use the marker to manipulate localStorage
+        if (imgKey === "liked") {
+          console.log("click event fires this is liked");
+          localStorage.setItem(marker, "disliked");
+        } else {
+          localStorage.setItem(marker, "liked");
+        }
+        setImgState(marker);
+        console.log("click event fires");
+      },
+      true
+    );
+  });
 };
 // %%%%%%%%  Stored likes (Local Storage) Code end %%%%%%%%
 
@@ -730,7 +718,9 @@ if (sPage == "index.html") {
   buttonSpin();
   // grab image container
   lightboxCtrl();
-  // grab_GSI();
+
+  // handle like and dislike state using localStorage
+  stored_Likes();
 } else if (sPage == "galleryFake.html") {
   // Set the Map
   pubMapCtrl();
@@ -745,6 +735,7 @@ if (sPage == "index.html") {
   // maximizeG();
   // Animate Buttons
   buttonSpin();
+  // handle like and dislike state using localStorage
   stored_Likes();
 } else if (sPage == "menu.html") {
   // Set the Map
