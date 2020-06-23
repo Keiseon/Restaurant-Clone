@@ -107,13 +107,13 @@ const buttonSpin = () => {
 // %%%%%%%%%%%%     Button-Spin Code end   %%%%%%%%%%%%%
 
 // %%%%%%%%  Populate-Gallery-Showcase Code Start %%%%%%%%
-const populateGallery = () => {
-  const arrayContainer = document.querySelectorAll(".gallery-item-container");
-  for (let i = 0; i < arrayContainer.length; i++) {
-    console.log(arrayContainer[i].childNodes[i + 1]);
-  }
-  // console.log(arrayContainer[0].childNodes[1]);
-};
+// const populateGallery = () => {
+//   const arrayContainer = document.querySelectorAll(".gallery-item-container");
+//   for (let i = 0; i < arrayContainer.length; i++) {
+//     console.log(arrayContainer[i].childNodes[i + 1]);
+//   }
+//   // console.log(arrayContainer[0].childNodes[1]);
+// };
 // %%%%%%%%  Populate-Gallery-Showcase Code end %%%%%%%%
 
 // %%%%%%%%  Stored likes (Local Storage) Code start %%%%%%%%
@@ -188,13 +188,11 @@ const stored_Likes = () => {
 
         // use the marker to manipulate localStorage
         if (imgKey === "liked") {
-          console.log("click event fires this is liked");
           localStorage.setItem(marker, "disliked");
         } else {
           localStorage.setItem(marker, "liked");
         }
         setImgState(marker);
-        console.log("click event fires");
       },
       true
     );
@@ -259,7 +257,6 @@ const lightboxCtrl = () => {
         sup.classList.add("likeFlag");
         likeBtn.appendChild(sup);
       }
-      console.log("likebtn already set to look liked");
     } else if (localStorage.getItem(index) === "disliked") {
       // set it to "disliked" state
       if (likeBtn.classList.contains("heartFlag")) {
@@ -267,7 +264,6 @@ const lightboxCtrl = () => {
         element.remove(); // remove the "1" for liked state
         likeBtn.classList.remove("heartFlag");
       } // change the color of the heart back to normal
-      console.log("likebtn already set to look disliked");
     }
   };
 
@@ -345,7 +341,6 @@ const lightboxCtrl = () => {
     pbgLinks.classList.add("hideElement");
     // for the fullscreen layout, remove the hamburger menu, turn off the standard lightbox layout (openLightbox) and turn on the (maxShowcase) layout
     if (lightboxContainer.classList.contains("openLightbox")) {
-      console.log("classlist has openLightbox class");
       removeMainMenu();
       // Adding fullscreen adjustments for when you expand to fullscreen mode
       // lightboxContainer.classList.remove("openLightbox");
@@ -459,6 +454,7 @@ const lightboxCtrl = () => {
         removeMainMenu();
       } else {
         returnMainMenu();
+        location.reload();
       }
     } else {
       stored_Likes();

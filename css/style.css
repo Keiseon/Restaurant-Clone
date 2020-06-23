@@ -1805,6 +1805,11 @@ input {
   font-family: "Forum", cursive;
 }
 
+#heart-icon > .likeFlag {
+  color: #111;
+  font-weight: 700;
+}
+
 /* Tooltip margin for heart like icon (parent element of the tooltip) */
 #heartLikeIcon:hover .heartTooltip {
   display: block;
@@ -2103,6 +2108,15 @@ input {
   .text-overlay p {
     font-size: 0.7rem;
     padding: 0.3em 0.4em 0.6em 0.7em;
+  }
+
+  .text-overlay ul {
+    margin-top: -7px;
+  }
+  #heart-icon > .likeFlag {
+    font-size: 1em;
+    color: #111;
+    font-weight: 700;
   }
 }
 /* ====================     MEDIA QUERIES (Gallery PAGE)
