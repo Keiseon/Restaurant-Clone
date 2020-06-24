@@ -2141,7 +2141,7 @@ input {
     transition: all 1s ease-in-out;
   }
   .text-overlay h1 {
-    padding-top: 2em;
+    padding-top: 1.3em;
     font-size: 0.8rem;
     /* font-weight: 600; */
   }
@@ -2152,12 +2152,20 @@ input {
 
   .text-overlay ul {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
+    margin-top: -7px;
   }
   .text-overlay ul li {
-    margin-top: 0.8em;
+    margin-top: 0.7em;
     margin-bottom: 0.5em;
-    padding: 0em 2em;
+    padding: 0em 1.1em;
+  }
+
+  #heart-icon > .likeFlag {
+    font-size: 1em;
+    color: #111;
+    font-weight: 700;
   }
 }
 
@@ -2196,7 +2204,7 @@ input {
   .text-overlay ul li {
     margin-top: 0.8em;
     margin-bottom: 0.5em;
-    /* padding: 0em 2em; */
+    padding: 0em 15px;
   }
 }
 /******************* Gallery stuff End...**************** */
