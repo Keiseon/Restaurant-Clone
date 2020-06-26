@@ -137,13 +137,13 @@ const stored_Likes = () => {
         const sup = document.createElement("sup");
         sup.textContent = "1";
         sup.classList.add("likeFlag");
-        currentImg.appendChild(sup);
+        currentImg.insertAdjacentElement("afterbegin", sup);
       }
     } else if (imgKey === "disliked") {
       // else set it to "disliked" state
       if (currentImg.classList.contains("heartFlag")) {
-        const element = currentImg.lastChild;
-        element.remove(); // remove the "1" for liked state
+        const element = currentImg.firstChild;
+        currentImg.removeChild(element); // remove the "1" for liked state
         currentImg.classList.remove("heartFlag");
       } // change the color of the heart back to white
     }
@@ -180,8 +180,8 @@ const stored_Likes = () => {
       (event) => {
         // if the element has been "liked" already [in the "gallery"] then set it to "disliked" state [in the "gallery"] else set it to "liked" state [in the "gallery"]
 
-        // get the hidden marker from the span tag inside the heart icon
-        let marker = parseInt(likeState.firstElementChild.textContent, 10);
+        // get the hidden marker from the sub tag inside the heart icon
+        let marker = parseInt(likeState.lastElementChild.textContent, 10);
 
         // update the imgKey onclick AFTER page load to get the latest state of the img from localStorage
         imgKey = localStorage.getItem(marker);

@@ -1860,12 +1860,7 @@ input {
   /* z-index: 5; */
 }
 .text-overlay ul li {
-  /* margin-top: 0.3em; */
-  /* margin-bottom: 0.5em; */
   padding: 0em 2em;
-}
-.text-overlay > .img_description {
-  padding-bottom: 1.35em; /* 21.6px*/
 }
 
 #gallery-title {
@@ -2114,6 +2109,10 @@ input {
     color: #111;
     font-weight: 700;
   }
+
+  .text-overlay > .img_description {
+    padding-bottom: 0.4em; /* 21.6px*/
+  }
 }
 /* ====================     MEDIA QUERIES (Gallery PAGE)
     779 pixel fix 
@@ -2153,8 +2152,6 @@ input {
     /* margin-top: -7px; */
   }
   .text-overlay ul li {
-    /* margin-top: 1.2em; */
-    /* margin-bottom: 0.5em; */
     padding: 0em 1.1em;
   }
 
@@ -2162,6 +2159,10 @@ input {
     font-size: 1em;
     color: #111;
     font-weight: 700;
+  }
+
+  .text-overlay > .img_description {
+    padding-bottom: 0.8em; /* 21.6px*/
   }
 }
 
@@ -2198,9 +2199,10 @@ input {
     justify-content: space-around;
   }
   .text-overlay ul li {
-    margin-top: 0.8em;
-    margin-bottom: 0.5em;
     padding: 0em 15px;
+  }
+  .text-overlay > .img_description {
+    padding-bottom: 1.35em; /* 21.6px*/
   }
 }
 /******************* Gallery stuff End...**************** */
