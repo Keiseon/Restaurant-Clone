@@ -1970,17 +1970,21 @@ input {
   justify-content: center;
   z-index: -1;
 }
-
+.lightbox-controls {
+  text-align: center;
+}
 .lightbox .lightbox-controls div {
-  position: absolute;
+  display: inline-block;
+  padding-top: 182px;
+  /* position: absolute;
   top: 50%;
   height: 40px;
   width: 40px;
-  text-align: center;
+  text-align: center; */
   line-height: 42px;
   font-size: 28px;
   font-weight: 400;
-  margin-top: -20px;
+  /* margin-top: -20px; */
   background-color: #050505;
   color: #fff;
   cursor: pointer;
@@ -2247,9 +2251,11 @@ input {
 }
 #compress-btn {
   grid-area: compress-btn;
+  margin: 0em;
 }
 #expand-btn {
   grid-area: expand-btn;
+  margin: 0em;
 }
 
 #like-btn,
@@ -2268,7 +2274,8 @@ input {
 }
 #close-btn {
   grid-area: close-btn;
-  margin-right: 2em;
+  /* margin-right: 2em; */
+  margin: 0em;
 }
 
 .pbg-showcase {
@@ -2362,7 +2369,16 @@ input {
 
 /*********** Gallery Showcase: Media Queries Start...***** */
 @media screen and (max-width: 1095px) {
-  .showcase-wrapper {
+  /* .showcase-wrapper {
+    grid-template-columns: 5.3% 88% 6.3%;
+    grid-auto-rows: minmax(1.6em auto);
+    grid-template-areas:
+      "expand-btn pbg-links close-btn"
+      "expand-btn pbg-showcase close-btn"
+      "expand-btn pbg-details close-btn";
+  } */
+
+  .openLightbox {
     grid-template-columns: 5.3% 88% 6.3%;
     grid-auto-rows: minmax(1.6em auto);
     grid-template-areas:
@@ -2375,6 +2391,12 @@ input {
     justify-self: center;
     align-self: center;
     text-align: center;
+    padding: 0em;
+    margin-top: -3.4em;
+  }
+
+  .lightbox .lightbox-img {
+    padding: 0px 0px 15px 0px;
   }
 }
 
