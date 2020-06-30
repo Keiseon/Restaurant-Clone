@@ -236,6 +236,7 @@ const lightboxCtrl = () => {
 
   // %%%%%%%%  Maximize-Gallery-Showcase Variables %%%%%%%%
   const pbgLinks = document.querySelector(".pbg-links");
+  const imgCtrl = document.querySelectorAll(".lightbox-controls");
   const shareBtn = document.querySelector("#share-btn");
   const likeBtn = document.querySelector("#heartLikeIcon");
   const pbgDetails = document.querySelector(".pbg-details");
@@ -339,6 +340,9 @@ const lightboxCtrl = () => {
   };
   const maxOutImgWrapper = () => {
     pbgLinks.classList.add("hideElement");
+    // hide the lightbox controls
+    imgCtrl[0].classList.add("hideElement");
+    imgCtrl[1].classList.add("hideElement");
     // for the fullscreen layout, remove the hamburger menu, turn off the standard lightbox layout (openLightbox) and turn on the (maxShowcase) layout
     if (lightboxContainer.classList.contains("openLightbox")) {
       removeMainMenu();
@@ -386,6 +390,9 @@ const lightboxCtrl = () => {
       lightbox();
     }
     pbgLinks.classList.remove("hideElement");
+    //show the lightbox controls
+    imgCtrl[0].classList.remove("hideElement");
+    imgCtrl[1].classList.remove("hideElement");
     lightboxContainer.classList.remove("maxShowcase");
     pbgDetails.classList.remove("hideLink");
     compressBtn.classList.add("hideLink");
