@@ -42,8 +42,38 @@ body {
   margin: 0 auto;
   position: relative;
   z-index: 2; /*was not here*/
-  /* z-index: 3; Kei fix menu hamburger place ontop of the menu */
+  /* animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom; */
 }
+
+/* .bounce-site {
+  animation-name: bounce-site;
+  animation-timing-function: ease;
+}
+@keyframes bounce-5 {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-100px);
+  }
+  50% {
+    transform: scale(1, 1) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+} */
 
 .header-container h1,
 .header-container a {
@@ -1985,7 +2015,7 @@ input {
   font-size: 28px;
   font-weight: 400;
   /* margin-top: -20px; */
-  background-color: #050505;
+  background-color: inherit; /*#050505;*/
   color: #fff;
   cursor: pointer;
   border-radius: 50%;
@@ -2008,10 +2038,16 @@ input {
 }
 /* Use this adjustment for Fullscreen Lightbox Buttons big prev and next remove next and prev classes*/
 .lightbox .lightbox-controls .bigPrev {
-  left: 80px;
+  grid-area: bigPrev;
+  margin-top: 7em;
+  margin-right: 10px;
+  /* left: 80px; */
 }
 .lightbox .lightbox-controls .bigNext {
-  right: 80px;
+  grid-area: bigNext;
+  margin-top: 7em;
+  margin-right: 100px;
+  /* right: 80px; */
 }
 
 .pbg-details {
@@ -2330,7 +2366,7 @@ input {
   grid-auto-columns: minmax(1.6em auto);
   grid-template-areas:
     "compress-btn pbg-showcase close-btn"
-    "compress-btn pbg-showcase close-btn";
+    "bigPrev pbg-showcase bigNext";
   z-index: 100;
   animation: lightbImage 0.5s ease;
 }
