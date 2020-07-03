@@ -42,16 +42,16 @@ body {
   margin: 0 auto;
   position: relative;
   z-index: 2; /*was not here*/
-  /* animation-duration: 2s;
-  animation-iteration-count: infinite;
-  transform-origin: bottom; */
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  transform-origin: bottom;
 }
 
-/* .bounce-site {
+.bounce-site {
   animation-name: bounce-site;
   animation-timing-function: ease;
 }
-@keyframes bounce-5 {
+@keyframes bounce-site {
   0% {
     transform: scale(1, 1) translateY(0);
   }
@@ -73,7 +73,7 @@ body {
   100% {
     transform: scale(1, 1) translateY(0);
   }
-} */
+}
 
 .header-container h1,
 .header-container a {
@@ -2067,6 +2067,15 @@ input {
   padding-top: 0.3em;
 }
 
+.pbg-blur-effect {
+  background-color: #bf9515;
+  border-radius: 5px;
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  background: inherit;
+  background-attachment: fixed;
+}
+
 /* fix the lightbox if Screen size is off */
 .imgAdjustment {
   flex-direction: column;
@@ -2369,6 +2378,9 @@ input {
     "bigPrev pbg-showcase bigNext";
   z-index: 100;
   animation: lightbImage 0.5s ease;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  /* transform-origin: bottom; */
 }
 
 /* Use this adjustment for Fullscreen Lightbox showcase remove maxShowcase and openLightbox class only */
