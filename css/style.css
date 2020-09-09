@@ -2087,6 +2087,20 @@ input {
   text-align: center;
 }
 
+/* this adds the dark background to the text (.light-headTxt and .light-PTxt) in the lightbox so that it can be read if the text ends up over the image [See changeImage()function in main.js] */
+.lightbox_overlay {
+  /* letter-spacing: -1px; */
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.75);
+  padding: 0px 7px 0px 5px;
+  border-radius: 3px;
+  /* padding: 10px; */
+}
+
+.spacer {
+  padding: 0 5px;
+}
+
 /* end lightbox fix */
 
 /* lightbox end */

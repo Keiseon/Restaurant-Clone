@@ -524,17 +524,40 @@ const lightboxCtrl = () => {
       returnMainMenu();
     }
   }
-  // Get img from gallery and populate the lightbox with it
+  // Get img and details from gallery and populate the lightbox with it
   function changeImage() {
     imgSrc = portfolioItems[index].querySelector("img").getAttribute("src");
     imgAlt = portfolioItems[index].querySelector("img").getAttribute("alt");
-    imgP = portfolioItems[index].querySelector("p").textContent.trim();
-    img_h1 = portfolioItems[index].querySelector("h1").textContent.trim();
+
+    // To counter-shade the text on the image place the text in a span tag then style the span tag {text block over image} then put it in the lightbox
+    const h1Span = document.createElement("span");
+    const pSpan = document.createElement("span");
+
+    h1Span.textContent = portfolioItems[index]
+      .querySelector("h1")
+      .textContent.trim();
+    h1Span.classList.add("lightbox_overlay");
+    img_h1 = h1Span;
+
+    pSpan.textContent = portfolioItems[index]
+      .querySelector("p")
+      .textContent.trim();
+    pSpan.classList.add("lightbox_overlay");
+    imgP = pSpan;
+
+    // imgP = portfolioItems[index].querySelector("p").textContent.trim();
+    // img_h1 = portfolioItems[index].querySelector("h1").textContent.trim();
     img_likeBtn = portfolioItems[index]
       .querySelector("#heart-icon")
       .getAttribute("class"); // get class attributes
+    //
+    // Grab head and paragraph elements from the lightbox
     let lightHead = document.querySelector(".light-headTxt");
     let lightPtxt = document.querySelector(".light-PTxt");
+
+    // clear content from the elements
+    lightHead.innerHTML = "";
+    lightPtxt.innerHTML = "";
 
     // change image sizes based on screen orientation
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -581,8 +604,10 @@ const lightboxCtrl = () => {
     // take content from the gallery and add it to the lightbox elements
     lightboxImage.src = new_imgSrc;
     lightboxImage.alt = imgAlt;
-    lightHead.innerHTML = img_h1;
-    lightPtxt.innerHTML = imgP;
+    // lightHead.innerHTML = img_h1;
+    // lightPtxt.innerHTML = imgP;
+    lightHead.appendChild(img_h1);
+    lightPtxt.appendChild(imgP);
 
     // check storage and set the likebtn to like or disliked state
     like_Unlike_Flag();
