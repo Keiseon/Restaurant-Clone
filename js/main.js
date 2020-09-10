@@ -562,9 +562,17 @@ const lightboxCtrl = () => {
     // change image sizes based on screen orientation
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
+      // If this runs on a mobile device then remove the expand btn
+      // else show the expand btn
+      if (!expandBtn.classList.contains("invisible")) {
+        expandBtn.classList.add("invisible");
+      }
       console.log("This is a Mobile Device");
       console.log(isMobile);
     } else {
+      if (expandBtn.classList.contains("invisible")) {
+        expandBtn.classList.remove("invisible");
+      }
       console.log("This is a Desktop");
       console.log(isMobile);
     }
