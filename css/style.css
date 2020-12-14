@@ -1136,7 +1136,7 @@ section .caption a:hover {
 /******************* Order page Start...**************** */
 
 .order-container {
-  background: #000;
+  /* background: #000; */
   color: #fff;
   font-family: "Forum", cursive;
   line-height: 1.6;
@@ -1144,156 +1144,58 @@ section .caption a:hover {
   margin-left: auto;
   margin-right: auto;
   padding: 1em;
-}
 
-ul {
-  list-style: none;
-  padding: 0%;
-}
-
-.brand {
-  text-align: right;
-}
-
-.brand span {
-  color: #bf9515;
-}
-
-/* This puts the shadow around the box itself*/
-.order-wrapper {
-  box-shadow: 0 0 20px 0 #bf9515;
-}
-
-/* For everything inside the wrapper we can give them a padding like this*/
-.order-wrapper > * {
-  padding: 1em;
-}
-
-.company-info {
-  background: #000;
-}
-
-.company-info h3,
-.company-info ul {
-  text-align: center;
-  margin: 0 0 1rem 0;
-}
-
-.contact {
-  background: #000;
-}
-
-/* Form Styles */
-.contact form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1.25em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 15px;
+  column-gap: 15px;
+
+  grid-template-areas: "guestOptions menuPreview orderCheckout";
 }
 
-.contact form label {
-  display: block;
+.order_head {
+  font-size: 1.8em;
+  font-weight: 300;
 }
 
-.contact form p {
-  margin: 0%;
+.guestOptions {
+  grid-area: guestOptions;
+}
+.menuPreview {
+  grid-area: menuPreview;
+}
+.orderCheckout {
+  grid-area: orderCheckout;
 }
 
-.contact form .full {
-  grid-column: 1/3;
+/* Page Layout  */
+.v-bar {
+  border-left: 1px solid #555;
+  height: 360px;
+  /* overflow: visible;
+  text-align: center; */
+  position: absolute;
+  left: 15%;
+  margin-left: -3px;
+  top: 46%;
 }
 
-.contact form button,
-.contact form input,
-.contact form textarea {
-  width: 100%;
-  padding: 1em;
-  border: 1px solid #fff;
+.guestOptions .h-bar {
+  margin-top: 0.5em;
+  width: 127px;
 }
-.labelText {
-  color: #cfa125;
-  font-size: 1.5rem;
+.orderCheckout .v-bar {
+  left: 65%;
 }
-
-.contact form button {
-  background: #bf9515;
-  color: #fff;
-  border-radius: 3px;
-  border: 0;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.3rem;
+.orderCheckout .h-bar {
+  margin-top: 0.5em;
+  width: 170px;
 }
-
-.contact form button:hover,
-.contact form button:focus {
-  background: #bf9515;
-  color: #111;
-  border: 1px solid #fff;
-  outline: 0;
-  transition: background-color 2s ease-out; /*This gives the fade in and out on the button*/
+.order_items {
+  padding-left: 30px;
+  font-size: 0.8em;
+  font-weight: 100;
 }
-
-/* ====================
-    700 pixel fix 
-   ==================== */
-
-/* For Large Screens */
-
-@media (min-width: 832px) {
-  .order-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
-  .order-wrapper img {
-    width: 100%;
-  }
-
-  .order-wrapper > * {
-    /*This > * means all elements within*/
-    padding: 2em;
-  }
-
-  .company-info h3,
-  .company-info ul,
-  .brand {
-    text-align: left;
-  }
-}
-
-/* ====================
-    685 pixel fix 
-   ==================== */
-
-/* For Small Screens */
-
-@media (max-width: 830px) {
-  .company-info {
-    display: none;
-  }
-  .brand {
-    text-align: center;
-  }
-  .contact form {
-    grid-template-columns: 1fr;
-  }
-
-  .contact form .full {
-    grid-column: 1/2;
-  }
-}
-
-/* ====================
-    610 pixel fix 
-   ==================== */
-
-/* For Small Screens */
-
-@media (max-width: 610px) {
-  /* .order-wrapper {
-    grid-template-columns: 1fr;
-  } */
-}
-
 /******************* Order page End...**************** */
 
 /******************* EVENTS page stuff lol...**************** */

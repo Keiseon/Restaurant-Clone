@@ -230,7 +230,27 @@
             />
           </div>
 
-          <div id="time">
+          <div id="time"> 
+            <!--
+              fix for the long list display
+               <select id="reserved-time" size="5" >
+                 Remove:  <option value="">Time</option>
+                 Use a custom lable for the select instead
+
+                 <label id='choose' for='options'>Time</label>
+                  <br clear='all' />
+                  <select id='reserved-time' size="10" style='display:none;'>
+                      // all the options
+                  </select>
+
+                  Original Code:
+                  <select id="reserved-time">
+              <option value="">Time</option>
+              <option value="12:00 AM">12:00 AM</option>
+              <option value="12:15 AM">12:15 AM</option>
+              <option value="12:30 AM">12:30 AM</option> etc lol
+
+                 -->
             <select id="reserved-time">
               <option value="">Time</option>
               <option value="12:00 AM">12:00 AM</option>
